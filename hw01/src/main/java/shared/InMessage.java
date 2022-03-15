@@ -18,7 +18,7 @@ public class InMessage extends Message {
 
     @Override
     public byte getType() {
-        return 5;
+        return Message.IN_MESSAGE;
     }
 
     @Override

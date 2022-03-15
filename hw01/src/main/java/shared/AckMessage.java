@@ -17,7 +17,7 @@ public class AckMessage extends Message {
 
     @Override
     public byte getType() {
-        return 2;
+        return Message.ACK_MESSAGE;
     }
 
     @Override

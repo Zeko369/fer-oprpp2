@@ -18,7 +18,7 @@ public class OutMessage extends Message {
 
     @Override
     public byte getType() {
-        return 4;
+        return Message.OUT_MESSAGE;
     }
 
     @Override

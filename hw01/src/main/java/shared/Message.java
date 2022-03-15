@@ -3,7 +3,13 @@ package shared;
 public abstract class Message {
     private final long index;
 
-    public Message(long index) {
+    public static final byte HELLO_MESSAGE = 1;
+    public static final byte ACK_MESSAGE = 2;
+    public static final byte BYE_MESSAGE = 3;
+    public static final byte OUT_MESSAGE = 4;
+    public static final byte IN_MESSAGE = 5;
+
+    protected Message(long index) {
         this.index = index;
     }
 
@@ -27,11 +33,11 @@ public abstract class Message {
         }
 
         return switch (bytes[0]) {
-            case 1 -> HelloMessage.deserialize(bytes);
-            case 2 -> AckMessage.deserialize(bytes);
-            case 3 -> ByeMessage.deserialize(bytes);
-            case 4 -> OutMessage.deserialize(bytes);
-            case 5 -> InMessage.deserialize(bytes);
+            case HELLO_MESSAGE -> HelloMessage.deserialize(bytes);
+            case ACK_MESSAGE -> AckMessage.deserialize(bytes);
+            case BYE_MESSAGE -> ByeMessage.deserialize(bytes);
+            case OUT_MESSAGE -> OutMessage.deserialize(bytes);
+            case IN_MESSAGE -> InMessage.deserialize(bytes);
             default -> throw new IllegalArgumentException("Invalid message");
         };
     }

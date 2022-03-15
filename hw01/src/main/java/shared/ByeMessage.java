@@ -16,7 +16,7 @@ public class ByeMessage extends Message {
 
     @Override
     public byte getType() {
-        return 3;
+        return Message.BYE_MESSAGE;
     }
 
     @Override

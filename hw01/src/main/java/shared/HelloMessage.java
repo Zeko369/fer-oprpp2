@@ -16,9 +16,13 @@ public class HelloMessage extends Message {
         this.randomKey = randomKey;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public byte getType() {
-        return 1;
+        return Message.HELLO_MESSAGE;
     }
 
     @Override
