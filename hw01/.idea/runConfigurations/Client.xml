@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Client" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="client.Example" />
+    <module name="hw01" />
+    <option name="PROGRAM_PARAMETERS" value="127.0.0.1 6000 1 2" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="client.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
