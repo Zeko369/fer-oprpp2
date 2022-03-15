@@ -1,5 +1,6 @@
 package shared;
 
+import shared.util.Deserializer;
 import shared.util.Serializer;
 
 import java.io.IOException;
@@ -24,14 +25,26 @@ public class ByeMessage extends Message {
             Serializer s = new Serializer(this);
             s.dos.writeLong(UID);
 
-            return s.toBytes();
+            return s.close();
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public static ByeMessage deserialize(byte[] data) {
+        try {
+            Deserializer d = new Deserializer(data);
+            long index = d.dis.readLong();
+            long UID = d.dis.readLong();
+
+            return new ByeMessage(index, UID);
         } catch (IOException e) {
             return null;
         }
     }
 
     @Override
-    public ByeMessage deserialize(byte[] data) {
-        return null;
+    public String toString() {
+        return String.format("%s: %d", super.toString(), this.UID);
     }
 }

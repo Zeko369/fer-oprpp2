@@ -18,8 +18,11 @@ public class Serializer {
         dos.writeLong(m.getIndex());
     }
 
-    public byte[] toBytes() throws IOException {
+    public byte[] close() throws IOException {
         this.dos.close();
-        return this.baos.toByteArray();
+        byte[] out = this.baos.toByteArray();
+        this.baos.close();
+
+        return out;
     }
 }

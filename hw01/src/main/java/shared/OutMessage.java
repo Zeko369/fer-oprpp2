@@ -1,5 +1,6 @@
 package shared;
 
+import shared.util.Deserializer;
 import shared.util.Serializer;
 
 import java.io.IOException;
@@ -27,14 +28,27 @@ public class OutMessage extends Message {
             s.dos.writeLong(this.UID);
             s.dos.writeUTF(this.text);
 
-            return s.toBytes();
+            return s.close();
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public static OutMessage deserialize(byte[] data) {
+        try {
+            Deserializer d = new Deserializer(data);
+            long index = d.dis.readLong();
+            long uid = d.dis.readLong();
+            String text = d.dis.readUTF();
+
+            return new OutMessage(index, uid, text);
         } catch (IOException e) {
             return null;
         }
     }
 
     @Override
-    public OutMessage deserialize(byte[] bytes) {
-        return null;
+    public String toString() {
+        return String.format("%s: %d, %s", super.toString(), this.UID, this.text);
     }
 }
