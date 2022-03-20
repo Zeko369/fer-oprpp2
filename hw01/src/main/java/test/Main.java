@@ -1,6 +1,6 @@
 package test;
 
-import shared.*;
+import hr.fer.oprpp2.shared.*;
 
 public class Main {
     public static void main(String[] args) {

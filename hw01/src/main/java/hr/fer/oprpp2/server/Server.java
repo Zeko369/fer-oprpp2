@@ -1,6 +1,6 @@
-package server;
+package hr.fer.oprpp2.server;
 
-import shared.*;
+import hr.fer.oprpp2.shared.*;
 
 import java.io.IOException;
 import java.net.*;

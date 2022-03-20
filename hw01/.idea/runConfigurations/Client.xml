@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Client" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="client.Example" />
+    <option name="MAIN_CLASS_NAME" value="hr.fer.oprpp2.client.Example" />
     <module name="hw01" />
     <option name="PROGRAM_PARAMETERS" value="127.0.0.1 6000 1 2" />
     <extension name="coverage">

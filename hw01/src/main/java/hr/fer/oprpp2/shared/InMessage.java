@@ -1,31 +1,31 @@
-package shared;
+package hr.fer.oprpp2.shared;
 
-import shared.util.Deserializer;
-import shared.util.Serializer;
+import hr.fer.oprpp2.shared.util.Serializer;
+import hr.fer.oprpp2.shared.util.Deserializer;
 
 import java.io.IOException;
 
-public class OutMessage extends Message {
-    private final long UID;
+public class InMessage extends Message {
     private final String text;
+    private final String author;
 
-    public OutMessage(long index, long UID, String text) {
+    public InMessage(long index, String author, String text) {
         super(index);
 
-        this.UID = UID;
+        this.author = author;
         this.text = text;
     }
 
     @Override
     public byte getType() {
-        return Message.OUT_MESSAGE;
+        return IN_MESSAGE;
     }
 
     @Override
     public byte[] serialize() {
         try {
             Serializer s = new Serializer(this);
-            s.dos.writeLong(this.UID);
+            s.dos.writeUTF(this.author);
             s.dos.writeUTF(this.text);
 
             return s.close();
@@ -34,14 +34,14 @@ public class OutMessage extends Message {
         }
     }
 
-    public static OutMessage deserialize(byte[] data) {
+    public static InMessage deserialize(byte[] data) {
         try {
             Deserializer d = new Deserializer(data);
             long index = d.dis.readLong();
-            long uid = d.dis.readLong();
+            String author = d.dis.readUTF();
             String text = d.dis.readUTF();
 
-            return new OutMessage(index, uid, text);
+            return new InMessage(index, author, text);
         } catch (IOException e) {
             return null;
         }
@@ -49,6 +49,6 @@ public class OutMessage extends Message {
 
     @Override
     public String toString() {
-        return String.format("%s: %d, %s", super.toString(), this.UID, this.text);
+        return String.format("%s: (%s), %s", super.toString(), this.author, this.text);
     }
 }

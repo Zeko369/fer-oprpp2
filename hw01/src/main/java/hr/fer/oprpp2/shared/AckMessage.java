@@ -1,7 +1,7 @@
-package shared;
+package hr.fer.oprpp2.shared;
 
-import shared.util.Deserializer;
-import shared.util.Serializer;
+import hr.fer.oprpp2.shared.util.Serializer;
+import hr.fer.oprpp2.shared.util.Deserializer;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class AckMessage extends Message {
 
     @Override
     public byte getType() {
-        return Message.ACK_MESSAGE;
+        return ACK_MESSAGE;
     }
 
     @Override

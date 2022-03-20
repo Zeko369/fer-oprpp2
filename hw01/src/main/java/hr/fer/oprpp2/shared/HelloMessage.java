@@ -1,7 +1,7 @@
-package shared;
+package hr.fer.oprpp2.shared;
 
-import shared.util.Deserializer;
-import shared.util.Serializer;
+import hr.fer.oprpp2.shared.util.Serializer;
+import hr.fer.oprpp2.shared.util.Deserializer;
 
 import java.io.IOException;
 
@@ -17,12 +17,16 @@ public class HelloMessage extends Message {
     }
 
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public long getRandomKey() {
+        return this.randomKey;
     }
 
     @Override
     public byte getType() {
-        return Message.HELLO_MESSAGE;
+        return HELLO_MESSAGE;
     }
 
     @Override

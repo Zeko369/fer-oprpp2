@@ -1,6 +1,6 @@
-package shared.util;
+package hr.fer.oprpp2.shared.util;
 
-import shared.Message;
+import hr.fer.oprpp2.shared.Message;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

@@ -1,4 +1,4 @@
-package client;
+package hr.fer.oprpp2.client;
 
 public record MessageRow(long index, String author, String text) {
     public String toString(String servername) {

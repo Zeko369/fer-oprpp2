@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Server" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="server.Main" />
+    <option name="MAIN_CLASS_NAME" value="hr.fer.oprpp2.server.Main" />
     <module name="hw01" />
     <option name="PROGRAM_PARAMETERS" value="6000" />
     <extension name="coverage">

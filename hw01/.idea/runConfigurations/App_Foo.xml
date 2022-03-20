@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="App-Foo" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="client.App" />
+    <option name="MAIN_CLASS_NAME" value="hr.fer.oprpp2.client.App" />
     <module name="hw01" />
     <option name="PROGRAM_PARAMETERS" value="&quot;127.0.0.1:6000&quot; &quot;Foo&quot;" />
     <extension name="coverage">

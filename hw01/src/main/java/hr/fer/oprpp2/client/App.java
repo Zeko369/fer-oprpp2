@@ -1,4 +1,4 @@
-package client;
+package hr.fer.oprpp2.client;
 
 import com.formdev.flatlaf.FlatLightLaf;
 
@@ -11,48 +11,50 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class App extends JFrame {
-    private final String servername;
+    private final String host;
+    private final int port;
+
     private final String username;
 
+    private final SocketClient socket;
     private final List<MessageRow> messages = new ArrayList<>();
     private final JTextArea content;
 
     public static void main(String[] args) {
-        if (args.length < 2) {
-            System.err.println("Usage: java -jar chat-client.jar <servername> <username>");
+        if (args.length < 3) {
+            System.err.println("Usage: java -jar chat-client.jar <host> <port> <username>");
             System.exit(1);
         }
 
         String position = "0x0";
-        if (args.length == 3) {
-            if (args[2].matches("[0-9]*x[0-9]*")) {
-                position = args[2];
+        if (args.length == 4) {
+            if (args[3].matches("[0-9]*x[0-9]*")) {
+                position = args[3];
             } else {
                 System.err.println("Position should be in format <width>x<height>");
             }
         }
 
         String finalPosition = position;
-        SwingUtilities.invokeLater(() -> new App(args[0], args[1], finalPosition).setVisible(true));
+        SwingUtilities.invokeLater(() -> new App(args[0], args[1], Integer.parseInt(args[2]), finalPosition).setVisible(true));
     }
 
-    public App(String servername, String username) {
-        this(servername, username, "0x0");
-    }
-
-    public App(String servername, String username, String position) {
+    public App(String host, String username, int port, String position) {
         FlatLightLaf.setup();
 
-        this.servername = servername;
+        this.host = host;
+        this.port = port;
         this.username = username;
 
-        this.setTitle(String.format("Chat client: %s", this.username));
+        this.socket = new SocketClient(this.host, this.port);
+
         Integer[] pos = Arrays.stream(position.split("x")).map(Integer::parseInt).toArray(Integer[]::new);
         this.setLocation(pos[0], pos[1]);
 
         this.content = new JTextArea();
         this.content.setEditable(false);
 
+        this.setTitle(String.format("Chat client: %s", this.username));
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(500, 500));
         this.initUI();
@@ -61,7 +63,7 @@ public class App extends JFrame {
     }
 
     private void rerender() {
-        String newContent = this.messages.stream().map((m) -> m.toString(this.servername)).collect(Collectors.joining());
+        String newContent = this.messages.stream().map((m) -> m.toString(String.format("%s:%d", this.host, this.port))).collect(Collectors.joining());
         this.content.setText(newContent);
     }
 
@@ -80,7 +82,6 @@ public class App extends JFrame {
         String text = input.getText();
         input.setText("");
 
-        this.messages.add(new MessageRow(0, "FooBar", text));
-        this.rerender();
+//        this.socket.sendMessage(text);
     };
 }

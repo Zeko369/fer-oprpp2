@@ -1,4 +1,4 @@
-package shared.util;
+package hr.fer.oprpp2.shared.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;

@@ -1,4 +1,4 @@
-package shared;
+package hr.fer.oprpp2.shared;
 
 public abstract class Message {
     private final long index;
