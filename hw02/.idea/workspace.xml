@@ -5,33 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Add parser code from oprpp1">
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/primjer1.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/primjer2.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/primjer3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/Element.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/ElementConstantDouble.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/ElementConstantInteger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/ElementFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/ElementOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/ElementString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/ElementVariable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/lexer/Lexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/lexer/LexerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/lexer/LexerState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/lexer/LexerUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/lexer/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/lexer/TokenType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/DocumentNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/EchoNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/ForLoopNode.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/INodeVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/TextNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/parser/SmartScriptParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/parser/SmartScriptParserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/parser/commands/CommandParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/parser/commands/ForCommandParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/parser/utils/ElementsHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Bar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Bar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Foo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/App.java" afterDir="false" />
@@ -85,6 +63,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -120,7 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647889889301</updated>
       <workItem from="1647889891523" duration="2426000" />
-      <workItem from="1648053948083" duration="7481000" />
+      <workItem from="1648053948083" duration="7614000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -129,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648071023897</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[hw02] -&gt; Add parser code from oprpp1">
+      <created>1648072342526</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648072342526</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,5 +136,9 @@
     <MESSAGE value="[hw02] -&gt; Init repo + first task mostly done" />
     <MESSAGE value="[hw02] -&gt; Add parser code from oprpp1" />
     <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Add parser code from oprpp1" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
