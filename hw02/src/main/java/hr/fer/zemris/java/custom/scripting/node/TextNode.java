@@ -19,6 +19,11 @@ public class TextNode extends Node {
     }
 
     @Override
+    public void accept(INodeVisitor visitor) {
+        visitor.visitTextNode(this);
+    }
+
+    @Override
     public String toCode() {
         return this.text;
     }

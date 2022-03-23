@@ -50,6 +50,8 @@ public abstract class Node {
         return this.children.get(index);
     }
 
+    public abstract void accept(INodeVisitor visitor);
+
     /**
      * To code string.
      *

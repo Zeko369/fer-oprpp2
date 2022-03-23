@@ -41,6 +41,11 @@ public class EchoNode extends Node {
     }
 
     @Override
+    public void accept(INodeVisitor visitor) {
+        visitor.visitEchoNode(this);
+    }
+
+    @Override
     public String toCode() {
         return String.format("{$= %s $}", this.arguments());
     }

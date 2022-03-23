@@ -67,6 +67,11 @@ public class ForLoopNode extends Node {
     }
 
     @Override
+    public void accept(INodeVisitor visitor) {
+        visitor.visitForLoopNode(this);
+    }
+
+    @Override
     public String toCode() {
         StringBuilder sb = new StringBuilder();
         String step = this.stepExpression == null ? "" : this.stepExpression.asText();

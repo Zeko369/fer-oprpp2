@@ -4,18 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Add parser code from oprpp1">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Simple example of writerVisitor">
       <change afterPath="$PROJECT_DIR$/primjer1.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/primjer2.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/primjer3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/INodeVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Bar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Bar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Foo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/SocketClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/DocumentNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/DocumentNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/EchoNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/EchoNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/ForLoopNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/ForLoopNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/TextNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/TextNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +74,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="DemoRequestContext" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.webserver.DemoRequestContext" />
       <module name="hw02" />
@@ -84,8 +88,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.Main" />
+      <module name="hw02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.DemoRequestContext" />
       </list>
     </recent_temporary>
@@ -99,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647889889301</updated>
       <workItem from="1647889891523" duration="2426000" />
-      <workItem from="1648053948083" duration="7614000" />
+      <workItem from="1648053948083" duration="8628000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -115,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648072342526</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="[hw02] -&gt; Configure folding of stuff">
+      <created>1648072475242</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1648072475242</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[hw02] -&gt; WIP: Start INodeVisitor">
+      <created>1648072491525</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1648072491525</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,7 +167,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[hw02] -&gt; Init repo + first task mostly done" />
     <MESSAGE value="[hw02] -&gt; Add parser code from oprpp1" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Add parser code from oprpp1" />
+    <MESSAGE value="[hw02] -&gt; Configure folding of stuff" />
+    <MESSAGE value="[hw02] -&gt; WIP: Start INodeVisitor" />
+    <MESSAGE value="[hw02] -&gt; Simple example of writerVisitor" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Simple example of writerVisitor" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
