@@ -24,7 +24,7 @@ public class Main {
 
         @Override
         public void visitEchoNode(EchoNode node) {
-            // Kinda cheating here since this method is available in all nodes but easier
+            // Kinda cheating here since this method is available in all nodes and I should reimplement it here like in all nodes
             System.out.print(node.toCode());
         }
 
