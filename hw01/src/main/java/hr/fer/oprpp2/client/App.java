@@ -5,6 +5,8 @@ import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +18,7 @@ public class App extends JFrame {
 
     private final String username;
 
-    private final SocketClient socket;
+    private SocketClient socketClient = null;
     private final List<MessageRow> messages = new ArrayList<>();
     private final JTextArea content;
 
@@ -36,17 +38,25 @@ public class App extends JFrame {
         }
 
         String finalPosition = position;
-        SwingUtilities.invokeLater(() -> new App(args[0], args[1], Integer.parseInt(args[2]), finalPosition).setVisible(true));
+        SwingUtilities.invokeLater(() -> {
+            try {
+                new App(args[0], Integer.parseInt(args[1]), args[2], finalPosition).setVisible(true);
+            } catch (UnknownHostException | SocketException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
-    public App(String host, String username, int port, String position) {
+    public App(String host, int port, String username, String position) throws UnknownHostException, SocketException {
         FlatLightLaf.setup();
 
         this.host = host;
         this.port = port;
         this.username = username;
 
-        this.socket = new SocketClient(this.host, this.port);
+        this.socketClient = new SocketClient(this.host, this.port);
+        this.socketClient.init();
+        this.socketClient.join(this.username);
 
         Integer[] pos = Arrays.stream(position.split("x")).map(Integer::parseInt).toArray(Integer[]::new);
         this.setLocation(pos[0], pos[1]);
@@ -60,6 +70,8 @@ public class App extends JFrame {
         this.initUI();
 
         this.pack();
+
+        this.socketClient.listen();
     }
 
     private void rerender() {
@@ -82,6 +94,6 @@ public class App extends JFrame {
         String text = input.getText();
         input.setText("");
 
-//        this.socket.sendMessage(text);
+        this.socketClient.sendMessage(text);
     };
 }

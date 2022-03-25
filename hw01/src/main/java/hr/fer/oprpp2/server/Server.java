@@ -56,6 +56,7 @@ public class Server {
 
     private void handleHelloMessage(HelloMessage message, DatagramPacket packet) {
         Connection connection = new Connection(packet.getAddress(), packet.getPort(), message.getName(), this.uidSequence.incrementAndGet());
+        System.out.println("Here");
         this.connections.add(connection);
     }
 

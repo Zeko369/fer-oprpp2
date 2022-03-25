@@ -2,7 +2,7 @@
   <configuration default="false" name="App-Bar" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="hr.fer.oprpp2.client.App" />
     <module name="hw01" />
-    <option name="PROGRAM_PARAMETERS" value="&quot;127.0.0.1:6000&quot; &quot;Bar&quot; &quot;500x0&quot;" />
+    <option name="PROGRAM_PARAMETERS" value="&quot;127.0.0.1&quot; &quot;6000&quot; &quot;Bar&quot; &quot;500x0&quot;" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="client.*" />

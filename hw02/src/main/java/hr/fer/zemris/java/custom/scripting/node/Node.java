@@ -50,6 +50,7 @@ public abstract class Node {
         return this.children.get(index);
     }
 
+    // TODO: JavaDoc
     public abstract void accept(INodeVisitor visitor);
 
     /**
