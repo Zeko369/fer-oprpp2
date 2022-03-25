@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Fibonacci + fix for loop">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/demos/fibonaccih.smscr" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Scaffold SmartHttpServer">
+      <change afterPath="$PROJECT_DIR$/config/mime.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/server.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/workers.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/Util/LoadProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webroot/.gitkeep" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Kotlin Class" />
         <option value="Class" />
       </list>
     </option>
@@ -74,6 +81,9 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="hr.fer.zemris.java.custom.scripting.exec.Functions" />
@@ -197,7 +207,8 @@
       <updated>1647889889301</updated>
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
-      <workItem from="1648228409122" duration="13000000" />
+      <workItem from="1648228409122" duration="13174000" />
+      <workItem from="1648248057443" duration="1142000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -318,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648247645926</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="[hw02] -&gt; Fibonacci HTML example">
+      <created>1648247855858</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1648247855858</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +373,9 @@
     <MESSAGE value="[hw02] -&gt; Setup zbrajanje + cleanup" />
     <MESSAGE value="[hw02] -&gt; Test params + fix stupid typo copy" />
     <MESSAGE value="[hw02] -&gt; Fibonacci + fix for loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Fibonacci + fix for loop" />
+    <MESSAGE value="[hw02] -&gt; Fibonacci HTML example" />
+    <MESSAGE value="[hw02] -&gt; Scaffold SmartHttpServer" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Scaffold SmartHttpServer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
