@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Setup zbrajanje">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Util/TypeCast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/demos/zbrajanje.smscr" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Setup zbrajanje + cleanup">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/demos/brojPoziva.smscr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamGetFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/ParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/ParamGetFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamGetFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +81,7 @@
       <recent name="hr.fer.zemris.java.custom.scripting.exec.Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EngineDemo - zbrajanje">
+  <component name="RunManager" selected="Application.EngineDemo - brojPoziva">
     <configuration name="DemoRequestContext" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.webserver.DemoRequestContext" />
       <module name="hw02" />
@@ -103,6 +99,20 @@
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
       <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/basic.smscr&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EngineDemo - brojPoziva" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
+      <module name="hw02" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/brojPoziva.smscr&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
@@ -145,6 +155,7 @@
       <item itemvalue="Application.EngineDemo - basic" />
       <item itemvalue="Application.EngineDemo - osnovni" />
       <item itemvalue="Application.EngineDemo - zbrajanje" />
+      <item itemvalue="Application.EngineDemo - brojPoziva" />
       <item itemvalue="Application.DemoRequestContext" />
     </list>
   </component>
@@ -158,7 +169,7 @@
       <updated>1647889889301</updated>
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
-      <workItem from="1648228409122" duration="11989000" />
+      <workItem from="1648228409122" duration="12384000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -251,7 +262,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648246030697</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="[hw02] -&gt; Setup zbrajanje + cleanup">
+      <created>1648246844745</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1648246844745</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[hw02] -&gt; Setup zbrajanje + cleanup">
+      <created>1648247037204</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1648247037204</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +310,8 @@
     <MESSAGE value="[hw02] -&gt; Function stuff" />
     <MESSAGE value="[hw02] -&gt; Fix wrong context for function stuff" />
     <MESSAGE value="[hw02] -&gt; Setup zbrajanje" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Setup zbrajanje" />
+    <MESSAGE value="[hw02] -&gt; Setup zbrajanje + cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Setup zbrajanje + cleanup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

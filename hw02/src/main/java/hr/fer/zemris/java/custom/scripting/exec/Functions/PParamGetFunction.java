@@ -12,7 +12,7 @@ public class PParamGetFunction extends BaseFunction {
         this.checkArguments(arguments, String.class, Object.class);
 
         String name = (String) arguments[0];
-        Object value = functionContext.rc().getParameter(name);
+        Object value = functionContext.rc().getPersistentParameter(name);
         functionContext.stack().push(value == null ? arguments[1] : value);
     }
 }
