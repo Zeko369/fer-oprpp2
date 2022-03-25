@@ -4,20 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Fix comment">
-      <change afterPath="$PROJECT_DIR$/primjer1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/primjer2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/primjer3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/shared/FileLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Bar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Bar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Foo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/server/Server.java" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; wip SmartScript engine">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/BaseDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/BaseFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DecFMTFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DuplicateFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamDeleteFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamGetFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamSetFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/ParamGetFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SetMimeTypeFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SinFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SwapFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamDeleteFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamGetFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamSetFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ObjectMultistack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ValueWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/demos/basic.smscr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/TextNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/TextNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +55,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -54,6 +76,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -68,12 +91,18 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="hr.fer.zemris.java.custom.scripting.exec.Functions" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="hr.fer.zemris.java.custom.scripting.exec.Functions" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="DemoRequestContext" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.EngineDemo - basic">
+    <configuration name="DemoRequestContext" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.webserver.DemoRequestContext" />
       <module name="hw02" />
       <extension name="coverage">
@@ -86,12 +115,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.Main" />
+    <configuration name="EngineDemo - basic" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/basic.smscr&quot;" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.*" />
+          <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,12 +129,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.DemoRequestContext" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="Application.EngineDemo - basic" />
+      <item itemvalue="Application.DemoRequestContext" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -116,7 +144,7 @@
       <updated>1647889889301</updated>
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
-      <workItem from="1648228409122" duration="4865000" />
+      <workItem from="1648228409122" duration="10597000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -160,7 +188,28 @@
       <option name="project" value="LOCAL" />
       <updated>1648112391079</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[hw01] -&gt; Ignore for now">
+      <created>1648239729093</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1648239729093</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[hw01] -&gt; wip">
+      <created>1648239830784</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1648239830784</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[hw02] -&gt; refactor a bit of task 2">
+      <created>1648239855545</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1648239855545</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +227,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="[hw02] -&gt; Init repo + first task mostly done" />
     <MESSAGE value="[hw02] -&gt; Add parser code from oprpp1" />
     <MESSAGE value="[hw02] -&gt; Configure folding of stuff" />
@@ -185,7 +235,11 @@
     <MESSAGE value="[hw02] -&gt; Simple example of writerVisitor" />
     <MESSAGE value="[hw02] -&gt; Simple example of WriterVisitor" />
     <MESSAGE value="[hw02] -&gt; Fix comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Fix comment" />
+    <MESSAGE value="[hw01] -&gt; Ignore for now" />
+    <MESSAGE value="[hw01] -&gt; wip" />
+    <MESSAGE value="[hw02] -&gt; refactor a bit of task 2" />
+    <MESSAGE value="[hw02] -&gt; wip SmartScript engine" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; wip SmartScript engine" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

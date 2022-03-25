@@ -40,20 +40,9 @@ public class TreeWriter {
     }
 
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Usage: TreeWriter <file>");
-            System.exit(1);
-        }
-
-        String code = "";
-        try {
-            code = FileLoader.loadCode(args[0]);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found.");
-            System.exit(1);
-        }
-
+        String code = BaseDemo.getContent(args);
         SmartScriptParser p = new SmartScriptParser(code);
+
         WriterVisitor visitor = new WriterVisitor();
         p.getDocumentNode().accept(visitor);
     }
