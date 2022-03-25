@@ -4,22 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Simple example of writerVisitor">
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Fix comment">
       <change afterPath="$PROJECT_DIR$/primjer1.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/primjer2.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/primjer3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/shared/FileLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Bar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Bar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Foo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/runConfigurations/App_Foo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/client/SocketClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/src/main/java/hr/fer/oprpp2/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/DocumentNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/DocumentNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/EchoNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/EchoNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/ForLoopNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/ForLoopNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/TextNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/TextNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,8 @@
       <option name="presentableId" value="Default" />
       <updated>1647889889301</updated>
       <workItem from="1647889891523" duration="2426000" />
-      <workItem from="1648053948083" duration="8628000" />
+      <workItem from="1648053948083" duration="10555000" />
+      <workItem from="1648228409122" duration="4865000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -147,7 +146,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648072491525</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[hw02] -&gt; Simple example of WriterVisitor">
+      <created>1648073481175</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1648073481175</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[hw02] -&gt; Fix comment">
+      <created>1648112391079</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1648112391079</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +183,9 @@
     <MESSAGE value="[hw02] -&gt; Configure folding of stuff" />
     <MESSAGE value="[hw02] -&gt; WIP: Start INodeVisitor" />
     <MESSAGE value="[hw02] -&gt; Simple example of writerVisitor" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Simple example of writerVisitor" />
+    <MESSAGE value="[hw02] -&gt; Simple example of WriterVisitor" />
+    <MESSAGE value="[hw02] -&gt; Fix comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Fix comment" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

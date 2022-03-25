@@ -1,9 +1,12 @@
-package hr.fer.zemris.java.custom.scripting;
+package hr.fer.zemris.java.custom.scripting.demo;
 
 import hr.fer.zemris.java.custom.scripting.node.*;
 import hr.fer.zemris.java.custom.scripting.parser.SmartScriptParser;
+import hr.fer.zemris.java.custom.scripting.shared.FileLoader;
 
-public class Main {
+import java.io.FileNotFoundException;
+
+public class TreeWriter {
     private static class WriterVisitor implements INodeVisitor {
         @Override
         public void visitTextNode(TextNode node) {
@@ -37,15 +40,20 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String docBody = "Sample text\n" +
-                "{$ FOR i 1 10 1 $}\n" +
-                "  This is {$= i $}-th time this message is generated.\n" +
-                "{$   END $}\n" +
-                "{$FOR i 0 10 2 $}\n" +
-                "  sin({$=i$}^2) = {$= i i * @sin  \"0.000\" @decfmt $}\n" +
-                "{$END$}\n";
+        if (args.length == 0) {
+            System.out.println("Usage: TreeWriter <file>");
+            System.exit(1);
+        }
 
-        SmartScriptParser p = new SmartScriptParser(docBody);
+        String code = "";
+        try {
+            code = FileLoader.loadCode(args[0]);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+            System.exit(1);
+        }
+
+        SmartScriptParser p = new SmartScriptParser(code);
         WriterVisitor visitor = new WriterVisitor();
         p.getDocumentNode().accept(visitor);
     }
