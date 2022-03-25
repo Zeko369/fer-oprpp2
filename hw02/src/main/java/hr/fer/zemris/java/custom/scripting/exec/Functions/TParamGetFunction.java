@@ -12,9 +12,7 @@ public class TParamGetFunction extends BaseFunction {
         this.checkArguments(arguments, String.class, Object.class);
 
         String name = (String) arguments[0];
-        String defaultValue = (String) arguments[1];
-
-        String value = functionContext.rc().getTemporaryParameter(name);
-        functionContext.stack().push(value == null ? defaultValue : value);
+        Object value = functionContext.rc().getTemporaryParameter(name);
+        functionContext.stack().push(value == null ? arguments[1] : value);
     }
 }

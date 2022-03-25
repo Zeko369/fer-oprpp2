@@ -19,6 +19,9 @@ public class EngineDemo {
 
         parameters.put("broj", "4");
 
+        parameters.put("a", "4");
+        parameters.put("b", "2");
+
         new SmartScriptEngine(
                 new SmartScriptParser(code).getDocumentNode(),
                 new RequestContext(System.out, parameters, persistentParameters, cookies)

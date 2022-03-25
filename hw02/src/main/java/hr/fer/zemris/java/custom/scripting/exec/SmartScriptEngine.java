@@ -3,6 +3,7 @@ package hr.fer.zemris.java.custom.scripting.exec;
 import hr.fer.zemris.java.custom.scripting.elems.*;
 import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionContext;
 import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionRunner;
+import hr.fer.zemris.java.custom.scripting.exec.Util.TypeCast;
 import hr.fer.zemris.java.custom.scripting.node.*;
 import hr.fer.zemris.java.webserver.RequestContext;
 
@@ -40,14 +41,14 @@ public class SmartScriptEngine {
 
         @Override
         public void visitEchoNode(EchoNode node) {
-            Stack<Object> tmp = new Stack<>();
+            Stack<Object> tmpStack = new Stack<>();
 
             Element[] elements = node.getElements();
             for (Element element : elements) {
                 switch (element) {
-                    case ElementConstantInteger elem -> tmp.push(elem.getValue());
-                    case ElementConstantDouble elem -> tmp.push(elem.getValue());
-                    case ElementString elem -> tmp.push(elem.getValue());
+                    case ElementConstantInteger elem -> tmpStack.push(elem.getValue());
+                    case ElementConstantDouble elem -> tmpStack.push(elem.getValue());
+                    case ElementString elem -> tmpStack.push(elem.getValue());
                     case ElementVariable elem -> {
                         Optional<ValueWrapper> var = stack.stream()
                                 .filter(v -> v.name().equals(elem.getName()))
@@ -57,51 +58,35 @@ public class SmartScriptEngine {
                             throw new RuntimeException("Variable " + elem.getName() + " not defined.");
                         }
 
-                        tmp.push(var.get().value());
+                        tmpStack.push(var.get().value());
                     }
                     case ElementOperator elem -> {
-                        if (tmp.size() < 2) {
+                        if (tmpStack.size() < 2) {
                             throw new RuntimeException("Not enough arguments for operator " + elem.getSymbol());
                         }
 
-                        Object a = tmp.pop();
-                        Object b = tmp.pop();
-
-                        Double aDouble;
-                        Double bDouble;
-
-                        if (a instanceof Integer) {
-                            aDouble = (double) (Integer) a;
-                        } else if (a instanceof Double) {
-                            aDouble = (Double) a;
-                        } else {
-                            throw new RuntimeException("Invalid type of first argument for operator " + elem.getSymbol());
-                        }
-
-                        if (b instanceof Integer) {
-                            bDouble = (double) (Integer) b;
-                        } else if (b instanceof Double) {
-                            bDouble = (Double) b;
-                        } else {
-                            throw new RuntimeException("Invalid type of second argument for operator " + elem.getSymbol());
-                        }
+                        Double a = TypeCast.toDouble(tmpStack.pop(), "First argument isn't a number");
+                        Double b = TypeCast.toDouble(tmpStack.pop(), "Second argument isn't a number");
 
                         switch (elem.getSymbol()) {
-                            case "+" -> tmp.push(aDouble + bDouble);
-                            case "-" -> tmp.push(aDouble - bDouble);
-                            case "/" -> tmp.push(aDouble / bDouble);
-                            case "*" -> tmp.push(aDouble * bDouble);
+                            case "+" -> tmpStack.push(a + b);
+                            case "-" -> tmpStack.push(a - b);
+                            case "/" -> tmpStack.push(a / b);
+                            case "*" -> tmpStack.push(a * b);
                             default -> throw new RuntimeException("Invalid operator " + elem.getSymbol());
                         }
                     }
-                    case ElementFunction elem -> FunctionRunner.run(elem.getName(), new FunctionContext(tmp, requestContext));
+                    case ElementFunction elem -> FunctionRunner.run(elem.getName(), new FunctionContext(tmpStack, requestContext));
                     default -> throw new IllegalStateException("Unexpected value: " + element);
                 }
             }
 
-            while (!tmp.isEmpty()) {
+            for (Object item : tmpStack) {
                 try {
-                    requestContext.write(tmp.pop().toString());
+                    if (item instanceof Double) {
+                        item = ((Double) item).intValue();
+                    }
+                    requestContext.write(item.toString());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
