@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Test params + fix stupid typo copy">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/demos/fibonacci.smscr" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Fibonacci + fix for loop">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/demos/fibonaccih.smscr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +79,7 @@
       <recent name="hr.fer.zemris.java.custom.scripting.exec.Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EngineDemo - fibonacci">
+  <component name="RunManager" selected="Application.EngineDemo - fibonacci HTML">
     <configuration name="DemoRequestContext" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.webserver.DemoRequestContext" />
       <module name="hw02" />
@@ -113,6 +111,20 @@
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
       <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/brojPoziva.smscr&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EngineDemo - fibonacci HTML" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
+      <module name="hw02" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/fibonaccih.smscr&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
@@ -171,6 +183,7 @@
       <item itemvalue="Application.EngineDemo - zbrajanje" />
       <item itemvalue="Application.EngineDemo - brojPoziva" />
       <item itemvalue="Application.EngineDemo - fibonacci" />
+      <item itemvalue="Application.EngineDemo - fibonacci HTML" />
       <item itemvalue="Application.DemoRequestContext" />
     </list>
   </component>
@@ -184,7 +197,7 @@
       <updated>1647889889301</updated>
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
-      <workItem from="1648228409122" duration="12764000" />
+      <workItem from="1648228409122" duration="13000000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -298,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648247252970</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="[hw02] -&gt; Fibonacci + fix for loop">
+      <created>1648247645926</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1648247645926</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +354,8 @@
     <MESSAGE value="[hw02] -&gt; Setup zbrajanje" />
     <MESSAGE value="[hw02] -&gt; Setup zbrajanje + cleanup" />
     <MESSAGE value="[hw02] -&gt; Test params + fix stupid typo copy" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Test params + fix stupid typo copy" />
+    <MESSAGE value="[hw02] -&gt; Fibonacci + fix for loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Fibonacci + fix for loop" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
