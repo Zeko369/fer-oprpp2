@@ -23,6 +23,10 @@ public class TextNode extends Node {
         visitor.visitTextNode(this);
     }
 
+    public String getText() {
+        return text;
+    }
+
     @Override
     public String toCode() {
         return this.text;
