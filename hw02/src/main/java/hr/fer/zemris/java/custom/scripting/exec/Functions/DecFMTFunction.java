@@ -1,7 +1,5 @@
 package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
-import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
-
 import java.text.DecimalFormat;
 
 /**
@@ -24,6 +22,6 @@ public class DecFMTFunction extends BaseFunction {
         };
 
         DecimalFormat df = new DecimalFormat(arguments[1].toString());
-        functionContext.stack().push(new ValueWrapper(df.format(tmp)));
+        functionContext.stack().push(df.format(tmp));
     }
 }

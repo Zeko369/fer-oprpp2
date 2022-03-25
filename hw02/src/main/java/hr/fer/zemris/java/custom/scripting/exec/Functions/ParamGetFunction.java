@@ -1,7 +1,5 @@
 package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
-import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
-
 public class ParamGetFunction extends BaseFunction {
     public ParamGetFunction() {
         super(2);
@@ -15,6 +13,6 @@ public class ParamGetFunction extends BaseFunction {
         String defaultValue = (String) arguments[1];
 
         String value = functionContext.rc().getParameter(name);
-        functionContext.stack().push(new ValueWrapper(value == null ? defaultValue : value));
+        functionContext.stack().push(value == null ? defaultValue : value);
     }
 }

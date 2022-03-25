@@ -1,5 +1,6 @@
 package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,14 +22,14 @@ public class FunctionRunner {
         functions.put("tparamDel", new TParamDeleteFunction());
     }
 
-    public void runFunction(String name, FunctionContext context) {
+    public static void run(String name, FunctionContext context) {
         BaseFunction function = functions.get(name);
         if (function == null) {
             throw new RuntimeException("Function " + name + " not found.");
         }
 
         int argsCount = function.getRequiredArguments();
-        if(context.stack().size() < argsCount) {
+        if (context.stack().size() < argsCount) {
             throw new RuntimeException("Function " + name + " expects " + argsCount + " arguments." + " Only " + context.stack().size() + " arguments provided.");
         }
 

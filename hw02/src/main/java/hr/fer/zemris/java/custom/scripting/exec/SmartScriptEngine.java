@@ -1,6 +1,8 @@
 package hr.fer.zemris.java.custom.scripting.exec;
 
 import hr.fer.zemris.java.custom.scripting.elems.*;
+import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionContext;
+import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionRunner;
 import hr.fer.zemris.java.custom.scripting.node.*;
 import hr.fer.zemris.java.webserver.RequestContext;
 
@@ -92,9 +94,7 @@ public class SmartScriptEngine {
                             default -> throw new RuntimeException("Invalid operator " + elem.getSymbol());
                         }
                     }
-                    case ElementFunction elem -> {
-
-                    }
+                    case ElementFunction elem -> FunctionRunner.run(elem.getName(), new FunctionContext(tmp, requestContext));
                     default -> throw new IllegalStateException("Unexpected value: " + element);
                 }
             }

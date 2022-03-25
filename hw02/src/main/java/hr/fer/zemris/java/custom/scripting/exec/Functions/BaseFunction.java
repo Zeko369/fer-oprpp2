@@ -26,7 +26,7 @@ public abstract class BaseFunction {
         }
 
         for (int i = 0; i < argumentBaseClasses.length; i++) {
-            if (!args[i].getClass().isInstance(argumentBaseClasses[i])) {
+            if (!argumentBaseClasses[i].isInstance(args[i])) {
                 throw new IllegalArgumentException(String.format("Invalid type of argument [%d] expected %s got %s", i, argumentBaseClasses[i], args[i].getClass()));
             }
         }

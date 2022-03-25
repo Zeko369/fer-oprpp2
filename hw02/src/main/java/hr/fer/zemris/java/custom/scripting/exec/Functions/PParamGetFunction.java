@@ -15,6 +15,6 @@ public class PParamGetFunction extends BaseFunction {
         String defaultValue = (String) arguments[1];
 
         String value = functionContext.rc().getParameter(name);
-        functionContext.stack().push(new ValueWrapper(value == null ? defaultValue : value));
+        functionContext.stack().push(value == null ? defaultValue : value);
     }
 }

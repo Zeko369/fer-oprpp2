@@ -15,6 +15,6 @@ public class TParamGetFunction extends BaseFunction {
         String defaultValue = (String) arguments[1];
 
         String value = functionContext.rc().getTemporaryParameter(name);
-        functionContext.stack().push(new ValueWrapper(value == null ? defaultValue : value ));
+        functionContext.stack().push(value == null ? defaultValue : value);
     }
 }
