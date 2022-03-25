@@ -53,7 +53,7 @@ public class RequestContext {
     private Long contentLength = null;
 
     private final Map<String, String> parameters;
-    private Map<String, String> temporaryParameters;
+    private final Map<String, String> temporaryParameters = new HashMap<>();
     private final Map<String, String> persistentParameters;
     private final List<RCCookie> outputCookies;
 

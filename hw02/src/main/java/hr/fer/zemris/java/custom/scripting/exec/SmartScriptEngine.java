@@ -28,7 +28,7 @@ public class SmartScriptEngine {
         @Override
         public void visitForLoopNode(ForLoopNode node) {
             stack.push(new ValueWrapper(node.getStartExpression().asInt(), node.getVariable().asText()));
-            while (stack.peek().asInt() < node.getEndExpression().asInt()) {
+            while (stack.peek().asInt() <= node.getEndExpression().asInt()) {
                 for (int i = 0; i < node.numberOfChildren(); i++) {
                     node.getChild(i).accept(this);
                 }
