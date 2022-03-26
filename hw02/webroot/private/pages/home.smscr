@@ -17,9 +17,9 @@
 
     <h2>Scripts</h2>
     <ul>
-        <li><a href="/scripts/osnovni.smscript">Osnovni</a></li>
-        <li><a href="/scripts/brojPoziva.smscript">BrojPoziva</a></li>
-        <li><a href="/scripts/fibonaccih.smscript">Fibonaccih</a></li>
+        <li><a href="/scripts/osnovni.smscr">Osnovni</a></li>
+        <li><a href="/scripts/brojPoziva.smscr">BrojPoziva</a></li>
+        <li><a href="/scripts/fibonaccih.smscr">Fibonaccih</a></li>
     </ul>
 
 
@@ -30,7 +30,7 @@
     </ul>
 
     <h2>Color</h2>
-    <form method="GET">
+    <form method="GET" action="/bgcolor">
         <select name="bgcolor" selected="{$= background $}">
             <option value="7F7F7F" {$= background "7F7F7F" "selected" @eq $}>Default</option>
             <option value="ADADAD" {$= background "ADADAD" "selected" @eq $}>Grayish</option>
