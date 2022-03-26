@@ -97,7 +97,7 @@ public class SmartHttpServer {
         }
     }
 
-    private class ClientWorker implements Runnable {
+    private class ClientWorker implements Runnable, IDispatcher {
         private final Socket csocket;
         private InputStream istream;
         private OutputStream ostream;
@@ -106,6 +106,7 @@ public class SmartHttpServer {
         private final Map<String, String> tempParams = new HashMap<>();
         private final Map<String, String> permPrams = new HashMap<>();
         private final List<RequestContext.RCCookie> outputCookies = new ArrayList<>();
+        private RequestContext rc = null;
         private String SID;
 
         public ClientWorker(Socket csocket) {
@@ -115,8 +116,6 @@ public class SmartHttpServer {
 
         @Override
         public void run() {
-            RequestContext rc = null;
-
             try {
                 this.istream = this.csocket.getInputStream();
                 this.ostream = new BufferedOutputStream(this.csocket.getOutputStream());
@@ -137,39 +136,8 @@ public class SmartHttpServer {
                     throw new HTTPError(new HTTPStatus(505, "HTTP Version not supported"));
                 }
 
-//                this.method = this.request.method();
-//                this.version = this.request.version();
-//                this.host = this.request.headers().getOrDefault("Host", SmartHttpServer.this.domainName);
-//                if (this.host.contains(":")) {
-//                    this.host = this.host.substring(0, this.host.indexOf(":"));
-//                }
-
                 this.params.putAll(this.request.getQuery());
-
-                Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), this.request.urlPath());
-                // if requestedPath is not below documentRoot, return response status 403 forbidden
-
-                File requestedFile = requestedPath.toFile();
-                if (!requestedFile.exists()) {
-                    throw new HTTPError(HTTPStatus.NOT_FOUND);
-                }
-                if (!requestedFile.isFile()) {
-                    throw new HTTPError(HTTPStatus.FORBIDDEN, "Directory listing not allowed");
-                }
-                if (!requestedFile.canRead()) {
-                    throw new HTTPError(HTTPStatus.FORBIDDEN, "File not readable");
-                }
-
-                String[] fileSplit = requestedFile.getName().split("\\.");
-                String fileExtension = fileSplit[fileSplit.length - 1];
-
-                rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
-                rc.setMimeType(SmartHttpServer.this.mimeTypes.getOrDefault(fileExtension, "application/octet-stream"));
-                rc.setStatus(HTTPStatus.OK);
-
-                try (FileInputStream fis = new FileInputStream(requestedFile)) {
-                    rc.write(fis.readAllBytes());
-                }
+                this.internalDispatchRequest(this.request.urlPath(), true);
             } catch (HTTPError e) {
                 System.out.println("error: " + e.getMessage());
                 if (rc != null) {
@@ -184,7 +152,7 @@ public class SmartHttpServer {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             } finally {
                 try {
@@ -193,6 +161,39 @@ public class SmartHttpServer {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+        }
+
+        @Override
+        public void dispatchRequest(String urlPath) throws Exception {
+            this.internalDispatchRequest(urlPath, false);
+        }
+
+        private void internalDispatchRequest(String urlPath, boolean directCall) throws Exception {
+            Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), this.request.urlPath());
+            // FIXME: This
+            // if requestedPath is not below documentRoot, return response status 403 forbidden
+
+            File requestedFile = requestedPath.toFile();
+            if (!requestedFile.exists()) {
+                throw new HTTPError(HTTPStatus.NOT_FOUND);
+            }
+            if (!requestedFile.isFile()) {
+                throw new HTTPError(HTTPStatus.FORBIDDEN, "Directory listing not allowed");
+            }
+            if (!requestedFile.canRead()) {
+                throw new HTTPError(HTTPStatus.FORBIDDEN, "File not readable");
+            }
+
+            String[] fileSplit = requestedFile.getName().split("\\.");
+            String fileExtension = fileSplit[fileSplit.length - 1];
+
+            this.rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
+            this.rc.setMimeType(SmartHttpServer.this.mimeTypes.getOrDefault(fileExtension, "application/octet-stream"));
+            this.rc.setStatus(HTTPStatus.OK);
+
+            try (FileInputStream fis = new FileInputStream(requestedFile)) {
+                this.rc.write(fis.readAllBytes());
             }
         }
     }
