@@ -9,6 +9,7 @@ public class FunctionRunner {
 
     static {
         functions.put("sin", new SinFunction());
+        functions.put("eq", new EqFunction());
         functions.put("decfmt", new DecFMTFunction());
         functions.put("dup", new DuplicateFunction());
         functions.put("swap", new SwapFunction());
