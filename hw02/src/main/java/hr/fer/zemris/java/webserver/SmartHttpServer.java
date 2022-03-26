@@ -201,6 +201,10 @@ public class SmartHttpServer {
                 return;
             }
 
+            if ((urlPath.equals("/private") || urlPath.startsWith("/private/")) && directCall) {
+                throw new HTTPError(HTTPStatus.FORBIDDEN);
+            }
+
             // FIXME: This
             // if requestedPath is not below documentRoot, return response status 403 forbidden
 
