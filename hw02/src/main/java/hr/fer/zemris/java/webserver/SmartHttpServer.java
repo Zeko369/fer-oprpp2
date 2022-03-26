@@ -25,10 +25,12 @@ public class SmartHttpServer {
     private final int port;
     private final int workerThreads;
     private final int sessionTimeout;
-    private final Map<String, String> mimeTypes;
     private final ServerThread serverThread;
     private ExecutorService threadPool;
     private final Path documentRoot;
+
+    private final Map<String, String> mimeTypes = new HashMap<>();
+    private final Map<String, IWebWorker> workersMap = new HashMap<>();
 
     public static void main(String[] args) {
         if (args.length < 1) {
@@ -64,8 +66,22 @@ public class SmartHttpServer {
         this.serverThread = new ServerThread();
 
         Properties mimeProperties = LoadProperties.load(properties.getProperty("server.mimeConfig"));
-        this.mimeTypes = new HashMap<>();
         mimeProperties.keySet().forEach(key -> this.mimeTypes.put((String) key, mimeProperties.getProperty((String) key)));
+
+        Properties workersProperties = LoadProperties.load(properties.getProperty("server.workers"));
+        workersProperties.keySet().forEach(key -> {
+            String className = workersProperties.getProperty((String) key);
+
+            try {
+                Class<?> referenceToClass = this.getClass().getClassLoader().loadClass(className);
+                Object newObject = referenceToClass.newInstance();
+                IWebWorker iww = (IWebWorker) newObject;
+
+                this.workersMap.put((String) key, iww);
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     protected synchronized void start() {
@@ -174,7 +190,15 @@ public class SmartHttpServer {
         }
 
         private void internalDispatchRequest(String urlPath, boolean directCall) throws Exception {
-            Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), this.request.urlPath());
+            Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), urlPath);
+            this.rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
+
+            IWebWorker worker = SmartHttpServer.this.workersMap.get(urlPath);
+            if (worker != null) {
+                worker.processRequest(rc);
+                return;
+            }
+
             // FIXME: This
             // if requestedPath is not below documentRoot, return response status 403 forbidden
 
@@ -210,7 +234,6 @@ public class SmartHttpServer {
                 return;
             }
 
-            this.rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
             this.rc.setMimeType(SmartHttpServer.this.mimeTypes.getOrDefault(fileExtension, "application/octet-stream"));
             this.rc.setStatus(HTTPStatus.OK);
 

@@ -55,7 +55,7 @@ public record HTTPRequest(String version, String urlPath, String queryString, St
         String method = firstLine[0].toUpperCase();
         String url = firstLine[1];
         String urlPath = url.split("\\?")[0];
-        String queryString = url.contains("?") ? url.substring(url.indexOf("\\?") + 1) : null;
+        String queryString = url.contains("?") ? url.substring(url.indexOf("?") + 1) : null;
         String version = firstLine[2];
 
         Map<String, String> headersMap = new HashMap<>();
