@@ -1,5 +1,9 @@
 package hr.fer.zemris.java.webserver;
 
+import hr.fer.zemris.java.custom.scripting.exec.SmartScriptEngine;
+import hr.fer.zemris.java.custom.scripting.node.DocumentNode;
+import hr.fer.zemris.java.custom.scripting.parser.SmartScriptParser;
+import hr.fer.zemris.java.custom.scripting.shared.FileLoader;
 import hr.fer.zemris.java.webserver.HTTP.*;
 import hr.fer.zemris.java.webserver.Util.LoadProperties;
 
@@ -187,6 +191,24 @@ public class SmartHttpServer {
 
             String[] fileSplit = requestedFile.getName().split("\\.");
             String fileExtension = fileSplit[fileSplit.length - 1];
+
+            if (fileExtension.equals("smscr")) {
+                String code = FileLoader.loadCode(requestedFile);
+                Map<String, String> tmpParams = new HashMap<>();
+
+                this.rc = new RequestContext(
+                        this.ostream,
+                        this.params,
+                        this.permPrams,
+                        this.outputCookies,
+                        tmpParams,
+                        this
+                );
+
+                DocumentNode root = new SmartScriptParser(code).getDocumentNode();
+                new SmartScriptEngine(root, rc).execute();
+                return;
+            }
 
             this.rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
             this.rc.setMimeType(SmartHttpServer.this.mimeTypes.getOrDefault(fileExtension, "application/octet-stream"));

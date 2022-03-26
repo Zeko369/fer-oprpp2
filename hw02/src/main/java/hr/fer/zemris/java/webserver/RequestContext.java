@@ -57,7 +57,7 @@ public class RequestContext {
     private Long contentLength = null;
 
     private final Map<String, String> parameters;
-    private final Map<String, String> temporaryParameters = new HashMap<>();
+    private final Map<String, String> temporaryParameters;
     private final Map<String, String> persistentParameters;
     private final List<RCCookie> outputCookies;
 
@@ -66,12 +66,20 @@ public class RequestContext {
 
     private boolean headerGenerated = false;
 
-    public RequestContext(OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies) {
+    private final IDispatcher dispatcher;
+
+    public RequestContext(OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies, Map<String, String> temporaryParameters, IDispatcher dispatcher) {
         this.outputStream = Objects.requireNonNull(outputStream);
         this.parameters = parameters == null ? new HashMap<>() : parameters;
         this.persistentParameters = persistentParameters == null ? new HashMap<>() : persistentParameters;
         this.outputCookies = outputCookies == null ? new ArrayList<>() : outputCookies;
         this.customHeaders = new HashMap<>();
+        this.temporaryParameters = temporaryParameters == null ? new HashMap<>() : temporaryParameters;
+        this.dispatcher = dispatcher;
+    }
+
+    public RequestContext(OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies) {
+        this(outputStream, parameters, persistentParameters, outputCookies, null, null);
     }
 
     private void canChangeHeaders() {

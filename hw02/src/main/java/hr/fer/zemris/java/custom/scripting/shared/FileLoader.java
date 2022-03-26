@@ -17,9 +17,13 @@ public class FileLoader {
      * @return the string
      */
     public static String loadCode(String filename) throws FileNotFoundException {
+        return FileLoader.loadCode(new File(filename));
+    }
+
+    public static String loadCode(File file) throws FileNotFoundException {
         StringBuilder sb = new StringBuilder();
 
-        try (Scanner scanner = new Scanner(new File(filename))) {
+        try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNext()) {
                 String tmp = scanner.nextLine();
                 if (tmp.startsWith("#")) {

@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Refactor">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/IDispatcher.java" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Refactor of how ClientWorker handles requests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/shared/FileLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/shared/FileLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/demos/basic.smscr" beforeDir="false" afterPath="$PROJECT_DIR$/webroot/scripts/basic.smscr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/demos/brojPoziva.smscr" beforeDir="false" afterPath="$PROJECT_DIR$/webroot/scripts/brojPoziva.smscr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/demos/fibonacci.smscr" beforeDir="false" afterPath="$PROJECT_DIR$/webroot/scripts/fibonacci.smscr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/demos/fibonaccih.smscr" beforeDir="false" afterPath="$PROJECT_DIR$/webroot/scripts/fibonaccih.smscr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/demos/osnovni.smscr" beforeDir="false" afterPath="$PROJECT_DIR$/webroot/scripts/osnovni.smscr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/demos/zbrajanje.smscr" beforeDir="false" afterPath="$PROJECT_DIR$/webroot/scripts/zbrajanje.smscr" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +235,7 @@
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
       <workItem from="1648228409122" duration="13174000" />
-      <workItem from="1648248057443" duration="16295000" />
+      <workItem from="1648248057443" duration="16757000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -398,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648299724630</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="[hw02] -&gt; Refactor of how ClientWorker handles requests">
+      <created>1648300324294</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1648300324294</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +431,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[hw02] -&gt; Init repo + first task mostly done" />
     <MESSAGE value="[hw02] -&gt; Add parser code from oprpp1" />
     <MESSAGE value="[hw02] -&gt; Configure folding of stuff" />
     <MESSAGE value="[hw02] -&gt; WIP: Start INodeVisitor" />
@@ -442,7 +455,8 @@
     <MESSAGE value="[hw02] -&gt; Implement server " />
     <MESSAGE value="[hw02] -&gt; Add demo files/images" />
     <MESSAGE value="[hw02] -&gt; Refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Refactor" />
+    <MESSAGE value="[hw02] -&gt; Refactor of how ClientWorker handles requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Refactor of how ClientWorker handles requests" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
