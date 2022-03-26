@@ -4,10 +4,12 @@ import hr.fer.zemris.java.webserver.Util.LoadProperties;
 
 import java.io.*;
 import java.net.InetSocketAddress;
+import java.net.MalformedURLException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -94,13 +96,11 @@ public class SmartHttpServer {
         }
     }
 
-    private static class ClientWorker implements Runnable {
+    private class ClientWorker implements Runnable {
         private final Socket csocket;
         private InputStream istream;
         private OutputStream ostream;
-        private String version;
-        private String method;
-        private String host;
+        private HTTPRequest request;
         private final Map<String, String> params = new HashMap<>();
         private final Map<String, String> tempParams = new HashMap<>();
         private final Map<String, String> permPrams = new HashMap<>();
@@ -114,141 +114,85 @@ public class SmartHttpServer {
 
         @Override
         public void run() {
+            RequestContext rc = null;
+
             try {
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 this.istream = this.csocket.getInputStream();
                 this.ostream = new BufferedOutputStream(this.csocket.getOutputStream());
 
-                int state = 0;
-                l:
-                while (true) {
-                    byte b = (byte) this.istream.read();
-                    if (b == -1) {
-                        if (baos.size() == 0) {
-                            throw new IOException("Incomplete header received.");
-                        }
-
-                        break;
-                    }
-
-                    if (b != 0x0d) {
-                        baos.write(b);
-                    }
-
-                    switch (state) {
-                        case 0 -> {
-
-                            if (b == 0x0d) {
-                                state = 1;
-                            } else if (b == 0x0a) {
-                                state = 4;
-                            }
-                        }
-                        case 1 -> {
-
-                            if (b == 0x0a) {
-                                state = 2;
-                            } else {
-                                state = 0;
-                            }
-                        }
-                        case 2 -> {
-
-                            if (b == 0x0d) {
-                                state = 3;
-                            } else {
-                                state = 0;
-                            }
-                        }
-                        case 3, 4 -> {
-                            if (b == 0x0a) {
-                                break l;
-                            } else {
-                                state = 0;
-                            }
-                        }
-                    }
+                try {
+                    this.request = HTTPRequest.fromStream(this.istream);
+                } catch (HTTPRequest.HTTPRequestException | MalformedURLException e) {
+                    throw new HTTPError(HTTPStatus.BAD_REQUEST, e.getMessage());
                 }
 
-                System.out.println(baos.toString());
+                if (!this.request.method().equals(HTTPMethod.GET)) {
+                    // FIXME: While technically docs say you should return 400, IMO this should be a 405
+                    throw new HTTPError(HTTPStatus.METHOD_NOT_ALLOWED);
+                }
 
-                byte[] header = new byte[]{
-                        'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\r', '\n',
-                };
+                if (!List.of(HTTPVersion.HTTP_1_0, HTTPVersion.HTTP_1_1).contains(this.request.version())) {
+                    // FIXME: While technically docs say you should return 400, IMO this should be a 505
+                    throw new HTTPError(new HTTPStatus(505, "HTTP Version not supported"));
+                }
 
-                this.ostream.write(
-                        ("HTTP/1.1 " + 200 + " " + "OK" + "\r\n" +
-                                "Server: simple java server\r\n" +
-                                "Content-Type: " + "text/plain" + "\r\n" +
-                                "Content-Length: " + header.length + "\r\n" +
-                                "Connection: close\r\n" +
-                                "\r\n").getBytes(StandardCharsets.US_ASCII)
-                );
-                this.ostream.write(header);
-
-                this.ostream.flush();
-                this.csocket.getOutputStream().close();
-
-                // Then read complete request header from your client in separate method...
-//                List<String> request = this.readRequest();
-//                System.out.println("Request: " + request);
-//
-//                if (request.isEmpty()) {
-//                    System.out.println("HEREJk");
-//                    this.returnError(400, "Bad request");
-//                    return;
+//                this.method = this.request.method();
+//                this.version = this.request.version();
+//                this.host = this.request.headers().getOrDefault("Host", SmartHttpServer.this.domainName);
+//                if (this.host.contains(":")) {
+//                    this.host = this.host.substring(0, this.host.indexOf(":"));
 //                }
-//
-//                // If header is invalid (less then a line at least) return response status 400
-//                String firstLine = request.get(0);
-//                System.out.println(firstLine);
 
+                this.params.putAll(this.request.getQuery());
 
-//                this.returnError(400, "Bad request");
-//                this.csocket.getOutputStream().close();
-
-                // Extract (method, requestedPath, version) from firstLine
-                // if method not GET or version not HTTP/1.0 or HTTP/1.1 return response status 400
-                // Go through headers, and if there is header “Host: xxx”, assign host property
-                // to trimmed value after “Host:”; else, set it to server’s domainName
-                // If xxx is of form some-name:number, just remember “some-name”-part
-//                String path;
-//                String paramString;
-                // (path, paramString) = split requestedPath to path and parameterString
-                // parseParameters(paramString); ==> your method to fill map parameters
-                // requestedPath = resolve path with respect to documentRoot
+                Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), this.request.urlPath());
                 // if requestedPath is not below documentRoot, return response status 403 forbidden
-                // check if requestedPath exists, is file and is readable; if not, return status 404
-                // else extract file extension
-                // find in mimeTypes map appropriate mimeType for current file extension
-                // (you filled that map during the construction of SmartHttpServer from mime.properties)
-                // if no mime type found, assume application/octet-stream
-                // create a rc = new RequestContext(...); set mime-type; set status to 200
-                // If you want, you can modify RequestContext to allow you to add additional headers
-                // so that you can add “Content-Length: 12345” if you know that file has 12345 bytes
-                // open file, read its content and write it to rc (that will generate header and send
-                // file bytes to client)
+
+                File requestedFile = requestedPath.toFile();
+                if (!requestedFile.exists()) {
+                    throw new HTTPError(HTTPStatus.NOT_FOUND);
+                }
+                if (!requestedFile.isFile()) {
+                    throw new HTTPError(HTTPStatus.FORBIDDEN, "Directory listing not allowed");
+                }
+                if (!requestedFile.canRead()) {
+                    throw new HTTPError(HTTPStatus.FORBIDDEN, "File not readable");
+                }
+
+                String[] fileSplit = requestedFile.getName().split("\\.");
+                String fileExtension = fileSplit[fileSplit.length - 1];
+
+                rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
+                rc.setMimeType(SmartHttpServer.this.mimeTypes.getOrDefault(fileExtension, "application/octet-stream"));
+                rc.setStatus(HTTPStatus.OK);
+
+                try (FileInputStream fis = new FileInputStream(requestedFile)) {
+                    rc.write(fis.readAllBytes());
+                }
+            } catch (HTTPError e) {
+                System.out.println("error: " + e.getMessage());
+                if (rc != null) {
+                    throw new RuntimeException("RequestContext already generated");
+                }
+
+                rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
+                rc.setStatus(e.getStatus());
+                rc.setMimeType("text/plain");
+                try {
+                    rc.write(e.getMessage().getBytes(StandardCharsets.US_ASCII));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    this.ostream.flush();
+                    this.csocket.getOutputStream().close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }
-
-        private List<String> readRequest() throws IOException {
-            List<String> output = new ArrayList<>();
-
-            byte[] arr = this.csocket.getInputStream().readAllBytes();
-            System.out.println(new String(arr));
-
-            return output;
-        }
-
-        private void returnError(int status, String message) throws IOException {
-            RequestContext rc = new RequestContext(this.csocket.getOutputStream(), this.params, this.permPrams, this.outputCookies);
-            rc.setMimeType("text/plain");
-            rc.setStatusCode(status);
-            rc.setStatusText(message);
-
-            this.csocket.getOutputStream().flush();
         }
     }
 }

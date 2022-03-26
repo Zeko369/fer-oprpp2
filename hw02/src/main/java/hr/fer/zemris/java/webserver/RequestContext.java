@@ -47,8 +47,10 @@ public class RequestContext {
     private Charset charset;
 
     private String encoding = "UTF-8";
-    private int statusCode = 200;
-    private String statusText = "OK";
+    // TODO: Migrate to HTTPStatus
+//    private int statusCode = 200;
+//    private String statusText = "OK";
+    private HTTPStatus status = HTTPStatus.OK;
     private String mimeType = "text/html";
     private Long contentLength = null;
 
@@ -57,6 +59,9 @@ public class RequestContext {
     private final Map<String, String> persistentParameters;
     private final List<RCCookie> outputCookies;
 
+    private final Map<String, String> customHeaders;
+    public static List<String> IGNORED_HEADERS = List.of("Set-Cookie", "Content-Length", "Content-Type");
+
     private boolean headerGenerated = false;
 
     public RequestContext(OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies) {
@@ -64,6 +69,7 @@ public class RequestContext {
         this.parameters = parameters == null ? new HashMap<>() : parameters;
         this.persistentParameters = persistentParameters == null ? new HashMap<>() : persistentParameters;
         this.outputCookies = outputCookies == null ? new ArrayList<>() : outputCookies;
+        this.customHeaders = new HashMap<>();
     }
 
     private void canChangeHeaders() {
@@ -77,15 +83,38 @@ public class RequestContext {
         this.encoding = encoding;
     }
 
-    public void setStatusCode(int statusCode) {
+    public void setStatus(HTTPStatus status) {
         this.canChangeHeaders();
-        this.statusCode = statusCode;
+        this.status = status;
     }
 
-    public void setStatusText(String statusText) {
-        this.canChangeHeaders();
-        this.statusText = statusText;
+    public String getCustomHeader(String name) {
+        return this.customHeaders.get(name);
     }
+
+    public void setCustomHeader(String name, String value) {
+        this.canChangeHeaders();
+        if (IGNORED_HEADERS.contains(name)) {
+            throw new RuntimeException("Cannot set header " + name);
+        }
+
+        this.customHeaders.put(name, value);
+    }
+
+    public void removeCustomHeader(String name) {
+        this.canChangeHeaders();
+        this.customHeaders.remove(name);
+    }
+
+//    public void setStatusCode(int statusCode) {
+//        this.canChangeHeaders();
+//        this.statusCode = statusCode;
+//    }
+//
+//    public void setStatusText(String statusText) {
+//        this.canChangeHeaders();
+//        this.statusText = statusText;
+//    }
 
     public void setMimeType(String mimeType) {
         this.canChangeHeaders();
@@ -150,12 +179,15 @@ public class RequestContext {
         headerGenerated = true;
 
         StringBuilder header = new StringBuilder();
-        header.append(String.format("HTTP/1.1 %d %s\r\n", this.statusCode, this.statusText));
+        header.append(String.format("HTTP/1.1 %s\r\n", this.status));
         header.append(String.format("Content-Type: %s%s\r\n", this.mimeType, this.mimeType.startsWith("text/") ? "; charset=" + this.encoding : ""));
+        header.append("Server: simple java server\r\n");
+        header.append("X-Powered-By: simple java server\r\n");
 
         if (this.contentLength != null) {
             header.append(String.format("Content-Length: %d\r\n", this.contentLength));
         }
+
 
         for (RCCookie cookie : this.outputCookies) {
             StringBuilder sb = new StringBuilder();

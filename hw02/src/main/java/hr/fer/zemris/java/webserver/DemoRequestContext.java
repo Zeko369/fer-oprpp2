@@ -20,8 +20,7 @@ public class DemoRequestContext {
 
         rc.setEncoding(encoding);
         rc.setMimeType("text/plain");
-        rc.setStatusCode(205);
-        rc.setStatusText("Idemo dalje");
+        rc.setStatus(new HTTPStatus(205, "Idemo dalje"));
 
         // Only at this point will header be created and written...
         rc.write("Čevapčići i Šiščevapčići.");
@@ -34,8 +33,7 @@ public class DemoRequestContext {
 
         rc.setEncoding("UTF-8");
         rc.setMimeType("text/plain");
-        rc.setStatusCode(205);
-        rc.setStatusText("Idemo dalje");
+        rc.setStatus(new HTTPStatus(205, "Idemo dalje"));
         rc.addRCCookie(new RequestContext.RCCookie("korisnik", "perica", 3600, "127.0.0.1", "/"));
         rc.addRCCookie(new RequestContext.RCCookie("zgrada", "B4", null, null, "/"));
 // Only at this point will header be created and written...

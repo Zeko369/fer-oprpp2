@@ -4,12 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Cleanup code">
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Implement server 🥳">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPVersion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webroot/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webroot/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webroot/random.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mime.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/mime.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/server.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/DemoRequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/DemoRequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/Util/LoadProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/Util/LoadProperties.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +36,7 @@
       <list>
         <option value="Interface" />
         <option value="Kotlin Class" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -70,7 +80,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="actions.on.save" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -80,7 +90,11 @@
       <recent name="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/webroot" />
       <recent name="$PROJECT_DIR$/config" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="hr.fer.zemris.java.webserver" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="hr.fer.zemris.java.custom.scripting.exec.Functions" />
@@ -225,7 +239,7 @@
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
       <workItem from="1648228409122" duration="13174000" />
-      <workItem from="1648248057443" duration="9235000" />
+      <workItem from="1648248057443" duration="15644000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -367,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648250368215</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="[hw02] -&gt; Wip get a server working, kinda">
+      <created>1648292923653</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1648292923653</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +428,9 @@
     <MESSAGE value="[hw02] -&gt; Fibonacci HTML example" />
     <MESSAGE value="[hw02] -&gt; Scaffold SmartHttpServer" />
     <MESSAGE value="[hw02] -&gt; Cleanup code" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Cleanup code" />
+    <MESSAGE value="[hw02] -&gt; Wip get a server working, kinda" />
+    <MESSAGE value="[hw02] -&gt; Implement server " />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Implement server " />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
