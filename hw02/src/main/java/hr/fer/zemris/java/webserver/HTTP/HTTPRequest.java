@@ -1,4 +1,4 @@
-package hr.fer.zemris.java.webserver;
+package hr.fer.zemris.java.webserver.HTTP;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

@@ -1,5 +1,7 @@
 package hr.fer.zemris.java.webserver;
 
+import hr.fer.zemris.java.webserver.HTTP.HTTPStatus;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.Charset;

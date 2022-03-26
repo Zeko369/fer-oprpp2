@@ -1,4 +1,4 @@
-package hr.fer.zemris.java.webserver;
+package hr.fer.zemris.java.webserver.HTTP;
 
 import java.util.Map;
 import java.util.Objects;

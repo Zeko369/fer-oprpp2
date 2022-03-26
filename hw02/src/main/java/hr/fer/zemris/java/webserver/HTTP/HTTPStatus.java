@@ -1,4 +1,4 @@
-package hr.fer.zemris.java.webserver;
+package hr.fer.zemris.java.webserver.HTTP;
 
 public record HTTPStatus(int code, String message) {
     public static HTTPStatus OK = new HTTPStatus(200, "Ok");

@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Implement server 🥳">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPVersion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webroot/image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webroot/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webroot/random.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/DemoRequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/DemoRequestContext.java" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Add demo files/images">
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/DemoRequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/DemoRequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTPVersion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPVersion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
     </list>
@@ -102,11 +96,11 @@
   </component>
   <component name="RunManager" selected="Application.SmartHttpServer">
     <configuration name="DemoRequestContext" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.webserver.DemoRequestContext" />
+      <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.DemoRequestContext" />
       <module name="hw02" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hr.fer.zemris.java.webserver.*" />
+          <option name="PATTERN" value="hr.fer.zemris.java.webserver.HTTP.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -204,7 +198,7 @@
       <option name="PROGRAM_PARAMETERS" value="&quot;./config/server.properties&quot;" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hr.fer.zemris.java.webserver.*" />
+          <option name="PATTERN" value="hr.fer.zemris.java.webserver.HTTP.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -239,7 +233,7 @@
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
       <workItem from="1648228409122" duration="13174000" />
-      <workItem from="1648248057443" duration="15644000" />
+      <workItem from="1648248057443" duration="15715000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -388,7 +382,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648292923653</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="[hw02] -&gt; Implement server 🥳">
+      <created>1648299661130</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1648299661130</updated>
+    </task>
+    <task id="LOCAL-00023" summary="[hw02] -&gt; Add demo files/images">
+      <created>1648299677356</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1648299677356</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +438,8 @@
     <MESSAGE value="[hw02] -&gt; Cleanup code" />
     <MESSAGE value="[hw02] -&gt; Wip get a server working, kinda" />
     <MESSAGE value="[hw02] -&gt; Implement server " />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Implement server " />
+    <MESSAGE value="[hw02] -&gt; Add demo files/images" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Add demo files/images" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

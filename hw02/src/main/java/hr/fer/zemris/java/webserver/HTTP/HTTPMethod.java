@@ -1,4 +1,4 @@
-package hr.fer.zemris.java.webserver;
+package hr.fer.zemris.java.webserver.HTTP;
 
 // FIXME: Migrate this to Enum
 public class HTTPMethod {

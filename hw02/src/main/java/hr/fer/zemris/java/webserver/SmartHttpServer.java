@@ -1,5 +1,6 @@
 package hr.fer.zemris.java.webserver;
 
+import hr.fer.zemris.java.webserver.HTTP.*;
 import hr.fer.zemris.java.webserver.Util.LoadProperties;
 
 import java.io.*;

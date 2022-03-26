@@ -1,4 +1,7 @@
-package hr.fer.zemris.java.webserver;
+package hr.fer.zemris.java.custom.scripting.demo;
+
+import hr.fer.zemris.java.webserver.HTTP.HTTPStatus;
+import hr.fer.zemris.java.webserver.RequestContext;
 
 import java.io.IOException;
 import java.io.OutputStream;
