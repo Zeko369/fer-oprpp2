@@ -4,6 +4,7 @@ import hr.fer.zemris.java.custom.scripting.elems.*;
 import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionContext;
 import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionRunner;
 import hr.fer.zemris.java.custom.scripting.exec.Util.TypeCast;
+import hr.fer.zemris.java.custom.scripting.exec.Util.ValuePrinter;
 import hr.fer.zemris.java.custom.scripting.node.*;
 import hr.fer.zemris.java.webserver.RequestContext;
 
@@ -83,10 +84,8 @@ public class SmartScriptEngine {
 
             for (Object item : tmpStack) {
                 try {
-                    if (item instanceof Double) {
-                        item = ((Double) item).intValue();
-                    }
-                    requestContext.write(item.toString());
+                    System.out.printf("%s %s\n", item.getClass().getSimpleName(), item);
+                    requestContext.write(ValuePrinter.toString(item));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
