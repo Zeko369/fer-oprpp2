@@ -17,8 +17,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 public class SmartHttpServer {
     private final String address;
@@ -33,6 +35,12 @@ public class SmartHttpServer {
     private final WorkerLoader workerLoader = new WorkerLoader();
     private final Map<String, IWebWorker> workersMap = new HashMap<>();
     private final Map<String, String> mimeTypes = new HashMap<>();
+
+    private final Random sessionRandom = new Random();
+    private final Map<String, SessionMapEntry> sessions = new ConcurrentHashMap<>();
+
+    private record SessionMapEntry(String sid, String host, long validUntil, Map<String, String> map) {
+    }
 
     public static void main(String[] args) {
         if (args.length < 1) {
@@ -95,9 +103,6 @@ public class SmartHttpServer {
                 while (!Thread.currentThread().isInterrupted()) {
                     Socket client = serverSocket.accept();
                     ClientWorker worker = new ClientWorker(client);
-
-                    System.out.println("New client connected");
-
                     SmartHttpServer.this.threadPool.submit(worker);
                 }
             } catch (IOException e) {
@@ -114,7 +119,8 @@ public class SmartHttpServer {
         private HTTPRequest request;
         private final Map<String, String> params = new HashMap<>();
         private final Map<String, String> tempParams = new HashMap<>();
-        private final Map<String, String> permPrams = new HashMap<>();
+        private Map<String, String> permPrams;
+
         private final List<RequestContext.RCCookie> outputCookies = new ArrayList<>();
         private RequestContext rc = null;
         private String SID;
@@ -146,6 +152,9 @@ public class SmartHttpServer {
                     throw new HTTPError(new HTTPStatus(505, "HTTP Version not supported"));
                 }
 
+                SessionMapEntry sessionMapEntry = this.handleSession();
+                this.permPrams = sessionMapEntry.map();
+
                 this.params.putAll(this.request.getQuery());
                 this.internalDispatchRequest(this.request.urlPath(), true);
             } catch (HTTPError e) {
@@ -173,6 +182,67 @@ public class SmartHttpServer {
             }
         }
 
+        private String checkSession(Map<String, String> headers) {
+            String sid = headers.get("Cookie");
+            if (sid == null) {
+                return null;
+            }
+
+            String[] cookies = sid.split(";");
+            for (String cookie : cookies) {
+                String[] parts = cookie.split("=");
+                if (parts.length == 2 && parts[0].equals("sid")) {
+                    return parts[1];
+                }
+            }
+
+            return null;
+        }
+
+        private SessionMapEntry handleSession() {
+            String sidCandidate = this.checkSession(this.request.headers());
+            if (sidCandidate != null) {
+                SessionMapEntry session = SmartHttpServer.this.sessions.get(sidCandidate);
+                if (session != null) {
+                    if (session.validUntil < System.currentTimeMillis() / 1000) {
+                        SmartHttpServer.this.sessions.remove(sidCandidate);
+                    }
+
+                    if (session.host.equals(this.request.headers().get("Host"))) {
+                        return session;
+                    }
+                }
+            }
+
+            String sid = SmartHttpServer.this.sessionRandom
+                    .ints(20, 0, 26)
+                    .mapToObj(i -> String.valueOf((char) (i + 65)))
+                    .collect(Collectors.joining());
+
+            this.SID = sid;
+            this.outputCookies.add(
+                    new RequestContext.RCCookie(
+                            "sid",
+                            sid,
+                            null,
+                            this.request.getHostOrDefault(SmartHttpServer.this.domainName),
+                            "/",
+                            true
+                    )
+            );
+
+            SessionMapEntry sessionEntry = new SessionMapEntry(
+                    // TODO: Handle this async
+                    sid,
+                    this.request.headers().get("Host"),
+                    System.currentTimeMillis() / 1000 + SmartHttpServer.this.sessionTimeout,
+                    new ConcurrentHashMap<>()
+            );
+
+            SmartHttpServer.this.sessions.put(sid, sessionEntry);
+            return sessionEntry;
+        }
+
         @Override
         public void dispatchRequest(String urlPath) throws Exception {
             this.internalDispatchRequest(urlPath, false);
@@ -181,7 +251,14 @@ public class SmartHttpServer {
         private void internalDispatchRequest(String urlPath, boolean directCall) throws Exception {
             Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), urlPath);
             if (this.rc == null) {
-                this.rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies, null, this);
+                this.rc = new RequestContext(
+                        this.ostream,
+                        this.params,
+                        this.permPrams,
+                        this.outputCookies,
+                        null,
+                        this
+                );
             }
 
             if (urlPath.startsWith("/ext")) {

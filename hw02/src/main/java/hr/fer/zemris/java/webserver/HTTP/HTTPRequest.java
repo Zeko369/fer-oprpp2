@@ -15,6 +15,19 @@ public record HTTPRequest(String version, String urlPath, String queryString, St
         }
     }
 
+    public String getHostOrDefault(String defaultValue) {
+        String host = this.headers.get("Host");
+        if (host == null) {
+            return defaultValue;
+        }
+
+        if (host.contains(":")) {
+            return host.substring(0, host.indexOf(":"));
+        }
+
+        return host;
+    }
+
     // TODO: support for multiple key params into arrays
     public Map<String, String> getQuery() {
         if (queryString == null || queryString.isEmpty()) {

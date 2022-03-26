@@ -37,8 +37,8 @@ public class DemoRequestContext {
         rc.setEncoding("UTF-8");
         rc.setMimeType("text/plain");
         rc.setStatus(new HTTPStatus(205, "Idemo dalje"));
-        rc.addRCCookie(new RequestContext.RCCookie("korisnik", "perica", 3600, "127.0.0.1", "/"));
-        rc.addRCCookie(new RequestContext.RCCookie("zgrada", "B4", null, null, "/"));
+        rc.addRCCookie(new RequestContext.RCCookie("korisnik", "perica", 3600, "127.0.0.1", "/", true));
+        rc.addRCCookie(new RequestContext.RCCookie("zgrada", "B4", null, null, "/", true));
 // Only at this point will header be created and written...
         rc.write("Čevapčići i Šiščevapčići.");
         os.close();

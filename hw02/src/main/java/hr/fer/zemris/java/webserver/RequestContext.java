@@ -15,13 +15,15 @@ public class RequestContext {
         private final String domain;
         private final String path;
         private final Integer maxAge;
+        private final boolean httpOnly;
 
-        public RCCookie(String name, String value, Integer maxAge, String domain, String path) {
+        public RCCookie(String name, String value, Integer maxAge, String domain, String path, boolean httpOnly) {
             this.name = name;
             this.value = value;
             this.domain = domain;
             this.path = path;
             this.maxAge = maxAge;
+            this.httpOnly = httpOnly;
         }
 
         public String getName() {
@@ -42,6 +44,10 @@ public class RequestContext {
 
         public Integer getMaxAge() {
             return this.maxAge;
+        }
+
+        public boolean isHttpOnly() {
+            return this.httpOnly;
         }
     }
 
@@ -209,7 +215,7 @@ public class RequestContext {
 
         for (RCCookie cookie : this.outputCookies) {
             StringBuilder sb = new StringBuilder();
-            sb.append(String.format("Set-Cookie: %s=\"%s\"", cookie.getName(), cookie.getValue()));
+            sb.append(String.format("Set-Cookie: %s=%s", cookie.getName(), cookie.getValue()));
             if (cookie.getDomain() != null) {
                 sb.append("; Domain=").append(cookie.getDomain());
             }
@@ -218,6 +224,10 @@ public class RequestContext {
             }
             if (cookie.getMaxAge() != null) {
                 sb.append("; Max-Age=").append(cookie.getMaxAge());
+            }
+
+            if (cookie.isHttpOnly()) {
+                sb.append("; HttpOnly");
             }
 
             header.append(sb).append("\r\n");
