@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Class autoloader for workers">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/EchoParams.java" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Simple EchoParams worker">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/SumWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webroot/image2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webroot/private/pages/calc.smscr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/workers.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/workers.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +233,7 @@
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
       <workItem from="1648228409122" duration="13174000" />
-      <workItem from="1648248057443" duration="20553000" />
+      <workItem from="1648248057443" duration="21702000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -425,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648307091211</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="[hw02] -&gt; Simple EchoParams worker">
+      <created>1648307332080</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1648307332080</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +457,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[hw02] -&gt; Simple example of WriterVisitor" />
     <MESSAGE value="[hw02] -&gt; Fix comment" />
     <MESSAGE value="[hw01] -&gt; Ignore for now" />
     <MESSAGE value="[hw01] -&gt; wip" />
@@ -469,7 +481,8 @@
     <MESSAGE value="[hw02] -&gt; Implement workers" />
     <MESSAGE value="[hw02] -&gt; Class autolodaer for workers" />
     <MESSAGE value="[hw02] -&gt; Class autoloader for workers" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Class autoloader for workers" />
+    <MESSAGE value="[hw02] -&gt; Simple EchoParams worker" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Simple EchoParams worker" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

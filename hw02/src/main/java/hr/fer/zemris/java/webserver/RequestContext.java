@@ -72,6 +72,10 @@ public class RequestContext {
 
     private final IDispatcher dispatcher;
 
+    public IDispatcher getDispatcher() {
+        return dispatcher;
+    }
+
     public RequestContext(OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies, Map<String, String> temporaryParameters, IDispatcher dispatcher) {
         this.outputStream = Objects.requireNonNull(outputStream);
         this.parameters = parameters == null ? new HashMap<>() : parameters;

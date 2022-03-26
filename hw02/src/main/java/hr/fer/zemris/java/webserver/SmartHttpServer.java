@@ -180,7 +180,9 @@ public class SmartHttpServer {
 
         private void internalDispatchRequest(String urlPath, boolean directCall) throws Exception {
             Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), urlPath);
-            this.rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
+            if (this.rc == null) {
+                this.rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies, null, this);
+            }
 
             if (urlPath.startsWith("/ext")) {
                 String classPath = String.format("hr.fer.zemris.java.webserver.workers.%s", urlPath.substring(5));
@@ -218,16 +220,6 @@ public class SmartHttpServer {
 
             if (fileExtension.equals("smscr")) {
                 String code = FileLoader.loadCode(requestedFile);
-                Map<String, String> tmpParams = new HashMap<>();
-
-                this.rc = new RequestContext(
-                        this.ostream,
-                        this.params,
-                        this.permPrams,
-                        this.outputCookies,
-                        tmpParams,
-                        this
-                );
 
                 DocumentNode root = new SmartScriptParser(code).getDocumentNode();
                 new SmartScriptEngine(root, rc).execute();

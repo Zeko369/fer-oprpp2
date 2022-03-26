@@ -104,6 +104,9 @@ public class SmartScriptEngine {
     public SmartScriptEngine(DocumentNode documentNode, RequestContext requestContext) {
         this.documentNode = documentNode;
         this.requestContext = requestContext;
+        this.requestContext.getTemporaryParameterNames().forEach((k) -> {
+            stack.push(new ValueWrapper(this.requestContext.getTemporaryParameter(k), k));
+        });
     }
 
     public void execute() {
