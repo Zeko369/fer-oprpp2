@@ -6,6 +6,7 @@ import hr.fer.zemris.java.custom.scripting.parser.SmartScriptParser;
 import hr.fer.zemris.java.custom.scripting.shared.FileLoader;
 import hr.fer.zemris.java.webserver.HTTP.*;
 import hr.fer.zemris.java.webserver.Util.LoadProperties;
+import hr.fer.zemris.java.webserver.Util.WorkerLoader;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -29,8 +30,9 @@ public class SmartHttpServer {
     private ExecutorService threadPool;
     private final Path documentRoot;
 
-    private final Map<String, String> mimeTypes = new HashMap<>();
+    private final WorkerLoader workerLoader = new WorkerLoader();
     private final Map<String, IWebWorker> workersMap = new HashMap<>();
+    private final Map<String, String> mimeTypes = new HashMap<>();
 
     public static void main(String[] args) {
         if (args.length < 1) {
@@ -69,19 +71,7 @@ public class SmartHttpServer {
         mimeProperties.keySet().forEach(key -> this.mimeTypes.put((String) key, mimeProperties.getProperty((String) key)));
 
         Properties workersProperties = LoadProperties.load(properties.getProperty("server.workers"));
-        workersProperties.keySet().forEach(key -> {
-            String className = workersProperties.getProperty((String) key);
-
-            try {
-                Class<?> referenceToClass = this.getClass().getClassLoader().loadClass(className);
-                Object newObject = referenceToClass.newInstance();
-                IWebWorker iww = (IWebWorker) newObject;
-
-                this.workersMap.put((String) key, iww);
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        });
+        workersProperties.forEach((key, value) -> this.workersMap.put((String) key, this.workerLoader.get((String) value)));
     }
 
     protected synchronized void start() {
@@ -160,15 +150,14 @@ public class SmartHttpServer {
                 this.internalDispatchRequest(this.request.urlPath(), true);
             } catch (HTTPError e) {
                 System.out.println("error: " + e.getMessage());
-                if (rc != null) {
+                if (this.rc.isHeaderGenerated()) {
                     throw new RuntimeException("RequestContext already generated");
                 }
 
-                rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
-                rc.setStatus(e.getStatus());
-                rc.setMimeType("text/plain");
+                this.rc.setStatus(e.getStatus());
+                this.rc.setMimeType("text/plain");
                 try {
-                    rc.write(e.getMessage().getBytes(StandardCharsets.US_ASCII));
+                    this.rc.write(e.getMessage().getBytes(StandardCharsets.US_ASCII));
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -192,6 +181,17 @@ public class SmartHttpServer {
         private void internalDispatchRequest(String urlPath, boolean directCall) throws Exception {
             Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), urlPath);
             this.rc = new RequestContext(this.ostream, this.params, this.permPrams, this.outputCookies);
+
+            if (urlPath.startsWith("/ext")) {
+                String classPath = String.format("hr.fer.zemris.java.webserver.workers.%s", urlPath.substring(5));
+                IWebWorker worker = SmartHttpServer.this.workerLoader.get(classPath);
+                if (worker == null) {
+                    throw new HTTPError(HTTPStatus.NOT_FOUND);
+                }
+
+                worker.processRequest(this.rc);
+                return;
+            }
 
             IWebWorker worker = SmartHttpServer.this.workersMap.get(urlPath);
             if (worker != null) {

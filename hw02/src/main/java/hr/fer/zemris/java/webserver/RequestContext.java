@@ -64,6 +64,10 @@ public class RequestContext {
     private final Map<String, String> customHeaders;
     public static List<String> IGNORED_HEADERS = List.of("Set-Cookie", "Content-Length", "Content-Type");
 
+    public boolean isHeaderGenerated() {
+        return headerGenerated;
+    }
+
     private boolean headerGenerated = false;
 
     private final IDispatcher dispatcher;
