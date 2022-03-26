@@ -84,7 +84,6 @@ public class SmartScriptEngine {
 
             for (Object item : tmpStack) {
                 try {
-                    System.out.printf("%s %s\n", item.getClass().getSimpleName(), item);
                     requestContext.write(ValuePrinter.toString(item));
                 } catch (IOException e) {
                     e.printStackTrace();
