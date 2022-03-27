@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; WIP valueWrapper + tests for it">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/ObjectMultistackDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ObjectMultistack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hr/fer/zemris/java/custom/scripting/exec/ObjectMultistackTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hr/fer/zemris/java/custom/scripting/exec/ValueWrapperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ValueWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ValueWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/BaseDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/BaseDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +287,7 @@
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
       <workItem from="1648228409122" duration="13174000" />
-      <workItem from="1648248057443" duration="35468000" />
+      <workItem from="1648248057443" duration="35617000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -545,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648314865879</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="[hw02] -&gt; WIP valueWrapper + tests for it">
+      <created>1648395346128</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1648395346128</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

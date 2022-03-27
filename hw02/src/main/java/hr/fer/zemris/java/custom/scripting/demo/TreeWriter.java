@@ -2,11 +2,8 @@ package hr.fer.zemris.java.custom.scripting.demo;
 
 import hr.fer.zemris.java.custom.scripting.node.*;
 import hr.fer.zemris.java.custom.scripting.parser.SmartScriptParser;
-import hr.fer.zemris.java.custom.scripting.shared.FileLoader;
 
-import java.io.FileNotFoundException;
-
-public class TreeWriter {
+public class TreeWriter extends BaseDemo {
     private static class WriterVisitor implements INodeVisitor {
         @Override
         public void visitTextNode(TextNode node) {
@@ -40,7 +37,11 @@ public class TreeWriter {
     }
 
     public static void main(String[] args) {
-        String code = BaseDemo.getContent(args);
+        new TreeWriter().run(args);
+    }
+
+    public void run(String[] args) {
+        String code = this.getContent(args);
         SmartScriptParser p = new SmartScriptParser(code);
 
         WriterVisitor visitor = new WriterVisitor();

@@ -10,9 +10,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EngineDemo {
+public class EngineDemo extends BaseDemo {
     public static void main(String[] args) {
-        String code = BaseDemo.getContent(args);
+        new EngineDemo().run(args);
+    }
+
+    public void run(String[] args) {
+        String code = this.getContent(args);
 
         Map<String, String> parameters = new HashMap<>();
         Map<String, String> persistentParameters = new HashMap<>();
