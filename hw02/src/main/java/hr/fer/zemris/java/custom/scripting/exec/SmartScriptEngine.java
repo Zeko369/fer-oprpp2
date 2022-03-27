@@ -28,9 +28,15 @@ public class SmartScriptEngine {
         @Override
         public void visitForLoopNode(ForLoopNode node) {
             String key = node.getVariable().getName();
+            String endValue = node.getEndExpression().asText();
+            // Hack: this should be number, but if it starts with a v then it is a variable
+            if (endValue.startsWith("v")) {
+                endValue = endValue.substring(1);
+                endValue = stack.peek(endValue).getValue().toString();
+            }
 
             stack.push(key, new ValueWrapper(node.getStartExpression().asText()));
-            while (stack.peek(key).numCompare(node.getEndExpression().asText()) < 1) {
+            while (stack.peek(key).numCompare(endValue) < 1) {
                 for (int i = 0; i < node.numberOfChildren(); i++) {
                     node.getChild(i).accept(this);
                 }

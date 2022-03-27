@@ -14,8 +14,10 @@ import java.net.MalformedURLException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -290,7 +292,54 @@ public class SmartHttpServer {
                 throw new HTTPError(HTTPStatus.NOT_FOUND);
             }
             if (!requestedFile.isFile()) {
-                throw new HTTPError(HTTPStatus.FORBIDDEN, "Directory listing not allowed");
+                if (!requestedFile.isDirectory()) {
+                    throw new HTTPError(HTTPStatus.FORBIDDEN, "Path forbidden");
+                }
+
+                File[] files = requestedFile.listFiles();
+                if (files == null) {
+                    throw new HTTPError(HTTPStatus.FORBIDDEN, "Directory listing is forbidden");
+                }
+
+                int webrootLen = SmartHttpServer.this.documentRoot.toString().length();
+                String basePath = requestedFile.getPath().substring(webrootLen);
+
+                boolean isRoot = basePath.isEmpty();
+                if (isRoot) {
+                    basePath = "/";
+                }
+
+                this.rc.setTemporaryParameter("message", isRoot ? "<a class='btn btn-primary' href='/index2.html'>Demo page</a>" : "");
+
+                this.rc.setTemporaryParameter("path", basePath);
+                this.rc.setTemporaryParameter("FileCount", String.valueOf(files.length - (isRoot ? 1 : 0)));
+
+                if (!isRoot) {
+                    String oneLevelUp = basePath.substring(0, basePath.lastIndexOf('/'));
+                    if (oneLevelUp.isEmpty()) {
+                        oneLevelUp = "/";
+                    }
+
+                    this.rc.setTemporaryParameter(String.format("file-name:%d", 0), "..");
+                    this.rc.setTemporaryParameter(String.format("file-type:%d", 0), "directory");
+                    this.rc.setTemporaryParameter(String.format("file-date:%d", 0), "--");
+                    this.rc.setTemporaryParameter(String.format("file-size:%d", 0), "--");
+                    this.rc.setTemporaryParameter(String.format("file-path:%d", 0), oneLevelUp);
+                }
+
+                int rootPageOffset = isRoot ? 0 : 1;
+                for (int i = 0; i < files.length; i++) {
+                    BasicFileAttributes attr = Files.readAttributes(files[i].toPath(), BasicFileAttributes.class);
+
+                    this.rc.setTemporaryParameter(String.format("file-name:%d", i + rootPageOffset), files[i].getName());
+                    this.rc.setTemporaryParameter(String.format("file-type:%d", i + rootPageOffset), attr.isDirectory() ? "directory" : "file");
+                    this.rc.setTemporaryParameter(String.format("file-date:%d", i + rootPageOffset), attr.lastModifiedTime().toString());
+                    this.rc.setTemporaryParameter(String.format("file-size:%d", i + rootPageOffset), String.valueOf(attr.size()));
+                    this.rc.setTemporaryParameter(String.format("file-path:%d", i + rootPageOffset), files[i].getPath().substring(webrootLen));
+                }
+
+                this.dispatchRequest("/private/pages/listdir.smscr");
+                return;
             }
             if (!requestedFile.canRead()) {
                 throw new HTTPError(HTTPStatus.FORBIDDEN, "File not readable");

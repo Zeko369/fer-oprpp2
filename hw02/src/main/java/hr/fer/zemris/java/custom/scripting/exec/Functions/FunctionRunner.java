@@ -22,6 +22,7 @@ public class FunctionRunner {
         functions.put("tparamGet", new TParamGetFunction());
         functions.put("tparamSet", new TParamSetFunction());
         functions.put("tparamDel", new TParamDeleteFunction());
+        functions.put("dynamicRead", new DynamicReadParamFunction());
     }
 
     public static void run(String name, FunctionContext context) {
