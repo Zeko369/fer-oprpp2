@@ -28,16 +28,16 @@ public class SmartScriptEngine {
 
         @Override
         public void visitForLoopNode(ForLoopNode node) {
-            stack.push(new ValueWrapper(node.getStartExpression().asInt(), node.getVariable().asText()));
-            while (stack.peek().asInt() <= node.getEndExpression().asInt()) {
-                for (int i = 0; i < node.numberOfChildren(); i++) {
-                    node.getChild(i).accept(this);
-                }
-
-                ValueWrapper val = stack.pop();
-                stack.push(new ValueWrapper(val.asInt() + node.getStepExpression().asInt(), val.name()));
-            }
-            stack.pop();
+//            stack.push(new ValueWrapper(node.getStartExpression().asInt(), node.getVariable().asText()));
+//            while (stack.peek().asInt() <= node.getEndExpression().asInt()) {
+//                for (int i = 0; i < node.numberOfChildren(); i++) {
+//                    node.getChild(i).accept(this);
+//                }
+//
+//                ValueWrapper val = stack.pop();
+//                stack.push(new ValueWrapper(val.asInt() + node.getStepExpression().asInt(), val.name()));
+//            }
+//            stack.pop();
         }
 
         @Override
@@ -51,15 +51,15 @@ public class SmartScriptEngine {
                     case ElementConstantDouble elem -> tmpStack.push(elem.getValue());
                     case ElementString elem -> tmpStack.push(elem.getValue());
                     case ElementVariable elem -> {
-                        Optional<ValueWrapper> var = stack.stream()
-                                .filter(v -> v.name().equals(elem.getName()))
-                                .findFirst();
-
-                        if (var.isEmpty()) {
-                            throw new RuntimeException("Variable " + elem.getName() + " not defined.");
-                        }
-
-                        tmpStack.push(var.get().value());
+//                        Optional<ValueWrapper> var = stack.stream()
+//                                .filter(v -> v.name().equals(elem.getName()))
+//                                .findFirst();
+//
+//                        if (var.isEmpty()) {
+//                            throw new RuntimeException("Variable " + elem.getName() + " not defined.");
+//                        }
+//
+//                        tmpStack.push(var.get().value());
                     }
                     case ElementOperator elem -> {
                         if (tmpStack.size() < 2) {
@@ -103,7 +103,7 @@ public class SmartScriptEngine {
         this.documentNode = documentNode;
         this.requestContext = requestContext;
         this.requestContext.getTemporaryParameterNames().forEach((k) -> {
-            stack.push(new ValueWrapper(this.requestContext.getTemporaryParameter(k), k));
+//            stack.push(new ValueWrapper(this.requestContext.getTemporaryParameter(k), k));
         });
     }
 
