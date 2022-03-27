@@ -1,12 +1,14 @@
 package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
+import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
+
 public class SwapFunction extends BaseFunction {
     @Override
-    public void apply(FunctionContext functionContext, Object[] arguments) {
+    public void apply(FunctionContext functionContext, ValueWrapper[] arguments) {
         this.checkArguments(arguments);
 
-        Object a = functionContext.stack().pop();
-        Object b = functionContext.stack().pop();
+        ValueWrapper a = functionContext.stack().pop();
+        ValueWrapper b = functionContext.stack().pop();
         functionContext.stack().push(a);
         functionContext.stack().push(b);
     }

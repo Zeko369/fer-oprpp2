@@ -1,13 +1,17 @@
 package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
+import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
+
 public class SinFunction extends BaseFunction {
     public SinFunction() {
         super(1);
     }
 
     @Override
-    public void apply(FunctionContext functionContext, Object[] arguments) {
+    public void apply(FunctionContext functionContext, ValueWrapper[] arguments) {
         this.checkArguments(arguments, Number.class);
-        functionContext.stack().push(Math.sin((double) arguments[0]));
+
+        double argument = ((Number) arguments[0].getValue()).doubleValue();
+        functionContext.stack().push(new ValueWrapper(Math.sin(argument)));
     }
 }

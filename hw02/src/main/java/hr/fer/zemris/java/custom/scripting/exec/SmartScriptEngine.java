@@ -3,7 +3,6 @@ package hr.fer.zemris.java.custom.scripting.exec;
 import hr.fer.zemris.java.custom.scripting.elems.*;
 import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionContext;
 import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionRunner;
-import hr.fer.zemris.java.custom.scripting.exec.Util.TypeCast;
 import hr.fer.zemris.java.custom.scripting.exec.Util.ValuePrinter;
 import hr.fer.zemris.java.custom.scripting.node.*;
 import hr.fer.zemris.java.webserver.RequestContext;
@@ -14,7 +13,7 @@ import java.util.*;
 public class SmartScriptEngine {
     private final DocumentNode documentNode;
     private final RequestContext requestContext;
-    private final Stack<ValueWrapper> stack = new Stack<>();
+    private final ObjectMultistack stack = new ObjectMultistack();
 
     private final INodeVisitor visitor = new INodeVisitor() {
         @Override
@@ -28,63 +27,63 @@ public class SmartScriptEngine {
 
         @Override
         public void visitForLoopNode(ForLoopNode node) {
-//            stack.push(new ValueWrapper(node.getStartExpression().asInt(), node.getVariable().asText()));
-//            while (stack.peek().asInt() <= node.getEndExpression().asInt()) {
-//                for (int i = 0; i < node.numberOfChildren(); i++) {
-//                    node.getChild(i).accept(this);
-//                }
-//
-//                ValueWrapper val = stack.pop();
-//                stack.push(new ValueWrapper(val.asInt() + node.getStepExpression().asInt(), val.name()));
-//            }
-//            stack.pop();
+            String key = node.getVariable().getName();
+
+            stack.push(key, new ValueWrapper(node.getStartExpression().asText()));
+            while (stack.peek(key).numCompare(node.getEndExpression().asText()) < 1) {
+                for (int i = 0; i < node.numberOfChildren(); i++) {
+                    node.getChild(i).accept(this);
+                }
+
+                stack.peek(key).add(node.getStepExpression().asText());
+            }
+            stack.pop(key);
         }
 
         @Override
         public void visitEchoNode(EchoNode node) {
-            Stack<Object> tmpStack = new Stack<>();
+            Stack<ValueWrapper> tmpStack = new Stack<>();
 
             Element[] elements = node.getElements();
             for (Element element : elements) {
                 switch (element) {
-                    case ElementConstantInteger elem -> tmpStack.push(elem.getValue());
-                    case ElementConstantDouble elem -> tmpStack.push(elem.getValue());
-                    case ElementString elem -> tmpStack.push(elem.getValue());
+                    case ElementConstantInteger elem -> tmpStack.push(new ValueWrapper(elem.getValue()));
+                    case ElementConstantDouble elem -> tmpStack.push(new ValueWrapper(elem.getValue()));
+                    case ElementString elem -> tmpStack.push(new ValueWrapper(elem.getValue()));
                     case ElementVariable elem -> {
-//                        Optional<ValueWrapper> var = stack.stream()
-//                                .filter(v -> v.name().equals(elem.getName()))
-//                                .findFirst();
-//
-//                        if (var.isEmpty()) {
-//                            throw new RuntimeException("Variable " + elem.getName() + " not defined.");
-//                        }
-//
-//                        tmpStack.push(var.get().value());
+                        ValueWrapper val = stack.peek(elem.getName());
+                        if (val == null) {
+                            throw new RuntimeException("Variable " + elem.getName() + " not defined.");
+                        }
+
+                        tmpStack.push(val);
                     }
                     case ElementOperator elem -> {
                         if (tmpStack.size() < 2) {
                             throw new RuntimeException("Not enough arguments for operator " + elem.getSymbol());
                         }
 
-                        Double a = TypeCast.toDouble(tmpStack.pop(), "First argument isn't a number");
-                        Double b = TypeCast.toDouble(tmpStack.pop(), "Second argument isn't a number");
+                        ValueWrapper a = ValueWrapper.copy(tmpStack.pop());
+                        ValueWrapper b = tmpStack.pop();
 
                         switch (elem.getSymbol()) {
-                            case "+" -> tmpStack.push(a + b);
-                            case "-" -> tmpStack.push(a - b);
-                            case "/" -> tmpStack.push(a / b);
-                            case "*" -> tmpStack.push(a * b);
+                            case "+" -> a.add(b.getValue());
+                            case "-" -> a.subtract(b.getValue());
+                            case "/" -> a.divide(b.getValue());
+                            case "*" -> a.multiply(b.getValue());
                             default -> throw new RuntimeException("Invalid operator " + elem.getSymbol());
                         }
+
+                        tmpStack.push(a);
                     }
                     case ElementFunction elem -> FunctionRunner.run(elem.getName(), new FunctionContext(tmpStack, requestContext));
                     default -> throw new IllegalStateException("Unexpected value: " + element);
                 }
             }
 
-            for (Object item : tmpStack) {
+            for (ValueWrapper item : tmpStack) {
                 try {
-                    requestContext.write(ValuePrinter.toString(item));
+                    requestContext.write(item.getValue().toString());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -102,9 +101,7 @@ public class SmartScriptEngine {
     public SmartScriptEngine(DocumentNode documentNode, RequestContext requestContext) {
         this.documentNode = documentNode;
         this.requestContext = requestContext;
-        this.requestContext.getTemporaryParameterNames().forEach((k) -> {
-//            stack.push(new ValueWrapper(this.requestContext.getTemporaryParameter(k), k));
-        });
+        this.requestContext.getTemporaryParameterNames().forEach((k) -> stack.push(k, new ValueWrapper(this.requestContext.getTemporaryParameter(k))));
     }
 
     public void execute() {

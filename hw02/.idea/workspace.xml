@@ -4,11 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; WIP valueWrapper + tests for it">
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Refactor into ValueWrapper 🙄">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/BaseDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/BaseDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/elems/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/BaseFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/BaseFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DecFMTFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DecFMTFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DuplicateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DuplicateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/EqFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/EqFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamDeleteFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamDeleteFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamGetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamSetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamSetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/ParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/ParamGetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SetMimeTypeFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SetMimeTypeFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SinFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SinFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SwapFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SwapFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamDeleteFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamDeleteFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamGetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamSetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamSetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Util/ValuePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Util/ValuePrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ValueWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ValueWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hr/fer/zemris/java/custom/scripting/exec/ObjectMultistackTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hr/fer/zemris/java/custom/scripting/exec/ObjectMultistackTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +119,7 @@
       <recent name="hr.fer.zemris.java.custom.scripting.exec.Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.hr.fer.zemris.java.custom.scripting.exec in hw02">
+  <component name="RunManager" selected="Application.SmartHttpServer">
     <configuration name="DemoRequestContext" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.DemoRequestContext" />
       <module name="hw02" />
@@ -117,7 +136,7 @@
     <configuration name="EngineDemo - basic" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/basic.smscr&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;webroot/scripts/basic.smscr&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
@@ -131,7 +150,7 @@
     <configuration name="EngineDemo - brojPoziva" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/brojPoziva.smscr&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;webroot/scripts/brojPoziva.smscr&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
@@ -145,7 +164,7 @@
     <configuration name="EngineDemo - fibonacci HTML" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/fibonaccih.smscr&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;webroot/scripts/fibonaccih.smscr&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
@@ -159,7 +178,7 @@
     <configuration name="EngineDemo - fibonacci" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/fibonacci.smscr&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;webroot/scripts/fibonacci.smscr&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
@@ -173,7 +192,7 @@
     <configuration name="EngineDemo - osnovni" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/osnovni.smscr&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;webroot/scripts/osnovni.smscr&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
@@ -187,7 +206,7 @@
     <configuration name="EngineDemo - zbrajanje" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="hr.fer.zemris.java.custom.scripting.demo.EngineDemo" />
       <module name="hw02" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;src/main/resources/demos/zbrajanje.smscr&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;webroot/scripts/zbrajanje.smscr&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hr.fer.zemris.java.custom.scripting.demo.*" />
@@ -269,10 +288,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SmartHttpServer" />
         <item itemvalue="JUnit.hr.fer.zemris.java.custom.scripting.exec in hw02" />
         <item itemvalue="JUnit.ValueWrapperTest" />
         <item itemvalue="Application.ObjectMultistackDemo" />
-        <item itemvalue="Application.SmartHttpServer" />
       </list>
     </recent_temporary>
   </component>
@@ -287,7 +306,7 @@
       <workItem from="1647889891523" duration="2426000" />
       <workItem from="1648053948083" duration="10555000" />
       <workItem from="1648228409122" duration="13174000" />
-      <workItem from="1648248057443" duration="35617000" />
+      <workItem from="1648248057443" duration="37825000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -548,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648395346128</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="[hw02] -&gt; Demo files cleanup">
+      <created>1648395494120</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1648395494120</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,8 +593,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[hw02] -&gt; Setup zbrajanje" />
-    <MESSAGE value="[hw02] -&gt; Setup zbrajanje + cleanup" />
     <MESSAGE value="[hw02] -&gt; Test params + fix stupid typo copy" />
     <MESSAGE value="[hw02] -&gt; Fibonacci + fix for loop" />
     <MESSAGE value="[hw02] -&gt; Fibonacci HTML example" />
@@ -592,7 +616,9 @@
     <MESSAGE value="[hw02] -&gt; Finish background color worker" />
     <MESSAGE value="[hw02] -&gt; Remove unsued sout" />
     <MESSAGE value="[hw02] -&gt; WIP valueWrapper + tests for it" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; WIP valueWrapper + tests for it" />
+    <MESSAGE value="[hw02] -&gt; Demo files cleanup" />
+    <MESSAGE value="[hw02] -&gt; Refactor into ValueWrapper " />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Refactor into ValueWrapper " />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,6 +1,7 @@
 package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
-import java.util.Arrays;
+import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +35,7 @@ public class FunctionRunner {
             throw new RuntimeException("Function " + name + " expects " + argsCount + " arguments." + " Only " + context.stack().size() + " arguments provided.");
         }
 
-        Object[] args = new Object[argsCount];
+        ValueWrapper[] args = new ValueWrapper[argsCount];
         for (int i = argsCount - 1; i >= 0; i--) {
             args[i] = context.stack().pop();
         }

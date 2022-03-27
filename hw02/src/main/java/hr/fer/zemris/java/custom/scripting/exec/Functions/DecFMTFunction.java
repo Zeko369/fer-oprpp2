@@ -1,5 +1,7 @@
 package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
+import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
+
 import java.text.DecimalFormat;
 
 /**
@@ -11,17 +13,10 @@ public class DecFMTFunction extends BaseFunction {
     }
 
     @Override
-    public void apply(FunctionContext functionContext, Object[] arguments) {
+    public void apply(FunctionContext functionContext, ValueWrapper[] arguments) {
         this.checkArguments(arguments, Object.class, String.class);
 
-        Double tmp = switch (arguments[0]) {
-            case Integer integer -> (double) (int) arguments[0];
-            case Double aDouble -> (double) arguments[0];
-            case String s -> Double.parseDouble(s);
-            case null, default -> throw new IllegalArgumentException("Invalid type of argument.");
-        };
-
-        DecimalFormat df = new DecimalFormat(arguments[1].toString());
-        functionContext.stack().push(df.format(tmp));
+        DecimalFormat df = new DecimalFormat((String) arguments[1].getValue());
+        functionContext.stack().push(new ValueWrapper(df.format(arguments[0].asNumber())));
     }
 }

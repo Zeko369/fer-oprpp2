@@ -14,8 +14,4 @@ public abstract class Element {
     public String asText() {
         return "";
     }
-
-    public int asInt() {
-        return Integer.parseInt(this.asText());
-    }
 }

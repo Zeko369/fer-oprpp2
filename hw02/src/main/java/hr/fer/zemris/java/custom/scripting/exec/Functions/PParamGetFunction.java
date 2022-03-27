@@ -8,11 +8,11 @@ public class PParamGetFunction extends BaseFunction {
     }
 
     @Override
-    public void apply(FunctionContext functionContext, Object[] arguments) {
+    public void apply(FunctionContext functionContext, ValueWrapper[] arguments) {
         this.checkArguments(arguments, String.class, Object.class);
 
-        String name = (String) arguments[0];
+        String name = (String) arguments[0].getValue();
         Object value = functionContext.rc().getPersistentParameter(name);
-        functionContext.stack().push(value == null ? arguments[1] : value);
+        functionContext.stack().push(value == null ? arguments[1] : new ValueWrapper(value));
     }
 }

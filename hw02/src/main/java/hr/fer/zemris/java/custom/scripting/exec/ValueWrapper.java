@@ -7,6 +7,10 @@ public class ValueWrapper {
         this.value = value;
     }
 
+    public static ValueWrapper copy(ValueWrapper value) {
+        return new ValueWrapper(value.getValue());
+    }
+
     public Object getValue() {
         return value;
     }
@@ -15,6 +19,7 @@ public class ValueWrapper {
         this.value = value;
     }
 
+    // TODO: Add cast to ValueWrapper where if other is ValueWrapper to auto unbox it
     public void add(Object incValue) {
         Number a = this.coarseIntoNumber(this.value);
         Number b = this.coarseIntoNumber(incValue);
@@ -70,6 +75,10 @@ public class ValueWrapper {
         return (a instanceof Double || b instanceof Double);
     }
 
+    public Number asNumber() {
+        return this.coarseIntoNumber(this.value);
+    }
+
     private Number coarseIntoNumber(Object arg) {
         if (arg == null) {
             return 0;
@@ -95,6 +104,6 @@ public class ValueWrapper {
             return (Double) arg;
         }
 
-        throw new RuntimeException("Argument is not number-like");
+        throw new RuntimeException("Argument is not number-like, but " + arg.getClass().getName());
     }
 }

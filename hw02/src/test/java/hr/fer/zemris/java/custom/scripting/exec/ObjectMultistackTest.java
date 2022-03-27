@@ -37,7 +37,6 @@ class ObjectMultistackTest {
         this.multistack.peek("year").add("5");
         assertEquals(2005, multistack.peek("year").getValue());
 
-        System.out.printf("Before 5 -> %s\n", this.multistack.peek("year").getValue().getClass());
         this.multistack.peek("year").add(5);
         assertEquals(2010, multistack.peek("year").getValue());
 

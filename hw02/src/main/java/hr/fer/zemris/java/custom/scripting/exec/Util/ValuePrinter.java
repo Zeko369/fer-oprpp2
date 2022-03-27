@@ -1,5 +1,6 @@
 package hr.fer.zemris.java.custom.scripting.exec.Util;
 
+@Deprecated
 public class ValuePrinter {
     public static String toString(Object value) {
         if (value instanceof Integer) {
