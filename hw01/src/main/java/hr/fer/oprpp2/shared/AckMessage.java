@@ -14,6 +14,9 @@ public class AckMessage extends Message {
         this.UID = UID;
     }
 
+    public long getUID() {
+        return UID;
+    }
 
     @Override
     public byte getType() {

@@ -16,6 +16,14 @@ public class OutMessage extends Message {
         this.text = text;
     }
 
+    public String getText() {
+        return this.text;
+    }
+
+    public long getUID() {
+        return this.UID;
+    }
+
     @Override
     public byte getType() {
         return OUT_MESSAGE;

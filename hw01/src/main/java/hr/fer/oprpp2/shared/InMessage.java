@@ -16,6 +16,14 @@ public class InMessage extends Message {
         this.text = text;
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
     @Override
     public byte getType() {
         return IN_MESSAGE;

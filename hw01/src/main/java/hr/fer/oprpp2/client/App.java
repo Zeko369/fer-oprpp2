@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.SocketException;
 import java.net.UnknownHostException;
@@ -18,9 +19,10 @@ public class App extends JFrame {
 
     private final String username;
 
-    private SocketClient socketClient = null;
-    private final List<MessageRow> messages = new ArrayList<>();
+    private JTextField input;
+    private final SocketClient socketClient;
     private final JTextArea content;
+    private final List<MessageRow> messages = new ArrayList<>();
 
     public static void main(String[] args) {
         if (args.length < 3) {
@@ -37,26 +39,36 @@ public class App extends JFrame {
             }
         }
 
+        String host = args[0];
+        int port = Integer.parseInt(args[1]);
+        String username = args[2];
+
+        SocketClient socketClient = new SocketClient(host, port);
+        try {
+            socketClient.init();
+            boolean ok = socketClient.join(username);
+            if (!ok) {
+                System.err.println("Couldnt connect to server");
+                System.exit(1);
+            }
+        } catch (SocketException | UnknownHostException e) {
+            e.printStackTrace();
+        }
+
         String finalPosition = position;
         SwingUtilities.invokeLater(() -> {
-            try {
-                new App(args[0], Integer.parseInt(args[1]), args[2], finalPosition).setVisible(true);
-            } catch (UnknownHostException | SocketException e) {
-                e.printStackTrace();
-            }
+            JFrame app = new App(host, port, username, finalPosition, socketClient);
+            app.setVisible(true);
         });
     }
 
-    public App(String host, int port, String username, String position) throws UnknownHostException, SocketException {
+    public App(String host, int port, String username, String position, SocketClient socketClient) {
         FlatLightLaf.setup();
 
         this.host = host;
         this.port = port;
         this.username = username;
-
-        this.socketClient = new SocketClient(this.host, this.port);
-        this.socketClient.init();
-        this.socketClient.join(this.username);
+        this.socketClient = socketClient;
 
         Integer[] pos = Arrays.stream(position.split("x")).map(Integer::parseInt).toArray(Integer[]::new);
         this.setLocation(pos[0], pos[1]);
@@ -71,29 +83,64 @@ public class App extends JFrame {
 
         this.pack();
 
-        this.socketClient.listen();
+        this.socketClient.listen((message) -> {
+            this.messages.add(new MessageRow(message.getIndex(), message.getAuthor(), message.getText()));
+            this.rerender();
+            return null;
+        });
     }
 
     private void rerender() {
         String newContent = this.messages.stream().map((m) -> m.toString(String.format("%s:%d", this.host, this.port))).collect(Collectors.joining());
         this.content.setText(newContent);
+        this.content.setCaretPosition(newContent.length());
     }
 
     private void initUI() {
         Container cp = getContentPane();
         cp.setLayout(new BorderLayout());
 
-        JTextField input = new JTextField();
-        input.addActionListener(this.sendMessage);
-        cp.add(input, "North");
+        this.input = new JTextField();
+        this.input.addActionListener(this.sendMessage);
+        cp.add(this.input, "North");
         cp.add(new JScrollPane(this.content), "Center");
     }
 
-    private final ActionListener sendMessage = e -> {
-        JTextField input = (JTextField) e.getSource();
-        String text = input.getText();
-        input.setText("");
+    // This was disabled since lambdas have access to properties before they are initialized in constructor
+    @SuppressWarnings("Convert2Lambda")
+    private final ActionListener sendMessage = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JTextField input = (JTextField) e.getSource();
+            String text = input.getText();
+            input.setText("");
 
-        this.socketClient.sendMessage(text);
+            new SendWorker(text).execute();
+        }
     };
+
+    private class SendWorker extends SwingWorker<Void, Void> {
+        private final String text;
+
+        public SendWorker(String text) {
+            this.text = text;
+        }
+
+        @Override
+        protected Void doInBackground() throws Exception {
+            App.this.input.setEnabled(false);
+            if (!App.this.socketClient.sendMessage(this.text)) {
+                System.err.println("Couldn't send message");
+                // shutdown
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void done() {
+            App.this.input.setEnabled(true);
+            App.this.input.requestFocus();
+        }
+    }
 }
