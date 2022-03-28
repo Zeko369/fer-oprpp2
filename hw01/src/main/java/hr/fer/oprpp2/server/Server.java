@@ -62,9 +62,10 @@ public class Server {
 
     private void handleHelloMessage(HelloMessage message, DatagramPacket packet) throws IOException {
         System.out.printf("New connection: %s\n", message);
+        Connection connection;
 
         synchronized (this.connections) {
-            Connection connection = this.getConnection(packet.getAddress(), packet.getPort());
+            connection = this.getConnection(packet.getAddress(), packet.getPort());
             if (connection == null) {
                 connection = new Connection(packet.getAddress(),
                         packet.getPort(),
@@ -74,11 +75,11 @@ public class Server {
                 );
                 this.connections.add(connection);
             }
-
-            Message m = new AckMessage(0, connection.uid());
-            DatagramPacket p = new DatagramPacket(m.serialize(), m.serialize().length, packet.getAddress(), packet.getPort());
-            this.dSocket.send(p);
         }
+
+        Message m = new AckMessage(0, connection.uid());
+        DatagramPacket p = new DatagramPacket(m.serialize(), m.serialize().length, packet.getAddress(), packet.getPort());
+        this.dSocket.send(p);
     }
 
     private void handleAckMessage(AckMessage message, DatagramPacket packet) {
@@ -96,9 +97,21 @@ public class Server {
     }
 
     private void handleByeMessage(ByeMessage message, DatagramPacket packet) {
-        Connection connection = this.getConnection(packet.getAddress(), packet.getPort());
-        if (connection != null) {
-            connection.cleanup();
+        Connection connection;
+        synchronized (this.connections) {
+            connection = this.getConnectionByUID(message.getUID());
+            if (connection == null) {
+                return;
+            }
+        }
+
+        if (connection.inCounter().get() + 1 != message.getIndex()) {
+            System.err.println("Received invalid index message");
+        }
+
+        connection.cleanup();
+
+        synchronized (this.connections) {
             this.connections.remove(connection);
         }
     }
@@ -108,6 +121,10 @@ public class Server {
         if (c == null) {
             System.err.println("Received out message from unknown connection");
             return;
+        }
+
+        if (c.inCounter().get() + 1 != message.getIndex()) {
+            System.err.println("Received invalid index message");
         }
 
         this.sendToAll(c.username(), message.getText());
@@ -128,10 +145,7 @@ public class Server {
     }
 
     private void handleInMessage(InMessage message, DatagramPacket packet) {
-//        Connection connection = this.getConnection(packet.getAddress(), packet.getPort());
-//        if (connection != null) {
-        System.out.println(message);
-//        }
+        System.out.println("pass in message");
     }
 
     // util

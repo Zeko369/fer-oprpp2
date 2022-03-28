@@ -11,6 +11,7 @@
     </extension>
     <method v="2">
       <option name="Make" enabled="true" />
+      <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_Delay" />
     </method>
   </configuration>
 </component>

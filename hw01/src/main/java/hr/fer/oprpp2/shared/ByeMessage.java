@@ -14,6 +14,10 @@ public class ByeMessage extends Message {
         this.UID = UID;
     }
 
+    public long getUID() {
+        return UID;
+    }
+
     @Override
     public byte getType() {
         return BYE_MESSAGE;
