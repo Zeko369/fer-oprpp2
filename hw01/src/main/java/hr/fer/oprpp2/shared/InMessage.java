@@ -10,7 +10,7 @@ public class InMessage extends Message {
     private final String author;
 
     public InMessage(long index, String author, String text) {
-        super(index);
+        super(index, Message.IN_MESSAGE);
 
         this.author = author;
         this.text = text;
@@ -22,11 +22,6 @@ public class InMessage extends Message {
 
     public String getAuthor() {
         return author;
-    }
-
-    @Override
-    public byte getType() {
-        return IN_MESSAGE;
     }
 
     @Override
@@ -48,6 +43,7 @@ public class InMessage extends Message {
             long index = d.dis.readLong();
             String author = d.dis.readUTF();
             String text = d.dis.readUTF();
+            d.close();
 
             return new InMessage(index, author, text);
         } catch (IOException e) {

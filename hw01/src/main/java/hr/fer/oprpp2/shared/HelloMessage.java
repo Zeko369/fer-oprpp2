@@ -10,7 +10,7 @@ public class HelloMessage extends Message {
     private final long randomKey;
 
     public HelloMessage(long index, String name, long randomKey) {
-        super(index);
+        super(index, Message.HELLO_MESSAGE);
 
         this.name = name;
         this.randomKey = randomKey;
@@ -22,11 +22,6 @@ public class HelloMessage extends Message {
 
     public long getRandomKey() {
         return this.randomKey;
-    }
-
-    @Override
-    public byte getType() {
-        return HELLO_MESSAGE;
     }
 
     @Override
@@ -48,6 +43,7 @@ public class HelloMessage extends Message {
             long index = d.dis.readLong();
             String name = d.dis.readUTF();
             long randomKey = d.dis.readLong();
+            d.close();
 
             return new HelloMessage(index, name, randomKey);
         } catch (IOException e) {

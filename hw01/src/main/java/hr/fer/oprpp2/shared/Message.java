@@ -2,6 +2,7 @@ package hr.fer.oprpp2.shared;
 
 public abstract class Message {
     private final long index;
+    private final byte type;
 
     public static final byte HELLO_MESSAGE = 1;
     public static final byte ACK_MESSAGE = 2;
@@ -9,8 +10,9 @@ public abstract class Message {
     public static final byte OUT_MESSAGE = 4;
     public static final byte IN_MESSAGE = 5;
 
-    protected Message(long index) {
+    protected Message(long index, byte type) {
         this.index = index;
+        this.type = type;
     }
 
     public long getIndex() {
@@ -23,7 +25,9 @@ public abstract class Message {
         return String.format("[%d]%s", this.index, className.substring(0, className.length() - 7));
     }
 
-    public abstract byte getType();
+    public byte getType() {
+        return this.type;
+    }
 
     public abstract byte[] serialize();
 

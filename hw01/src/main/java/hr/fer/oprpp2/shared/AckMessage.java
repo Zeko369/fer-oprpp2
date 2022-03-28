@@ -5,22 +5,16 @@ import hr.fer.oprpp2.shared.util.Deserializer;
 
 import java.io.IOException;
 
-public class AckMessage extends Message {
+public class AckMessage extends Message implements IHasUID {
     private final long UID;
 
     public AckMessage(long index, long UID) {
-        super(index);
-
+        super(index, Message.ACK_MESSAGE);
         this.UID = UID;
     }
 
     public long getUID() {
         return UID;
-    }
-
-    @Override
-    public byte getType() {
-        return ACK_MESSAGE;
     }
 
     @Override
@@ -40,6 +34,7 @@ public class AckMessage extends Message {
             Deserializer d = new Deserializer(data);
             long index = d.dis.readLong();
             long UID = d.dis.readLong();
+            d.close();
 
             return new AckMessage(index, UID);
         } catch (IOException e) {

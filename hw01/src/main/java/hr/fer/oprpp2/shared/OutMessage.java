@@ -5,12 +5,12 @@ import hr.fer.oprpp2.shared.util.Deserializer;
 
 import java.io.IOException;
 
-public class OutMessage extends Message {
+public class OutMessage extends Message implements IHasUID {
     private final long UID;
     private final String text;
 
     public OutMessage(long index, long UID, String text) {
-        super(index);
+        super(index, Message.OUT_MESSAGE);
 
         this.UID = UID;
         this.text = text;
@@ -22,11 +22,6 @@ public class OutMessage extends Message {
 
     public long getUID() {
         return this.UID;
-    }
-
-    @Override
-    public byte getType() {
-        return OUT_MESSAGE;
     }
 
     @Override
@@ -48,6 +43,7 @@ public class OutMessage extends Message {
             long index = d.dis.readLong();
             long uid = d.dis.readLong();
             String text = d.dis.readUTF();
+            d.close();
 
             return new OutMessage(index, uid, text);
         } catch (IOException e) {
