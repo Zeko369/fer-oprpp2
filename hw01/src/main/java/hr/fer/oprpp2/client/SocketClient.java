@@ -65,10 +65,9 @@ public class SocketClient {
         t.start();
     }
 
-    public boolean sendMessage(String text) throws UnknownHostException {
+    private boolean sendPacket(Message m) throws UnknownHostException {
         int count = 0;
 
-        Message m = new OutMessage(this.messageId.getAndIncrement(), this.uid, text);
         byte[] data = m.serialize();
         DatagramPacket packet = new DatagramPacket(data, data.length);
         packet.setSocketAddress(new InetSocketAddress(InetAddress.getByName(this.host), this.port));
@@ -100,11 +99,23 @@ public class SocketClient {
         return false;
     }
 
+    public boolean sendChatMessage(String text) throws UnknownHostException {
+        return this.sendPacket(new OutMessage(this.messageId.getAndIncrement(), this.uid, text));
+    }
+
     public void init() throws SocketException {
         this.dSocket = new DatagramSocket(null);
         this.dSocket.setSoTimeout(2000);
     }
 
+    /**
+     * NOTE: This is used before queue is activated so here we do a real listen
+     *
+     * @param username
+     * @return
+     * @throws UnknownHostException
+     * @throws SocketException
+     */
     public boolean join(String username) throws UnknownHostException, SocketException {
         Message m = new HelloMessage(this.messageId.incrementAndGet(), username, this.randomKey);
         byte[] data = m.serialize();
@@ -150,6 +161,11 @@ public class SocketClient {
     }
 
     public void disconnect() {
-        this.dSocket.close();
+        try {
+            this.sendPacket(new ByeMessage(this.messageId.incrementAndGet(), this.uid));
+            this.dSocket.close();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
     }
 }

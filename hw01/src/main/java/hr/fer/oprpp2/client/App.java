@@ -4,8 +4,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ public class App extends JFrame {
             socketClient.init();
             boolean ok = socketClient.join(username);
             if (!ok) {
-                System.err.println("Couldnt connect to server");
+                System.err.println("Couldn't connect to server");
                 System.exit(1);
             }
         } catch (SocketException | UnknownHostException e) {
@@ -81,6 +80,13 @@ public class App extends JFrame {
         this.setPreferredSize(new Dimension(500, 500));
         this.initUI();
 
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                socketClient.disconnect();
+            }
+        });
+
         this.pack();
 
         this.socketClient.listen((message) -> {
@@ -112,7 +118,7 @@ public class App extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             JTextField input = (JTextField) e.getSource();
-            String text = input.getText();
+            String text = input.getText().trim();
             input.setText("");
 
             new SendWorker(text).execute();
@@ -129,7 +135,7 @@ public class App extends JFrame {
         @Override
         protected Void doInBackground() throws Exception {
             App.this.input.setEnabled(false);
-            if (!App.this.socketClient.sendMessage(this.text)) {
+            if (!App.this.socketClient.sendChatMessage(this.text)) {
                 System.err.println("Couldn't send message");
                 // shutdown
             }
