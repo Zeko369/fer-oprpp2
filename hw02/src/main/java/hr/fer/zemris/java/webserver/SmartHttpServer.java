@@ -24,6 +24,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
+/**
+ * The type Smart http server.
+ *
+ * @author franzekan
+ */
 public class SmartHttpServer {
     private final String address;
     private final String domainName;
@@ -44,6 +49,11 @@ public class SmartHttpServer {
     private record SessionMapEntry(String sid, String host, long validUntil, Map<String, String> map) {
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         if (args.length < 1) {
             System.out.println("Usage: java SmartHttpServer ./path/to/config.properties");
@@ -65,6 +75,11 @@ public class SmartHttpServer {
         Runtime.getRuntime().addShutdownHook(new Thread(server::stop));
     }
 
+    /**
+     * Instantiates a new Smart http server.
+     *
+     * @param configFileName the config file name
+     */
     public SmartHttpServer(String configFileName) {
         Properties properties = LoadProperties.load(configFileName);
 
@@ -84,17 +99,28 @@ public class SmartHttpServer {
         workersProperties.forEach((key, value) -> this.workersMap.put((String) key, this.workerLoader.get((String) value)));
     }
 
+    /**
+     * Start.
+     */
     protected synchronized void start() {
         this.serverThread.start();
         this.threadPool = Executors.newFixedThreadPool(this.workerThreads);
     }
 
+    /**
+     * Stop.
+     */
     protected synchronized void stop() {
         //noinspection deprecation - TODO: think about a better way to stop the server
         this.serverThread.stop();
         this.threadPool.shutdown();
     }
 
+    /**
+     * The type Server thread.
+     *
+     * @author franzekan
+     */
     protected class ServerThread extends Thread {
         @Override
         public void run() {
@@ -115,18 +141,26 @@ public class SmartHttpServer {
     }
 
     private class ClientWorker implements Runnable, IDispatcher {
-        private final Socket csocket;
+        @SuppressWarnings("FieldCanBeLocal")
         private InputStream istream;
         private OutputStream ostream;
+        private final Socket csocket;
+
         private HTTPRequest request;
-        private final Map<String, String> params = new HashMap<>();
-        private final Map<String, String> tempParams = new HashMap<>();
         private Map<String, String> permPrams;
+        private final Map<String, String> params = new HashMap<>();
 
         private final List<RequestContext.RCCookie> outputCookies = new ArrayList<>();
         private RequestContext rc = null;
+
+        @SuppressWarnings("FieldCanBeLocal")
         private String SID;
 
+        /**
+         * Instantiates a new Client worker.
+         *
+         * @param csocket the csocket
+         */
         public ClientWorker(Socket csocket) {
             super();
             this.csocket = csocket;

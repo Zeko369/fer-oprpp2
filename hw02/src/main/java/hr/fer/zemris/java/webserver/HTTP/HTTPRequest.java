@@ -7,14 +7,35 @@ import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+/**
+ * The type Http request.
+ *
+ * @author franzekan
+ */
 public record HTTPRequest(String version, String urlPath, String queryString, String method,
                           Map<String, String> headers) {
+    /**
+     * The type Http request exception.
+     *
+     * @author franzekan
+     */
     public static class HTTPRequestException extends RuntimeException {
+        /**
+         * Instantiates a new Http request exception.
+         *
+         * @param message the message
+         */
         public HTTPRequestException(String message) {
             super(message);
         }
     }
 
+    /**
+     * Gets host or default.
+     *
+     * @param defaultValue the default value
+     * @return the host or default
+     */
     public String getHostOrDefault(String defaultValue) {
         String host = this.headers.get("Host");
         if (host == null) {
@@ -28,7 +49,13 @@ public record HTTPRequest(String version, String urlPath, String queryString, St
         return host;
     }
 
-    // TODO: support for multiple key params into arrays
+    /**
+     * Gets query.
+     * <p>
+     * TODO: support for multiple key params into arrays
+     *
+     * @return the query
+     */
     public Map<String, String> getQuery() {
         if (queryString == null || queryString.isEmpty()) {
             return Collections.emptyMap();
@@ -45,6 +72,14 @@ public record HTTPRequest(String version, String urlPath, String queryString, St
 
     // STATIC HELPERS
 
+    /**
+     * From stream http request.
+     *
+     * @param inputStream the input stream
+     * @return the http request
+     * @throws HTTPRequestException  the http request exception
+     * @throws MalformedURLException the malformed url exception
+     */
     public static HTTPRequest fromStream(InputStream inputStream) throws HTTPRequestException, MalformedURLException {
         byte[] raw;
         try {

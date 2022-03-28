@@ -2,7 +2,15 @@ package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
 import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 
+/**
+ * Function used to delete cookie
+ *
+ * @author franzekan
+ */
 public class PParamDeleteFunction extends BaseFunction {
+    /**
+     * Instantiates a new P param delete function.
+     */
     public PParamDeleteFunction() {
         super(2);
     }

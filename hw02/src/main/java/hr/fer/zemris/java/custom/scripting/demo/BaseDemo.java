@@ -4,7 +4,18 @@ import hr.fer.zemris.java.custom.scripting.shared.FileLoader;
 
 import java.io.FileNotFoundException;
 
+/**
+ * The type Base demo.
+ *
+ * @author franzekan
+ */
 public abstract class BaseDemo {
+    /**
+     * Simple class used to read the file or print a message if the file is not found / path not provided.
+     *
+     * @param args the args
+     * @return the content
+     */
     public String getContent(String[] args) {
         if (args.length == 0) {
             System.out.println("Usage: EngineDemo <file>");

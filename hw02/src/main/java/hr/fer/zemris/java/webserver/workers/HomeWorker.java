@@ -3,6 +3,11 @@ package hr.fer.zemris.java.webserver.workers;
 import hr.fer.zemris.java.webserver.IWebWorker;
 import hr.fer.zemris.java.webserver.RequestContext;
 
+/**
+ * The type Home worker.
+ *
+ * @author franzekan
+ */
 public class HomeWorker implements IWebWorker {
     @Override
     public void processRequest(RequestContext context) throws Exception {

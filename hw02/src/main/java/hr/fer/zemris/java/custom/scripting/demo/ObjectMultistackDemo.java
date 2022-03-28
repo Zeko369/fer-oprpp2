@@ -3,7 +3,17 @@ package hr.fer.zemris.java.custom.scripting.demo;
 import hr.fer.zemris.java.custom.scripting.exec.ObjectMultistack;
 import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 
+/**
+ * The type Object multistack demo.
+ *
+ * @author franzekan
+ */
 public class ObjectMultistackDemo {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         ObjectMultistack multistack = new ObjectMultistack();
         ValueWrapper year = new ValueWrapper(2000);

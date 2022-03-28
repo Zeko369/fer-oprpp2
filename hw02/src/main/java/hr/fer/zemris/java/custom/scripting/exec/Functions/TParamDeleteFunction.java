@@ -2,7 +2,15 @@ package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
 import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 
+/**
+ * The type T param delete function.
+ *
+ * @author franzekan
+ */
 public class TParamDeleteFunction extends BaseFunction {
+    /**
+     * Instantiates a new T param delete function.
+     */
     public TParamDeleteFunction() {
         super(2);
     }

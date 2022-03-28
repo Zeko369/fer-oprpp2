@@ -5,7 +5,18 @@ import hr.fer.zemris.java.webserver.SmartHttpServerException;
 import java.io.*;
 import java.util.Properties;
 
+/**
+ * The type Load properties.
+ *
+ * @author franzekan
+ */
 public class LoadProperties {
+    /**
+     * Load properties.
+     *
+     * @param filename the filename
+     * @return the properties
+     */
     public static Properties load(String filename) {
         Properties properties = new Properties();
 

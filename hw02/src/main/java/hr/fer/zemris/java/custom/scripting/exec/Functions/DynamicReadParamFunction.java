@@ -2,7 +2,16 @@ package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
 import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 
+/**
+ * Dynamically read from params by adding 2 strings together
+ * Usage: <code>dynamicRead(x, y)</code>
+ *
+ * @author franzekan
+ */
 public class DynamicReadParamFunction extends BaseFunction {
+    /**
+     * Instantiates a new Dynamic read param function.
+     */
     public DynamicReadParamFunction() {
         super(2);
     }

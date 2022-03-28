@@ -2,6 +2,11 @@ package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
 import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 
+/**
+ * The type Swap function.
+ *
+ * @author franzekan
+ */
 public class SwapFunction extends BaseFunction {
     @Override
     public void apply(FunctionContext functionContext, ValueWrapper[] arguments) {

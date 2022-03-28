@@ -5,9 +5,15 @@ import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 import java.text.DecimalFormat;
 
 /**
- * decfmt(x, f)
+ * The type Dec fmt function.
+ * Usage: <code>decfmt(value, pattern)</code>
+ *
+ * @author franzekan
  */
 public class DecFMTFunction extends BaseFunction {
+    /**
+     * Instantiates a new Dec fmt function.
+     */
     public DecFMTFunction() {
         super(2);
     }

@@ -8,11 +8,26 @@ import hr.fer.zemris.java.webserver.RequestContext;
 import java.io.File;
 import java.util.*;
 
+/**
+ * The type Engine demo.
+ *
+ * @author franzekan
+ */
 public class EngineDemo extends BaseDemo {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         new EngineDemo().run(args);
     }
 
+    /**
+     * Run.
+     *
+     * @param args the args
+     */
     public void run(String[] args) {
         String code = this.getContent(args);
 

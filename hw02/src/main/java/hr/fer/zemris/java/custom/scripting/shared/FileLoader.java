@@ -15,11 +15,19 @@ public class FileLoader {
      *
      * @param filename the filename
      * @return the string
+     * @throws FileNotFoundException the file not found exception
      */
     public static String loadCode(String filename) throws FileNotFoundException {
         return FileLoader.loadCode(new File(filename));
     }
 
+    /**
+     * Load code string.
+     *
+     * @param file the file
+     * @return the string
+     * @throws FileNotFoundException the file not found exception
+     */
     public static String loadCode(File file) throws FileNotFoundException {
         StringBuilder sb = new StringBuilder();
 

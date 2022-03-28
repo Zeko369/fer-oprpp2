@@ -3,6 +3,11 @@ package hr.fer.zemris.java.webserver.workers;
 import hr.fer.zemris.java.webserver.IWebWorker;
 import hr.fer.zemris.java.webserver.RequestContext;
 
+/**
+ * The type Sum worker.
+ *
+ * @author franzekan
+ */
 public class SumWorker implements IWebWorker {
     private static final String[] IMAGE_NAMES = {"image.png", "image2.png"};
 

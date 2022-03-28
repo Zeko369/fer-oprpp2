@@ -7,6 +7,11 @@ import java.util.Date;
 import hr.fer.zemris.java.webserver.IWebWorker;
 import hr.fer.zemris.java.webserver.RequestContext;
 
+/**
+ * The type Hello worker.
+ *
+ * @author franzekan
+ */
 public class HelloWorker implements IWebWorker {
     @Override
     public void processRequest(RequestContext context) {

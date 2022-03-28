@@ -2,7 +2,15 @@ package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
 import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 
+/**
+ * The type T param get function.
+ *
+ * @author franzekan
+ */
 public class TParamGetFunction extends BaseFunction {
+    /**
+     * Instantiates a new T param get function.
+     */
     public TParamGetFunction() {
         super(2);
     }

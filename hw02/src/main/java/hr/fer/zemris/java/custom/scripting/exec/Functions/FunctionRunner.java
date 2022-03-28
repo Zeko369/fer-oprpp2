@@ -5,6 +5,11 @@ import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Container class for all functions
+ *
+ * @author franzekan
+ */
 public class FunctionRunner {
     private static final Map<String, BaseFunction> functions = new HashMap<>();
 
@@ -25,6 +30,12 @@ public class FunctionRunner {
         functions.put("dynamicRead", new DynamicReadParamFunction());
     }
 
+    /**
+     * Run.
+     *
+     * @param name    the name
+     * @param context the context
+     */
     public static void run(String name, FunctionContext context) {
         BaseFunction function = functions.get(name);
         if (function == null) {

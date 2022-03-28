@@ -10,7 +10,18 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * The type Demo request context.
+ *
+ * @author franzekan
+ */
 public class DemoRequestContext {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException the io exception
+     */
     public static void main(String[] args) throws IOException {
         demo1("primjer1.txt", "ISO-8859-2");
         demo1("primjer2.txt", "UTF-8");
@@ -39,7 +50,8 @@ public class DemoRequestContext {
         rc.setStatus(new HTTPStatus(205, "Idemo dalje"));
         rc.addRCCookie(new RequestContext.RCCookie("korisnik", "perica", 3600, "127.0.0.1", "/", true));
         rc.addRCCookie(new RequestContext.RCCookie("zgrada", "B4", null, null, "/", true));
-// Only at this point will header be created and written...
+
+        // Only at this point will header be created and written...
         rc.write("Čevapčići i Šiščevapčići.");
         os.close();
 

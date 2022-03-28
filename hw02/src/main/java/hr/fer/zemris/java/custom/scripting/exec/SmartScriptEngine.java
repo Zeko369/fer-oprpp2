@@ -3,13 +3,17 @@ package hr.fer.zemris.java.custom.scripting.exec;
 import hr.fer.zemris.java.custom.scripting.elems.*;
 import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionContext;
 import hr.fer.zemris.java.custom.scripting.exec.Functions.FunctionRunner;
-import hr.fer.zemris.java.custom.scripting.exec.Util.ValuePrinter;
 import hr.fer.zemris.java.custom.scripting.node.*;
 import hr.fer.zemris.java.webserver.RequestContext;
 
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * The type Smart script engine.
+ *
+ * @author franzekan
+ */
 public class SmartScriptEngine {
     private final DocumentNode documentNode;
     private final RequestContext requestContext;
@@ -104,12 +108,21 @@ public class SmartScriptEngine {
         }
     };
 
+    /**
+     * Instantiates a new Smart script engine.
+     *
+     * @param documentNode   the document node
+     * @param requestContext the request context
+     */
     public SmartScriptEngine(DocumentNode documentNode, RequestContext requestContext) {
         this.documentNode = documentNode;
         this.requestContext = requestContext;
         this.requestContext.getTemporaryParameterNames().forEach((k) -> stack.push(k, new ValueWrapper(this.requestContext.getTemporaryParameter(k))));
     }
 
+    /**
+     * Execute.
+     */
     public void execute() {
         this.documentNode.accept(this.visitor);
     }

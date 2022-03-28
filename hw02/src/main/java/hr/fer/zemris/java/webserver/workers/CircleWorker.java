@@ -9,9 +9,14 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+/**
+ * The type Circle worker.
+ *
+ * @author franzekan
+ */
 public class CircleWorker implements IWebWorker {
     @Override
-    public void processRequest(RequestContext context) throws Exception {
+    public void processRequest(RequestContext context) {
         BufferedImage bim = new BufferedImage(200, 200, BufferedImage.TYPE_3BYTE_BGR);
         Graphics2D g2d = bim.createGraphics();
 

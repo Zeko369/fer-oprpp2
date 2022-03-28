@@ -5,6 +5,11 @@ import hr.fer.zemris.java.webserver.RequestContext;
 
 import java.io.IOException;
 
+/**
+ * The type Echo params.
+ *
+ * @author franzekan
+ */
 public class EchoParams implements IWebWorker {
     @Override
     public void processRequest(RequestContext context) throws Exception {

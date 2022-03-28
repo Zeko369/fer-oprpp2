@@ -3,6 +3,11 @@ package hr.fer.zemris.java.custom.scripting.demo;
 import hr.fer.zemris.java.custom.scripting.node.*;
 import hr.fer.zemris.java.custom.scripting.parser.SmartScriptParser;
 
+/**
+ * The type Tree writer.
+ *
+ * @author franzekan
+ */
 public class TreeWriter extends BaseDemo {
     private static class WriterVisitor implements INodeVisitor {
         @Override
@@ -36,10 +41,20 @@ public class TreeWriter extends BaseDemo {
         }
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         new TreeWriter().run(args);
     }
 
+    /**
+     * Run.
+     *
+     * @param args the args
+     */
     public void run(String[] args) {
         String code = this.getContent(args);
         SmartScriptParser p = new SmartScriptParser(code);

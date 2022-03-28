@@ -1,25 +1,56 @@
 package hr.fer.zemris.java.custom.scripting.exec;
 
+/**
+ * The type Value wrapper.
+ *
+ * @author franzekan
+ */
 public class ValueWrapper {
     private Object value;
 
+    /**
+     * Instantiates a new Value wrapper.
+     *
+     * @param value the value
+     */
     public ValueWrapper(Object value) {
         this.value = value;
     }
 
+    /**
+     * Copy value wrapper.
+     *
+     * @param value the value
+     * @return the value wrapper
+     */
     public static ValueWrapper copy(ValueWrapper value) {
         return new ValueWrapper(value.getValue());
     }
 
+    /**
+     * Gets value.
+     *
+     * @return the value
+     */
     public Object getValue() {
         return value;
     }
 
+    /**
+     * Sets value.
+     *
+     * @param value the value
+     */
     public void setValue(Object value) {
         this.value = value;
     }
 
-    // TODO: Add cast to ValueWrapper where if other is ValueWrapper to auto unbox it
+    /**
+     * Add.
+     *
+     * @param incValue the inc value
+     */
+// TODO: Add cast to ValueWrapper where if other is ValueWrapper to auto unbox it
     public void add(Object incValue) {
         Number a = this.coarseIntoNumber(this.value);
         Number b = this.coarseIntoNumber(incValue);
@@ -31,6 +62,11 @@ public class ValueWrapper {
         }
     }
 
+    /**
+     * Subtract.
+     *
+     * @param decValue the dec value
+     */
     public void subtract(Object decValue) {
         Number a = this.coarseIntoNumber(this.value);
         Number b = this.coarseIntoNumber(decValue);
@@ -42,6 +78,11 @@ public class ValueWrapper {
         }
     }
 
+    /**
+     * Multiply.
+     *
+     * @param mulValue the mul value
+     */
     public void multiply(Object mulValue) {
         Number a = this.coarseIntoNumber(this.value);
         Number b = this.coarseIntoNumber(mulValue);
@@ -53,6 +94,11 @@ public class ValueWrapper {
         }
     }
 
+    /**
+     * Divide.
+     *
+     * @param divValue the div value
+     */
     public void divide(Object divValue) {
         Number a = this.coarseIntoNumber(this.value);
         Number b = this.coarseIntoNumber(divValue);
@@ -64,6 +110,12 @@ public class ValueWrapper {
         }
     }
 
+    /**
+     * Num compare int.
+     *
+     * @param withValue the with value
+     * @return the int
+     */
     public int numCompare(Object withValue) {
         Number a = this.coarseIntoNumber(this.value);
         Number b = this.coarseIntoNumber(withValue);
@@ -75,6 +127,11 @@ public class ValueWrapper {
         return (a instanceof Double || b instanceof Double);
     }
 
+    /**
+     * As number number.
+     *
+     * @return the number
+     */
     public Number asNumber() {
         return this.coarseIntoNumber(this.value);
     }

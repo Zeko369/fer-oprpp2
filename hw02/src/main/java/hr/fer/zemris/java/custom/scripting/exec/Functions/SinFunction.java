@@ -2,7 +2,15 @@ package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
 import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 
+/**
+ * The type Sin function.
+ *
+ * @author franzekan
+ */
 public class SinFunction extends BaseFunction {
+    /**
+     * Instantiates a new Sin function.
+     */
     public SinFunction() {
         super(1);
     }

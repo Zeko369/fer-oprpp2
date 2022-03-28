@@ -4,8 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Finish server stuff">
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; JavaDoc the crap out of this homework">
+      <change beforePath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/BaseDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/BaseDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/DemoRequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/DemoRequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/ObjectMultistackDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/ObjectMultistackDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/TreeWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/BaseFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/BaseFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DecFMTFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DecFMTFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DuplicateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DuplicateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DynamicReadParamFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/DynamicReadParamFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/EqFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/EqFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/FunctionRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamDeleteFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamDeleteFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamGetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamSetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/PParamSetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/ParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/ParamGetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SetMimeTypeFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SetMimeTypeFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SinFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SinFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SwapFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/SwapFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamDeleteFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamDeleteFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamGetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamGetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamSetFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Functions/TParamSetFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ObjectMultistack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ObjectMultistack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/SmartScriptEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Util/TypeCast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/Util/TypeCast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ValueWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/exec/ValueWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/INodeVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/INodeVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/node/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/shared/FileLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/shared/FileLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPVersion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPVersion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/IDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/IDispatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/IWebWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/IWebWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServerException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/Util/LoadProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/Util/LoadProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/Util/WorkerLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/Util/WorkerLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/BgColorWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/BgColorWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/CircleWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/CircleWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/EchoParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/EchoParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/HelloWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/HelloWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/HomeWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/HomeWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/SumWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/SumWorker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +112,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="ignore.preview.features.used" value="true" />
     <property name="last.edited.regexp" value="123456" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -71,7 +120,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -301,6 +350,7 @@
       <workItem from="1648053948083" duration="10555000" />
       <workItem from="1648228409122" duration="13174000" />
       <workItem from="1648248057443" duration="41293000" />
+      <workItem from="1648427857512" duration="804000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -601,7 +651,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[hw02] -&gt; Fibonacci + fix for loop" />
     <MESSAGE value="[hw02] -&gt; Fibonacci HTML example" />
     <MESSAGE value="[hw02] -&gt; Scaffold SmartHttpServer" />
     <MESSAGE value="[hw02] -&gt; Cleanup code" />
@@ -626,7 +675,8 @@
     <MESSAGE value="[hw02] -&gt; Demo files cleanup" />
     <MESSAGE value="[hw02] -&gt; Refactor into ValueWrapper " />
     <MESSAGE value="[hw02] -&gt; Finish server stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Finish server stuff" />
+    <MESSAGE value="[hw02] -&gt; JavaDoc the crap out of this homework" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; JavaDoc the crap out of this homework" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -50,7 +50,11 @@ public abstract class Node {
         return this.children.get(index);
     }
 
-    // TODO: JavaDoc
+    /**
+     * Accept.
+     *
+     * @param visitor the visitor
+     */
     public abstract void accept(INodeVisitor visitor);
 
     /**

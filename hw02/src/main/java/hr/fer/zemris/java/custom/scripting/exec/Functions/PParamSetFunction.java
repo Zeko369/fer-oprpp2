@@ -2,7 +2,15 @@ package hr.fer.zemris.java.custom.scripting.exec.Functions;
 
 import hr.fer.zemris.java.custom.scripting.exec.ValueWrapper;
 
+/**
+ * Set cookie
+ *
+ * @author franzekan
+ */
 public class PParamSetFunction extends BaseFunction {
+    /**
+     * Instantiates a new P param set function.
+     */
     public PParamSetFunction() {
         super(2);
     }
