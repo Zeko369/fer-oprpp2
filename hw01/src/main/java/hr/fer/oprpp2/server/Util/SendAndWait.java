@@ -34,7 +34,7 @@ public class SendAndWait {
             try {
                 socket.send(packet);
             } catch (IOException e) {
-                System.err.println("Error sending packet");
+                System.err.printf("[error]: Error sending packet, %d tries left.", 5 - tries);
                 tries++;
                 continue;
             }
@@ -46,17 +46,15 @@ public class SendAndWait {
                     continue;
                 }
 
-                System.out.println("Got something");
-
                 if (received.getType() == Message.ACK_MESSAGE) {
                     AckMessage ack = (AckMessage) received;
                     if (ack.getIndex() == m.getIndex() && ack.getUID() == c.uid()) {
-                        System.out.println("Go back ACK");
+                        System.out.printf("[info]: Message sent successfully. [%d, user:%d]\n", m.getIndex(), c.uid());
                         return;
                     }
                 }
             } catch (InterruptedException e) {
-                System.err.println("Error sending packet");
+                System.err.printf("[error]: Error sending packet, %d tries left.", 5 - tries);
             }
 
             tries++;

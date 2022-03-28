@@ -58,8 +58,7 @@ public class Server {
                 continue;
             }
 
-            System.out.println(message);
-
+            System.out.printf("[debug] %s\n", message);
             try {
                 switch (message.getType()) {
                     case Message.HELLO_MESSAGE -> this.handleHelloMessage((HelloMessage) message, packet);
@@ -75,7 +74,7 @@ public class Server {
     }
 
     private void handleHelloMessage(HelloMessage message, DatagramPacket packet) throws IOException {
-        System.out.printf("New connection: %s\n", message);
+        System.out.printf("[log] New connection: %s\n", message);
         Connection connection;
 
         synchronized (this.connections) {
@@ -101,7 +100,7 @@ public class Server {
         }
 
         if (connection == null) {
-            System.err.printf("Received ACK for unknown connection: %s\n", message);
+            System.err.printf("[error] Received ACK for unknown connection: %s\n", message);
             return;
         }
 
@@ -117,7 +116,7 @@ public class Server {
             }
         }
 
-//        if (connection.inCounter().get() + 1 != message.getIndex()) {
+//        if (connection.outCounter().incrementAndGet() != message.getIndex()) {
 //            System.err.println("Received invalid index message");
 //        }
 
@@ -136,9 +135,9 @@ public class Server {
             return;
         }
 
-//        if (connection.inCounter().get() + 1 != message.getIndex()) {
-//            System.err.println("Received invalid index message");
-//        }
+        if (connection.outCounter().incrementAndGet() != message.getIndex()) {
+            System.err.println("Received invalid index message");
+        }
 
         this.sendToAll(connection.username(), message.getText());
         this.sendToConnection(connection, new AckMessage(message.getIndex(), connection.uid()));
@@ -158,7 +157,7 @@ public class Server {
     }
 
     private void handleInMessage(InMessage message, DatagramPacket packet) {
-        System.out.println("pass in message");
+        System.out.println("[log]: Go in Message, passing...");
     }
 
     // util

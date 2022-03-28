@@ -84,6 +84,6 @@ public record Connection(
      * Cleanup.
      */
     public void cleanup() {
-        System.out.println("Connection closed");
+        System.out.printf("[user:%d] Connection closed\n", this.uid);
     }
 }
