@@ -12,10 +12,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type App.
+ *
+ * @author franzekan
+ */
 public class App extends JFrame {
     private final String host;
     private final int port;
 
+    @SuppressWarnings("FieldCanBeLocal")
     private final String username;
 
     private JTextField input;
@@ -23,6 +29,11 @@ public class App extends JFrame {
     private final JTextArea content;
     private final List<MessageRow> messages = new ArrayList<>();
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         if (args.length < 3) {
             System.err.println("Usage: java -jar chat-client.jar <host> <port> <username>");
@@ -61,6 +72,15 @@ public class App extends JFrame {
         });
     }
 
+    /**
+     * Instantiates a new App.
+     *
+     * @param host         the host
+     * @param port         the port
+     * @param username     the username
+     * @param position     the position
+     * @param socketClient the socket client
+     */
     public App(String host, int port, String username, String position, SocketClient socketClient) {
         FlatLightLaf.setup();
 
@@ -128,6 +148,11 @@ public class App extends JFrame {
     private class SendWorker extends SwingWorker<Void, Void> {
         private final String text;
 
+        /**
+         * Instantiates a new Send worker.
+         *
+         * @param text the text
+         */
         public SendWorker(String text) {
             this.text = text;
         }

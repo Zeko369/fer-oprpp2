@@ -5,10 +5,22 @@ import hr.fer.oprpp2.shared.util.Deserializer;
 
 import java.io.IOException;
 
+/**
+ * The type Hello message.
+ *
+ * @author franzekan
+ */
 public class HelloMessage extends Message {
     private final String name;
     private final long randomKey;
 
+    /**
+     * Instantiates a new Hello message.
+     *
+     * @param index     the index
+     * @param name      the name
+     * @param randomKey the random key
+     */
     public HelloMessage(long index, String name, long randomKey) {
         super(index, Message.HELLO_MESSAGE);
 
@@ -16,10 +28,20 @@ public class HelloMessage extends Message {
         this.randomKey = randomKey;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Gets random key.
+     *
+     * @return the random key
+     */
     public long getRandomKey() {
         return this.randomKey;
     }
@@ -37,6 +59,12 @@ public class HelloMessage extends Message {
         }
     }
 
+    /**
+     * Deserialize hello message.
+     *
+     * @param data the data
+     * @return the hello message
+     */
     public static HelloMessage deserialize(byte[] data) {
         try {
             Deserializer d = new Deserializer(data);

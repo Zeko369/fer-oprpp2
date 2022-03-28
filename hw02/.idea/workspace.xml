@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; JavaDoc the crap out of this homework" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Add launch chrome when starting" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,7 +301,7 @@
       <workItem from="1648053948083" duration="10555000" />
       <workItem from="1648228409122" duration="13174000" />
       <workItem from="1648248057443" duration="41293000" />
-      <workItem from="1648427857512" duration="957000" />
+      <workItem from="1648427857512" duration="1122000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -590,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648428668740</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="[hw02] -&gt; Add launch chrome when starting">
+      <created>1648428869906</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1648428869906</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +616,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[hw02] -&gt; Fibonacci HTML example" />
     <MESSAGE value="[hw02] -&gt; Scaffold SmartHttpServer" />
     <MESSAGE value="[hw02] -&gt; Cleanup code" />
     <MESSAGE value="[hw02] -&gt; Wip get a server working, kinda" />
@@ -634,7 +640,8 @@
     <MESSAGE value="[hw02] -&gt; Refactor into ValueWrapper " />
     <MESSAGE value="[hw02] -&gt; Finish server stuff" />
     <MESSAGE value="[hw02] -&gt; JavaDoc the crap out of this homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; JavaDoc the crap out of this homework" />
+    <MESSAGE value="[hw02] -&gt; Add launch chrome when starting" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw02] -&gt; Add launch chrome when starting" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

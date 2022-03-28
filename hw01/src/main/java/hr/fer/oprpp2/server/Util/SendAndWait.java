@@ -8,7 +8,21 @@ import java.io.IOException;
 import java.net.*;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The type Send and wait.
+ *
+ * @author franzekan
+ */
 public class SendAndWait {
+    /**
+     * Send.
+     *
+     * @param socket the socket
+     * @param m      the m
+     * @param c      the c
+     * @throws SocketException      the socket exception
+     * @throws UnknownHostException the unknown host exception
+     */
     public static void send(DatagramSocket socket, Message m, Connection c) throws SocketException, UnknownHostException {
         int tries = 0;
 

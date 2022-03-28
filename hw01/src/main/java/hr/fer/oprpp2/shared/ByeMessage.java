@@ -5,9 +5,20 @@ import hr.fer.oprpp2.shared.util.Deserializer;
 
 import java.io.IOException;
 
+/**
+ * The type Bye message.
+ *
+ * @author franzekan
+ */
 public class ByeMessage extends Message implements IHasUID {
     private final long UID;
 
+    /**
+     * Instantiates a new Bye message.
+     *
+     * @param index the index
+     * @param UID   the uid
+     */
     public ByeMessage(long index, long UID) {
         super(index, Message.BYE_MESSAGE);
 
@@ -30,6 +41,12 @@ public class ByeMessage extends Message implements IHasUID {
         }
     }
 
+    /**
+     * Deserialize bye message.
+     *
+     * @param data the data
+     * @return the bye message
+     */
     public static ByeMessage deserialize(byte[] data) {
         try {
             Deserializer d = new Deserializer(data);

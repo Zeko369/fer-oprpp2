@@ -1,6 +1,16 @@
 package hr.fer.oprpp2.server;
 
+/**
+ * The type Main.
+ *
+ * @author franzekan
+ */
 public class Main {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Usage: java -jar chat-server.jar <port>");

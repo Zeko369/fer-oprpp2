@@ -9,6 +9,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * The type Server.
+ *
+ * @author franzekan
+ */
 public class Server {
     private final int port;
     private final DatagramSocket dSocket;
@@ -16,6 +21,12 @@ public class Server {
     private final AtomicLong uidSequence = new AtomicLong(new Random().nextLong());
     private final List<Connection> connections;
 
+    /**
+     * Instantiates a new Server.
+     *
+     * @param port the port
+     * @throws SocketException the socket exception
+     */
     public Server(int port) throws SocketException {
         this.port = port;
         this.connections = new ArrayList<>();
@@ -24,6 +35,9 @@ public class Server {
         this.dSocket.bind(new InetSocketAddress((InetAddress) null, port));
     }
 
+    /**
+     * Listen.
+     */
     public void listen() {
         System.out.println("Listening on port " + this.port);
 
@@ -77,9 +91,7 @@ public class Server {
             }
         }
 
-        Message m = new AckMessage(0, connection.uid());
-        DatagramPacket p = new DatagramPacket(m.serialize(), m.serialize().length, packet.getAddress(), packet.getPort());
-        this.dSocket.send(p);
+        this.sendToConnection(connection, new AckMessage(0, connection.uid()));
     }
 
     private void handleAckMessage(AckMessage message, DatagramPacket packet) {
@@ -96,7 +108,7 @@ public class Server {
         connection.outboundMessages().add(message);
     }
 
-    private void handleByeMessage(ByeMessage message, DatagramPacket packet) {
+    private void handleByeMessage(ByeMessage message, DatagramPacket packet) throws IOException {
         Connection connection;
         synchronized (this.connections) {
             connection = this.getConnectionByUID(message.getUID());
@@ -105,10 +117,11 @@ public class Server {
             }
         }
 
-        if (connection.inCounter().get() + 1 != message.getIndex()) {
-            System.err.println("Received invalid index message");
-        }
+//        if (connection.inCounter().get() + 1 != message.getIndex()) {
+//            System.err.println("Received invalid index message");
+//        }
 
+        this.sendToConnection(connection, new AckMessage(message.getIndex(), connection.uid()));
         connection.cleanup();
 
         synchronized (this.connections) {
@@ -117,18 +130,18 @@ public class Server {
     }
 
     private void handleOutMessage(OutMessage message, DatagramPacket packet) throws IOException {
-        Connection c = this.getConnectionByUID(message.getUID());
-        if (c == null) {
+        Connection connection = this.getConnectionByUID(message.getUID());
+        if (connection == null) {
             System.err.println("Received out message from unknown connection");
             return;
         }
 
-        if (c.inCounter().get() + 1 != message.getIndex()) {
-            System.err.println("Received invalid index message");
-        }
+//        if (connection.inCounter().get() + 1 != message.getIndex()) {
+//            System.err.println("Received invalid index message");
+//        }
 
-        this.sendToAll(c.username(), message.getText());
-        this.sendToConnection(c, new AckMessage(message.getIndex(), c.uid()));
+        this.sendToAll(connection.username(), message.getText());
+        this.sendToConnection(connection, new AckMessage(message.getIndex(), connection.uid()));
     }
 
     private void sendToConnection(Connection c, Message m) throws IOException {

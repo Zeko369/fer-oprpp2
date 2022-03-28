@@ -5,10 +5,22 @@ import hr.fer.oprpp2.shared.util.Deserializer;
 
 import java.io.IOException;
 
+/**
+ * The type In message.
+ *
+ * @author franzekan
+ */
 public class InMessage extends Message {
     private final String text;
     private final String author;
 
+    /**
+     * Instantiates a new In message.
+     *
+     * @param index  the index
+     * @param author the author
+     * @param text   the text
+     */
     public InMessage(long index, String author, String text) {
         super(index, Message.IN_MESSAGE);
 
@@ -16,10 +28,20 @@ public class InMessage extends Message {
         this.text = text;
     }
 
+    /**
+     * Gets text.
+     *
+     * @return the text
+     */
     public String getText() {
         return text;
     }
 
+    /**
+     * Gets author.
+     *
+     * @return the author
+     */
     public String getAuthor() {
         return author;
     }
@@ -37,6 +59,12 @@ public class InMessage extends Message {
         }
     }
 
+    /**
+     * Deserialize in message.
+     *
+     * @param data the data
+     * @return the in message
+     */
     public static InMessage deserialize(byte[] data) {
         try {
             Deserializer d = new Deserializer(data);

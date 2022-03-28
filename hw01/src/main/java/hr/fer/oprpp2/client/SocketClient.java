@@ -11,6 +11,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Function;
 
+/**
+ * The type Socket client.
+ *
+ * @author franzekan
+ */
 public class SocketClient {
     private final String host;
     private final int port;
@@ -23,6 +28,12 @@ public class SocketClient {
     private final long randomKey;
     private long uid;
 
+    /**
+     * Instantiates a new Socket client.
+     *
+     * @param host the host
+     * @param port the port
+     */
     public SocketClient(String host, int port) {
         this.host = host;
         this.port = port;
@@ -30,6 +41,11 @@ public class SocketClient {
         this.randomKey = (new Random()).nextLong();
     }
 
+    /**
+     * Listen.
+     *
+     * @param callback the callback
+     */
     public void listen(Function<InMessage, Void> callback) {
         Thread t = new Thread(() -> {
             byte[] data = new byte[1024 * 8];
@@ -56,6 +72,8 @@ public class SocketClient {
                         case Message.ACK_MESSAGE -> this.inQueue.put(m);
                     }
                 } catch (SocketTimeoutException e) {
+                    //noinspection UnnecessaryContinue
+                    continue;
                 } catch (IOException | InterruptedException e) {
                     System.err.println("Error while receiving packet: " + e.getMessage());
                 }
@@ -73,6 +91,7 @@ public class SocketClient {
         packet.setSocketAddress(new InetSocketAddress(InetAddress.getByName(this.host), this.port));
 
         while (count < 5) {
+            System.out.println("Sending packet " + m);
             try {
                 this.dSocket.send(packet);
             } catch (IOException e) {
@@ -99,10 +118,22 @@ public class SocketClient {
         return false;
     }
 
+    /**
+     * Send chat message boolean.
+     *
+     * @param text the text
+     * @return the boolean
+     * @throws UnknownHostException the unknown host exception
+     */
     public boolean sendChatMessage(String text) throws UnknownHostException {
         return this.sendPacket(new OutMessage(this.messageId.getAndIncrement(), this.uid, text));
     }
 
+    /**
+     * Init.
+     *
+     * @throws SocketException the socket exception
+     */
     public void init() throws SocketException {
         this.dSocket = new DatagramSocket(null);
         this.dSocket.setSoTimeout(2000);
@@ -111,10 +142,10 @@ public class SocketClient {
     /**
      * NOTE: This is used before queue is activated so here we do a real listen
      *
-     * @param username
-     * @return
-     * @throws UnknownHostException
-     * @throws SocketException
+     * @param username the username
+     * @return boolean boolean
+     * @throws UnknownHostException the unknown host exception
+     * @throws SocketException      the socket exception
      */
     public boolean join(String username) throws UnknownHostException, SocketException {
         Message m = new HelloMessage(this.messageId.incrementAndGet(), username, this.randomKey);
@@ -160,10 +191,14 @@ public class SocketClient {
         return false;
     }
 
+    /**
+     * Disconnect.
+     */
     public void disconnect() {
         try {
             this.sendPacket(new ByeMessage(this.messageId.incrementAndGet(), this.uid));
             this.dSocket.close();
+            System.exit(0);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }

@@ -11,6 +11,11 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * The type Connection.
+ *
+ * @author franzekan
+ */
 public record Connection(
         InetAddress ip,
         int port,
@@ -21,9 +26,19 @@ public record Connection(
         AtomicInteger outCounter,
         BlockingQueue<Message> outboundMessages
 ) {
+    /**
+     * The type Worker.
+     *
+     * @author franzekan
+     */
     public class Worker implements Runnable {
         private final DatagramSocket socket;
 
+        /**
+         * Instantiates a new Worker.
+         *
+         * @param socket the socket
+         */
         public Worker(DatagramSocket socket) {
             this.socket = socket;
         }
@@ -42,6 +57,15 @@ public record Connection(
         }
     }
 
+    /**
+     * Instantiates a new Connection.
+     *
+     * @param ip       the ip
+     * @param port     the port
+     * @param username the username
+     * @param uid      the uid
+     * @param socket   the socket
+     */
     public Connection(InetAddress ip, int port, String username, long uid, DatagramSocket socket) {
         this(ip,
                 port,
@@ -56,6 +80,9 @@ public record Connection(
         new Thread(new Worker(socket)).start();
     }
 
+    /**
+     * Cleanup.
+     */
     public void cleanup() {
         System.out.println("Connection closed");
     }
