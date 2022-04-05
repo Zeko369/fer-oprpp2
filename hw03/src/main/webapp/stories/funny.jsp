@@ -1,4 +1,4 @@
-<%@ page import="java.util.Random" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: franzekan
   Date: 05.04.2022.
@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.Random" %>
+
 <html>
 <head>
     <jsp:include page="/WEB-INF/components/head.jsp">
@@ -26,10 +28,12 @@
             document.querySelector("#story").innerText = data['joke'];
           })
       }
+
+      window.addEventListener('load', () => getNewJoke());
     </script>
 </head>
 <body>
-<p id="story">This is a really funny story...</p>
+<p id="story">This is a hilarious story...</p>
 <button class="btn btn-primary" onclick="getNewJoke()">Get a new joke</button>
 </body>
 </html>
