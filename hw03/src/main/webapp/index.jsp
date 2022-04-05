@@ -21,6 +21,7 @@
 <a href="trigonometric?a=0&b=90">Trigonometric default</a>
 <a href="stories/funny.jsp">Funny story</a>
 <a href="powers?a=1&b=100&n=3">Generate excel</a>
+<a href="appinfo.jsp">App Info</a>
 
 <form action="trigonometric" method="GET">
     <div class="form-group mb-2">
