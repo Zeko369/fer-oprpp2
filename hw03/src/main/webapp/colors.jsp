@@ -7,14 +7,18 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+
 <html>
 <head>
-    <title>lab3 - Colors</title>
+    <jsp:include page="/WEB-INF/components/head.jsp">
+       <jsp:param name="title" value="Colors" />
+    </jsp:include>
 </head>
 <body>
     <a href="<c:url value="/setcolor"/>?color=WHITE">WHITE</a>
     <a href="<c:url value="/setcolor"/>?color=RED">RED</a>
     <a href="<c:url value="/setcolor"/>?color=GREEN">GREEN</a>
     <a href="<c:url value="/setcolor"/>?color=CYAN">CYAN</a>
+    <a href="<c:url value="/setcolor"/>?color=DARK">DARK</a>
 </body>
 </html>

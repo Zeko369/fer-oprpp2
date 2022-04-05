@@ -1,9 +1,9 @@
 package hr.fer.oprpp2.servlets;
 
-import hr.fer.oprpp2.BgColors;
+import hr.fer.oprpp2.Color;
+import hr.fer.oprpp2.ColorsConfig;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,14 +22,15 @@ public class SetColorServlet extends HttpServlet {
             return;
         }
 
-        if(BgColors.isColor(colorName)) {
-            session.setAttribute("pickedBgColor", colorName);
-        } else {
+        try {
+            Color color = ColorsConfig.getColor(colorName);
+            session.setAttribute("pickedBgColor", color.hexBg());
+            session.setAttribute("pickedFgColor", color.hexFg());
+
+            resp.sendRedirect("/");
+        } catch(IllegalArgumentException e) {
             req.setAttribute("error", "Invalid color selected");
             req.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(req, resp);
-            return;
         }
-
-        resp.sendRedirect("/");
     }
 }
