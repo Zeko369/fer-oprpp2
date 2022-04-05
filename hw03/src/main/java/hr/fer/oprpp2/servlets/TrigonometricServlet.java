@@ -1,5 +1,7 @@
 package hr.fer.oprpp2.servlets;
 
+import hr.fer.oprpp2.util.ValueWithErrors;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +24,17 @@ public class TrigonometricServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int a = this.getDefaultParam(req, "a", 0);
-        int b = this.getDefaultParam(req, "b", 360);
+        ValueWithErrors<Integer> wrappedA = ValueWithErrors.ofParamWithDefault(req, "a", 0);
+        ValueWithErrors<Integer> wrappedB = ValueWithErrors.ofParamWithDefault(req, "b", 360);
+
+        if (wrappedA.isInvalid() || wrappedB.isInvalid()) {
+            req.setAttribute("error", String.join("<br/>", ValueWithErrors.getAllErrors(wrappedA, wrappedB)));
+            req.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(req, resp);
+            return;
+        }
+
+        int a = wrappedA.value();
+        int b = wrappedB.value();
 
         if (a > b) {
             a += b;
@@ -31,7 +42,7 @@ public class TrigonometricServlet extends HttpServlet {
             a -= b;
         }
 
-        while(b > a + 720) {
+        while (b > a + 720) {
             a += 720;
         }
 
@@ -45,18 +56,5 @@ public class TrigonometricServlet extends HttpServlet {
 
         req.setAttribute("values", values);
         req.getRequestDispatcher("/WEB-INF/pages/trigonometric.jsp").forward(req, resp);
-    }
-
-    private int getDefaultParam(HttpServletRequest req, String key, int defaultValue) {
-        String val = req.getParameter(key);
-        if (val == null) {
-            return defaultValue;
-        }
-
-        try {
-            return Integer.parseInt(val);
-        } catch (NumberFormatException ex) {
-            return defaultValue;
-        }
     }
 }
