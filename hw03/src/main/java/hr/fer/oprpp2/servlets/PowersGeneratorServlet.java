@@ -2,6 +2,7 @@ package hr.fer.oprpp2.servlets;
 
 import hr.fer.oprpp2.services.ExcelFileGenerator;
 import hr.fer.oprpp2.util.ValueWithErrors;
+import org.apache.poi.ss.usermodel.Sheet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,16 +37,27 @@ public class PowersGeneratorServlet extends HttpServlet {
         resp.setHeader("Content-Type", "application/vnd.ms-excel");
         resp.setHeader("Content-Disposition", "attachment; filename=\"powers.xlsx\"");
 
-        ExcelFileGenerator generator = new ExcelFileGenerator();
+        ExcelFileGenerator<ExcelRow> generator = new ExcelFileGenerator<>(
+                List.of("Number", "Power"),
+                (data) -> List.of(String.valueOf(data.num()), String.valueOf(data.pow()))
+        );
+
         for (int i = 0; i < n.value(); i++) {
-            List<ExcelFileGenerator.ExcelRow> rows = new ArrayList<>();
+            List<ExcelRow> rows = new ArrayList<>();
             for (int j = a.value(); j <= b.value(); j++) {
-                rows.add(new ExcelFileGenerator.ExcelRow(j, (int) Math.pow(j, i)));
+                rows.add(new ExcelRow(j, (int) Math.pow(j, i)));
             }
 
             generator.addSheet("Power + " + i, rows);
         }
 
         generator.write(resp.getOutputStream());
+
+
     }
+
+
+    private record ExcelRow(int num, int pow) {
+    }
+
 }

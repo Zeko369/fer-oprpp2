@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] Problem 5">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listeners/TimeListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/appinfo.jsp" afterDir="false" />
+    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] Cleanup and refactor excel writer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/ExcelFileGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/ExcelFileGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649174313592</updated>
-      <workItem from="1649174314785" duration="16853000" />
+      <workItem from="1649174314785" duration="17628000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
@@ -151,7 +149,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649200674726</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="[hw03] Mostly 6">
+      <created>1649202125144</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1649202125144</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[hw03] Cleanup and refactor excel writer">
+      <created>1649202868979</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1649202868979</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +190,9 @@
     <MESSAGE value="[hw03] Complete problem 3" />
     <MESSAGE value="[hw03] refactor some stuff in problem 3" />
     <MESSAGE value="[hw03] Problem 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw03] Problem 5" />
+    <MESSAGE value="[hw03] Mostly 6" />
+    <MESSAGE value="[hw03] Cleanup and refactor excel writer" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw03] Cleanup and refactor excel writer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

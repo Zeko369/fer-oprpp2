@@ -8,24 +8,36 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class ExcelFileGenerator {
+public class ExcelFileGenerator<T> {
     private final Workbook workbook = new XSSFWorkbook();
+    private final ISSheetRowConverter<T> converter;
+    private final List<String> header;
 
-    public record ExcelRow(int num, int pow) {
+    public ExcelFileGenerator(List<String> header, ISSheetRowConverter<T> converter) {
+        this.header = header;
+        this.converter = converter;
     }
 
-    public void addSheet(String name, List<ExcelRow> rows) {
+    public interface ISSheetRowConverter<T> {
+        List<String> map(T data);
+    }
+
+
+    public void addSheet(String name, List<T> rows) {
         Sheet spreadsheet = this.workbook.createSheet(name);
         Row firstRow = spreadsheet.createRow(spreadsheet.getLastRowNum() + 1);
-        firstRow.createCell(0).setCellValue("Number");
-        firstRow.createCell(1).setCellValue("Power");
+
+        AtomicInteger i = new AtomicInteger();
+        this.header.forEach((s) -> firstRow.createCell(i.getAndIncrement()).setCellValue(s));
 
         rows.forEach(row -> {
             Row tableRow = spreadsheet.createRow(spreadsheet.getLastRowNum() + 1);
-            tableRow.createCell(0).setCellValue(row.num);
-            tableRow.createCell(1).setCellValue(row.pow);
+            List<String> tmpData = this.converter.map(row);
+
+            i.set(0);
+            tmpData.forEach((s) -> tableRow.createCell(i.getAndIncrement()).setCellValue(s));
         });
     }
 
