@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebListener;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 @WebListener
@@ -28,8 +29,30 @@ public class TimeListener implements ServletRequestListener, ServletContextListe
 
     @Override
     public void requestInitialized(ServletRequestEvent servletRequestEvent) {
+        // TODO: use a library for this
+        String[] labelsSingle = {"day", "hour", "minute", "second", "millisecond"};
+        String[] labelsMultiple = {"days", "hours", "minutes", "seconds", "milliseconds"};
         String tmp = dateFormatter.format(new Date(System.currentTimeMillis() - this.start_time));
-        servletRequestEvent.getServletRequest().setAttribute(TIME_SINCE_STARTED_KEY, tmp);
+
+        String[] parts = tmp.split(" ");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < parts.length; i++) {
+            int value = Integer.parseInt(parts[i]);
+            if (i == 0) {
+                // account for the fact that time starts on 1st and not 0th of January
+                value -= 1;
+            }
+
+            sb.append(value);
+            sb.append(" ");
+            sb.append(value < 2 ? labelsSingle[i] : labelsMultiple[i]);
+            sb.append(" ");
+        }
+
+        sb.append("ago");
+
+        servletRequestEvent.getServletRequest().setAttribute(TIME_SINCE_STARTED_KEY, sb.toString());
     }
 
     @Override

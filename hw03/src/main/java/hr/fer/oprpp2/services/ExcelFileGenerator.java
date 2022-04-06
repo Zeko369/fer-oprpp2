@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ExcelFileGenerator<T> {
+    public interface ISSheetRowConverter<T> {
+        List<String> map(T data);
+    }
+
     private final Workbook workbook = new XSSFWorkbook();
     private final ISSheetRowConverter<T> converter;
     private final List<String> header;
@@ -19,11 +23,6 @@ public class ExcelFileGenerator<T> {
         this.header = header;
         this.converter = converter;
     }
-
-    public interface ISSheetRowConverter<T> {
-        List<String> map(T data);
-    }
-
 
     public void addSheet(String name, List<T> rows) {
         Sheet spreadsheet = this.workbook.createSheet(name);

@@ -1,4 +1,3 @@
-<%--<jsp:useBean id="TIME_SINCE_STARTED" scope="request" type="java.lang.String"/>--%>
 <%--
   Created by IntelliJ IDEA.
   User: franzekan
@@ -11,11 +10,14 @@
 
 <html>
 <head>
+    <meta http-equiv="refresh" content="1">
+
     <jsp:include page="/WEB-INF/components/head.jsp">
         <jsp:param name="title" value="AppInfo"/>
     </jsp:include>
 </head>
 <body>
+<jsp:useBean id="TIME_SINCE_STARTED" scope="request" type="java.lang.String"/>
 <h1>App has been running for ${TIME_SINCE_STARTED}</h1>
 </body>
 </html>
