@@ -14,5 +14,5 @@
   - [ ] Task 7.2: results
     - [x] Task 7.2.0: table
     - [ ] Task 7.2.1: graph
-    - [ ] Task 7.2.2: excel
+    - [x] Task 7.2.2: excel
     - [x] Task 7.2.3: other

@@ -19,7 +19,7 @@ public class GlasanjeGlasajServlet extends BaseServlet {
 
         String voteIdRaw = req.getParameter("id");
         if (voteIdRaw == null) {
-            this.throwError(req, resp, List.of("Vote not selected"));
+            this.throwError(req, resp, "Vote not selected");
             return;
         }
 
@@ -27,12 +27,12 @@ public class GlasanjeGlasajServlet extends BaseServlet {
         try {
             voteId = Integer.parseInt(voteIdRaw);
         } catch (NumberFormatException e) {
-            this.throwError(req, resp, List.of("VoteID is not an integer"));
+            this.throwError(req, resp, "VoteID is not an integer");
             return;
         }
 
         if (voteOptions.stream().noneMatch(vo -> vo.id() == voteId)) {
-            this.throwError(req, resp, List.of("VoteID not found"));
+            this.throwError(req, resp, "VoteID not found");
         }
 
         VotesDBHandler.voteFor(req, voteId);

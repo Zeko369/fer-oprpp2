@@ -37,7 +37,7 @@
 
 <h2>Export data</h2>
 <p>
-    Click <a href="${pageContext.request.contextPath}/glasanje/rezultati?format=xlsx">here</a> to download the results
+    Click <a href="${pageContext.request.contextPath}/glasanje/export?format=xlsx">here</a> to download the results
     as XLSX.
 </p>
 <%--<p>Click <a href="${pageContext.request.contextPath}/glasanje/rezultati?format=json">here</a> to download the results as JSON.</p>--%>

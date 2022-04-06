@@ -19,7 +19,7 @@ public class VotesDBHandler {
         }
     }
 
-    public static List<WholeVote> loadFinal(ServletRequest request) {
+    public static List<WholeVote> loadWholeVotes(ServletRequest request) {
         try {
             List<VoteOption> options = Loaders.getOptionsLoader(request).loadFile();
             List<VoteResult> results = Loaders.getResultsLoader(request).loadFile();
