@@ -32,7 +32,7 @@
         </tr>
         </thead>
         <tbody>
-        <jsp:useBean id="votes" scope="request" type="java.util.List<hr.fer.oprpp2.services.VotesDB.WholeVote>"/>
+        <jsp:useBean id="votes" scope="request" type="java.util.List<hr.fer.oprpp2.services.votesDB.WholeVote>"/>
         <c:forEach var="result" items="${votes}">
             <tr>
                 <td>${result.name()}</td>
@@ -55,7 +55,7 @@
     <h2>Other</h2>
     <p>Links to songs of winners</p>
     <ul>
-        <jsp:useBean id="winners" scope="request" type="java.util.List<hr.fer.oprpp2.services.VotesDB.WholeVote>"/>
+        <jsp:useBean id="winners" scope="request" type="java.util.List<hr.fer.oprpp2.services.votesDB.WholeVote>"/>
         <c:forEach var="winner" items="${winners}">
             <li>
                 <a target="_blank" rel="noreferrer" href="${winner.youtubeLink()}">

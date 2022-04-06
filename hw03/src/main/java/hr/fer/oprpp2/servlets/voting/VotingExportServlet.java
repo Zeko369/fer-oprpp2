@@ -2,8 +2,8 @@ package hr.fer.oprpp2.servlets.voting;
 
 import hr.fer.oprpp2.services.ExcelFileGenerator;
 import hr.fer.oprpp2.services.RespondWithChart;
-import hr.fer.oprpp2.services.VotesDB.VotesDBHandler;
-import hr.fer.oprpp2.services.VotesDB.WholeVote;
+import hr.fer.oprpp2.services.votesDB.VotesDBHandler;
+import hr.fer.oprpp2.services.votesDB.WholeVote;
 import hr.fer.oprpp2.servlets.BaseServlet;
 import org.jfree.data.general.DefaultPieDataset;
 

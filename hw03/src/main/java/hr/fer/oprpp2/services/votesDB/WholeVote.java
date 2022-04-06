@@ -1,4 +1,4 @@
-package hr.fer.oprpp2.services.VotesDB;
+package hr.fer.oprpp2.services.votesDB;
 
 public record WholeVote(int id, String name, int votes, String youtubeLink) implements Comparable<WholeVote> {
     @Override

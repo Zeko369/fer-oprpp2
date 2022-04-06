@@ -1,7 +1,7 @@
 package hr.fer.oprpp2.servlets.voting;
 
-import hr.fer.oprpp2.services.VotesDB.VoteOption;
-import hr.fer.oprpp2.services.VotesDB.VotesDBHandler;
+import hr.fer.oprpp2.services.votesDB.VoteOption;
+import hr.fer.oprpp2.services.votesDB.VotesDBHandler;
 import hr.fer.oprpp2.servlets.BaseServlet;
 
 import javax.servlet.ServletException;

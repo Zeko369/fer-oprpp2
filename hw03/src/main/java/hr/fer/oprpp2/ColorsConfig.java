@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ColorsConfig {
 
-    public static List<Color> colors = List.of(
+    public final static List<Color> colors = List.of(
             new Color("WHITE", "#FFFFFF", "#000000"),
             new Color("RED", "#FF0000", "#FFFFFF"),
             new Color("GREEN", "#00FF00", "#000000"),

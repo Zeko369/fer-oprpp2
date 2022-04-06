@@ -1,4 +1,4 @@
-package hr.fer.oprpp2.services.VotesDB;
+package hr.fer.oprpp2.services.votesDB;
 
 import hr.fer.oprpp2.services.FileLoader;
 

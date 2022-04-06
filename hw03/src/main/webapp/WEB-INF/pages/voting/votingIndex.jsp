@@ -25,7 +25,7 @@
 
     <ol>
         <jsp:useBean id="voteOptions" scope="request"
-                     type="java.util.List<hr.fer.oprpp2.services.VotesDB.VoteOption>"/>
+                     type="java.util.List<hr.fer.oprpp2.services.votesDB.VoteOption>"/>
         <c:forEach var="voteOption" items="${voteOptions}">
             <li>
                 <a href="<c:url value="/voting/vote?id=${voteOption.id()}"/>">
