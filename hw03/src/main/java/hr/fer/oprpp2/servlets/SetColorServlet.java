@@ -28,7 +28,7 @@ public class SetColorServlet extends BaseServlet {
             session.setAttribute("pickedBgColor", color.hexBg());
             session.setAttribute("pickedFgColor", color.hexFg());
 
-            resp.sendRedirect("/");
+            resp.sendRedirect("/webapp2/");
         } catch (IllegalArgumentException e) {
             req.setAttribute("error", "Invalid color selected");
             req.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(req, resp);
