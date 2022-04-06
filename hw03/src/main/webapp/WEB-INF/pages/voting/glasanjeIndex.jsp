@@ -23,7 +23,7 @@
                  type="java.util.List<hr.fer.oprpp2.services.VotesDB.VoteOption>"/>
     <c:forEach var="voteOption" items="${voteOptions}">
         <li>
-            <a href="<c:url value="/glasanje-glasaj?id=${voteOption.id()}"/>">
+            <a href="<c:url value="/glasanje/glasaj?id=${voteOption.id()}"/>">
                 ${voteOption.name()}
             </a>
         </li>

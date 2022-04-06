@@ -35,6 +35,13 @@
     </tbody>
 </table>
 
+<h2>Export data</h2>
+<p>
+    Click <a href="${pageContext.request.contextPath}/glasanje/rezultati?format=xlsx">here</a> to download the results
+    as XLSX.
+</p>
+<%--<p>Click <a href="${pageContext.request.contextPath}/glasanje/rezultati?format=json">here</a> to download the results as JSON.</p>--%>
+
 <h2>Other</h2>
 <p>Links to songs of winners</p>
 <ul>

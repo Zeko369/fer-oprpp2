@@ -9,6 +9,11 @@ import java.util.List;
 
 public abstract class BaseServlet extends HttpServlet {
     protected void throwError(HttpServletRequest req, HttpServletResponse resp, List<String> errors) throws ServletException, IOException {
+        this.throwError(req, resp, errors, 500);
+    }
+
+    protected void throwError(HttpServletRequest req, HttpServletResponse resp, List<String> errors, int statusCode) throws ServletException, IOException {
+        resp.setStatus(statusCode);
         req.setAttribute("error", String.join("<br/>", errors));
         req.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(req, resp);
     }

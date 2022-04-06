@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] WIP most of the stuff in 7">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/VotesDB/Loaders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/VotesDB/WholeVote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeRezultatiServlet.java" afterDir="false" />
+    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] 7: Excel export">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/VotesDB/VotesDBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/VotesDB/VotesDBHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/VotesDB/WholeVote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/VotesDB/WholeVote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/PowersGeneratorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/PowersGeneratorServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeGlasajServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeGlasajServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeRezultatiServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeRezultatiServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glasanje-rezultati.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glasanje-rezultati.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/glasanjeIndex.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/glasanjeIndex.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/glasanjeRez.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/glasanjeRez.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649174313592</updated>
       <workItem from="1649174314785" duration="18442000" />
-      <workItem from="1649262262875" duration="5843000" />
+      <workItem from="1649262262875" duration="6671000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
@@ -197,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649269460796</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[hw03] 7: Preview data">
+      <created>1649270626832</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1649270626832</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +236,9 @@
     <MESSAGE value="[hw03] Cleanup and refactor excel writer" />
     <MESSAGE value="[hw03] finish formatting number in 6" />
     <MESSAGE value="[hw03] WIP most of the stuff in 7" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw03] WIP most of the stuff in 7" />
+    <MESSAGE value="[hw03] 7: Preview data" />
+    <MESSAGE value="[hw03] 7: Excel export" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw03] 7: Excel export" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

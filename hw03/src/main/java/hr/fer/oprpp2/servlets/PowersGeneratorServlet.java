@@ -52,8 +52,6 @@ public class PowersGeneratorServlet extends HttpServlet {
         }
 
         generator.write(resp.getOutputStream());
-
-
     }
 
 

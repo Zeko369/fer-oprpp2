@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/glasanje-glasaj")
+@WebServlet("/glasanje/glasaj")
 public class GlasanjeGlasajServlet extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,6 +37,6 @@ public class GlasanjeGlasajServlet extends BaseServlet {
 
         VotesDBHandler.voteFor(req, voteId);
 
-        resp.sendRedirect("/glasanje-rezultati");
+        resp.sendRedirect("/glasanje/rezultati");
     }
 }
