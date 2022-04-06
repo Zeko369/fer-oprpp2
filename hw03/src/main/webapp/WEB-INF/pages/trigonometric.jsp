@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="hr.fer.oprpp2.util.Theme" %>
 
 <html>
 <head>
@@ -15,27 +16,34 @@
     </jsp:include>
 </head>
 <body>
-<h1>Trigonometric values</h1>
+<jsp:include page="/WEB-INF/components/navbar.jsp">
+    <jsp:param name="page" value="trigonometric"/>
+</jsp:include>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Angle</th>
-        <th>Sin</th>
-        <th>Cos</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="content">
+    <h1>Trigonometric values</h1>
 
-    <jsp:useBean id="values" scope="request" type="java.util.List<hr.fer.oprpp2.servlets.TrigonometricServlet.TrigonometricValue>"/>
-    <c:forEach var="row" items="${values}">
+    <table class="table table-striped <%= Theme.getFromRequest(request).equals("dark") ? "table-dark" : "" %>">
+        <thead>
         <tr>
-            <td>${row.angle()}</td>
-            <td>${row.sin()}</td>
-            <td>${row.cos()}</td>
+            <th>Angle</th>
+            <th>Sin</th>
+            <th>Cos</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+
+        <jsp:useBean id="values" scope="request"
+                     type="java.util.List<hr.fer.oprpp2.servlets.TrigonometricServlet.TrigonometricValue>"/>
+        <c:forEach var="row" items="${values}">
+            <tr>
+                <td>${row.angle()}</td>
+                <td>${row.sin()}</td>
+                <td>${row.cos()}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

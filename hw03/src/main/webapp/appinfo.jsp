@@ -17,7 +17,16 @@
     </jsp:include>
 </head>
 <body>
-<jsp:useBean id="TIME_SINCE_STARTED" scope="request" type="java.lang.String"/>
-<h1>App has been running for ${TIME_SINCE_STARTED}</h1>
+<jsp:include page="/WEB-INF/components/navbar.jsp">
+    <jsp:param name="page" value="appinfo"/>
+</jsp:include>
+
+<div class="content">
+    <jsp:useBean id="TIME_SINCE_STARTED" scope="request" type="java.lang.String"/>
+    <h1>App has been running for</h1>
+    <br/>
+
+    <h2>${TIME_SINCE_STARTED}</h2>
+</div>
 </body>
 </html>

@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/glasanje/export")
-public class GlasanjeExportServlet extends BaseServlet {
+@WebServlet("/voting/export")
+public class VotingExportServlet extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String format = req.getParameter("format");

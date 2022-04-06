@@ -4,15 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] Finish task 7">
+    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] Styling stuff">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/util/Theme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/navbar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingIndex.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingResults.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listeners/TimeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listeners/TimeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/PowersGeneratorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/PowersGeneratorServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/SetColorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/SetColorServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/TrigonometricServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/TrigonometricServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeExportServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeExportServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/VotesDB/Loaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/VotesDB/Loaders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeExportServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingExportServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeGlasajServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeRezultatiServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingResultsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/head.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glasanje-definicija.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-options.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glasanje-rezultati.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/trigonometric.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/trigonometric.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/glasanjeIndex.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/glasanjeRez.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/appinfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/appinfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/colors.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/colors.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/report.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/report.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/stories/funny.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/stories/funny.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +47,7 @@
         <option value="Record" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -66,6 +82,7 @@
     "database.data.extractors.current.export.id": "Tab-separated (TSV)_id",
     "database.data.extractors.current.id": "Tab-separated (TSV)_id",
     "full.screen.before.presentation.mode": "false",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +133,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649174313592</updated>
       <workItem from="1649174314785" duration="18442000" />
-      <workItem from="1649262262875" duration="8899000" />
+      <workItem from="1649262262875" duration="11330000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
@@ -237,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649273292394</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="[hw03] Refactor some stuff">
+      <created>1649273672230</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1649273672230</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +297,9 @@
     <MESSAGE value="[hw03] Refactor task 7" />
     <MESSAGE value="[hw03] Language usage report" />
     <MESSAGE value="[hw03] Finish task 7" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw03] Finish task 7" />
+    <MESSAGE value="[hw03] Refactor some stuff" />
+    <MESSAGE value="[hw03] Styling stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw03] Styling stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -16,11 +16,13 @@
 </head>
 
 <body>
-<h1>Error occurred</h1>
-<p>
-    <%= Objects.requireNonNullElse(request.getAttribute("error"), "Generic error") %>
-</p>
+<div class="content">
+    <h1>Error occurred</h1>
+    <p>
+        <%= Objects.requireNonNullElse(request.getAttribute("error"), "Generic error") %>
+    </p>
 
-<a href="${pageContext.request.contextPath}/">Go home</a>
+    <a href="${pageContext.request.contextPath}/">Go home</a>
+</div>
 </body>
 </html>

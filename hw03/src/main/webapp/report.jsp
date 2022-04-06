@@ -15,7 +15,13 @@
     </jsp:include>
 </head>
 <body>
-<h1>Languages report</h1>
-<img src="${pageContext.request.contextPath}/reportImage" alt="Languages report"/>
+<jsp:include page="/WEB-INF/components/navbar.jsp">
+    <jsp:param name="page" value="report"/>
+</jsp:include>
+
+<div class="content">
+    <h1>Languages report</h1>
+    <img src="${pageContext.request.contextPath}/reportImage" alt="Languages report"/>
+</div>
 </body>
 </html>

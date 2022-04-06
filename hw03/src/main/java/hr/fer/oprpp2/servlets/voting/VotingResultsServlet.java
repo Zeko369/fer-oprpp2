@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/glasanje/rezultati")
-public class GlasanjeRezultatiServlet extends BaseServlet {
+@WebServlet("/voting/results")
+public class VotingResultsServlet extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<WholeVote> votes = VotesDBHandler.loadWholeVotes(req);
@@ -21,7 +21,7 @@ public class GlasanjeRezultatiServlet extends BaseServlet {
         req.setAttribute("votes", votes);
         req.setAttribute("winners", this.getWinners(votes));
 
-        req.getRequestDispatcher("/WEB-INF/pages/voting/glasanjeRez.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/pages/voting/votingResults.jsp").forward(req, resp);
     }
 
     // TODO: Refactor to make smarter

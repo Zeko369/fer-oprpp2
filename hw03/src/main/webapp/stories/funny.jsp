@@ -33,7 +33,13 @@
     </script>
 </head>
 <body>
-<p id="story">This is a hilarious story...</p>
-<button class="btn btn-primary" onclick="getNewJoke()">Get a new joke</button>
+<jsp:include page="/WEB-INF/components/navbar.jsp">
+    <jsp:param name="page" value="funnyStory"/>
+</jsp:include>
+
+<div class="content">
+    <p id="story">This is a hilarious story...</p>
+    <button class="btn btn-primary" onclick="getNewJoke()">Get a new joke</button>
+</div>
 </body>
 </html>

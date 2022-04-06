@@ -15,31 +15,30 @@
 </head>
 
 <body>
-<h2>Hello World!</h2>
-<a href="${pageContext.request.contextPath}/colors.jsp">Colors</a>
+<jsp:include page="/WEB-INF/components/navbar.jsp">
+    <jsp:param name="page" value="index"/>
+</jsp:include>
 
-<a href="${pageContext.request.contextPath}/trigonometric?a=0&b=90">Trigonometric default</a>
-<a href="${pageContext.request.contextPath}/stories/funny.jsp">Funny story</a>
-<a href="${pageContext.request.contextPath}/report.jsp">Languages report</a>
-<a href="${pageContext.request.contextPath}/powers?a=1&b=100&n=3">Generate excel</a>
-<a href="${pageContext.request.contextPath}/appinfo.jsp">App Info</a>
-<a href="${pageContext.request.contextPath}/glasanje">Voting</a>
+<div class="content">
+    <h1>Hello World!</h1>
 
-<form action="trigonometric" method="GET">
-    <div class="form-group mb-2">
-        <label for="fromAngle">Početni kut:</label>
-        <input type="number" name="a" min="0" max="360" step="1" value="0" class="form-control" id="fromAngle"
-               placeholder="From angle">
-    </div>
+    <h2>Trig demo with args</h2>
+    <form action="trigonometric" method="GET">
+        <div class="form-group mb-2">
+            <label for="fromAngle">From angle:</label>
+            <input type="number" name="a" min="0" max="360" step="1" value="0" class="form-control" id="fromAngle"
+                   placeholder="From angle">
+        </div>
 
-    <div class="form-group mb-2">
-        <label for="toAngle">Završni kut:</label>
-        <input type="number" name="a" min="0" max="360" step="1" value="360" class="form-control" id="toAngle"
-               placeholder="To angle">
-    </div>
+        <div class="form-group mb-2">
+            <label for="toAngle">To angle:</label>
+            <input type="number" name="a" min="0" max="360" step="1" value="360" class="form-control" id="toAngle"
+                   placeholder="To angle">
+        </div>
 
-    <button type="submit" class="btn btn-primary">Tabeliraj</button>
-    <button type="reset" class="btn btn-secondary">Reset</button>
-</form>
+        <button type="submit" class="btn btn-primary">Show table</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </form>
+</div>
 </body>
 </html>

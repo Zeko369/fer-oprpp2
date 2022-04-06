@@ -5,8 +5,8 @@ import hr.fer.oprpp2.services.FileLoader;
 import javax.servlet.ServletRequest;
 
 public class Loaders {
-    public static final String OPTIONS_PATH = "/WEB-INF/glasanje-definicija.tsv";
-    public static final String VOTES_PATH = "/WEB-INF/glasanje-rezultati.tsv";
+    public static final String OPTIONS_PATH = "/WEB-INF/voting-options.tsv";
+    public static final String RESULTS_PATH = "/WEB-INF/voting-results.tsv";
 
     public static FileLoader<VoteOption> getOptionsLoader(ServletRequest request) {
         return new FileLoader<>(request.getServletContext().getRealPath(OPTIONS_PATH), (line) -> {
@@ -24,7 +24,7 @@ public class Loaders {
     }
 
     public static FileLoader<VoteResult> getResultsLoader(ServletRequest request) {
-        return new FileLoader<>(request.getServletContext().getRealPath(VOTES_PATH), (line) -> {
+        return new FileLoader<>(request.getServletContext().getRealPath(RESULTS_PATH), (line) -> {
             String[] parts = line.split("\t");
             if (parts.length != 2) {
                 return null;
