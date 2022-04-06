@@ -12,6 +12,7 @@
   - [x] Task 7.0: loading data
   - [x] Task 7.1: voting
   - [ ] Task 7.2: results
-    - [ ] Task 7.2.0: table
+    - [x] Task 7.2.0: table
     - [ ] Task 7.2.1: graph
     - [ ] Task 7.2.2: excel
+    - [x] Task 7.2.3: other

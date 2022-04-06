@@ -37,6 +37,6 @@ public class GlasanjeGlasajServlet extends BaseServlet {
 
         VotesDBHandler.voteFor(req, voteId);
 
-        resp.sendRedirect("/glasanje");
+        resp.sendRedirect("/glasanje-rezultati");
     }
 }

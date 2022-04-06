@@ -15,6 +15,37 @@
     </jsp:include>
 </head>
 <body>
+<h1>Results</h1>
+<p>These are the results</p>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Band</th>
+        <th>Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <jsp:useBean id="votes" scope="request" type="java.util.List<hr.fer.oprpp2.services.VotesDB.WholeVote>"/>
+    <c:forEach var="result" items="${votes}">
+        <tr>
+            <td>${result.name()}</td>
+            <td>${result.votes()}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 
+<h2>Other</h2>
+<p>Links to songs of winners</p>
+<ul>
+    <jsp:useBean id="winners" scope="request" type="java.util.List<hr.fer.oprpp2.services.VotesDB.WholeVote>"/>
+    <c:forEach var="winner" items="${winners}">
+        <li>
+            <a target="_blank" rel="noreferrer" href="${winner.youtubeLink()}">
+                    ${winner.name()}
+            </a>
+        </li>
+    </c:forEach>
+</ul>
 </body>
 </html>

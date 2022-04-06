@@ -10,47 +10,42 @@ import java.util.List;
 
 // FIXME: convert all datastructures to HashMaps
 public class VotesDBHandler {
-    private static final String OPTIONS_PATH = "/WEB-INF/glasanje-definicija.tsv";
-    private static final String VOTES_PATH = "/WEB-INF/glasanje-rezultati.tsv";
 
     public static List<VoteOption> loadOptions(ServletRequest request) {
         try {
-            return VotesDBHandler.getOptionsLoader(request).loadFile();
+            return Loaders.getOptionsLoader(request).loadFile();
         } catch (IOException e) {
             return List.of();
         }
     }
 
-    private static FileLoader<VoteOption> getOptionsLoader(ServletRequest request) {
-        return new FileLoader<>(request.getServletContext().getRealPath(OPTIONS_PATH), (line) -> {
-            String[] parts = line.split("\t");
-            if (parts.length != 3) {
-                return null;
+    public static List<WholeVote> loadFinal(ServletRequest request) {
+        try {
+            List<VoteOption> options = Loaders.getOptionsLoader(request).loadFile();
+            List<VoteResult> results = Loaders.getResultsLoader(request).loadFile();
+
+            List<WholeVote> finalVotes = new ArrayList<>();
+            for (VoteOption option : options) {
+                int votes = 0;
+                for (VoteResult result : results) {
+                    if (result.id() == option.id()) {
+                        votes = result.votes();
+                    }
+                }
+
+                finalVotes.add(new WholeVote(option.id(), option.name(), votes, option.youtubeLink()));
             }
 
-            try {
-                return new VoteOption(Integer.parseInt(parts[0]), parts[1], parts[2]);
-            } catch (NumberFormatException e) {
-                return null;
-            }
-        });
+            return finalVotes.stream().sorted().toList();
+        } catch (IOException e) {
+            return List.of();
+        }
     }
 
     public static void voteFor(ServletRequest request, int id) {
-        FileLoader<VoteResult> loader = new FileLoader<>(request.getServletContext().getRealPath(VOTES_PATH), (line) -> {
-            String[] parts = line.split("\t");
-            if (parts.length != 2) {
-                return null;
-            }
-
-            try {
-                return new VoteResult(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
-            } catch (NumberFormatException e) {
-                return null;
-            }
-        });
-
+        FileLoader<VoteResult> loader = Loaders.getResultsLoader(request);
         List<VoteResult> results = new ArrayList<>();
+
         boolean reloadFile = false;
         try {
             results = loader.loadFile();
@@ -66,7 +61,7 @@ public class VotesDBHandler {
 
         if (reloadFile) {
             try {
-                for (VoteOption option : VotesDBHandler.getOptionsLoader(request).loadFile()) {
+                for (VoteOption option : Loaders.getOptionsLoader(request).loadFile()) {
                     if (results.stream().noneMatch(r -> r.id() == option.id())) {
                         results.add(new VoteResult(option.id(), 0));
                     }
