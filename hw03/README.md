@@ -5,7 +5,7 @@
 - [x] Task 1: background color
 - [x] Task 2: trigonometric functions
 - [x] Task 3: funny story
-- [ ] Task 4: OS usage with graph
+- [x] Task 4: OS usage with graph (I did language report)
 - [x] Task 5: excel generator
 - [x] Task 6: time since startup
 - [ ] Task 7: simple voting app

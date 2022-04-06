@@ -16,13 +16,14 @@
 
 <body>
 <h2>Hello World!</h2>
-<a href="colors.jsp">Colors</a>
+<a href="${pageContext.request.contextPath}/colors.jsp">Colors</a>
 
-<a href="trigonometric?a=0&b=90">Trigonometric default</a>
-<a href="stories/funny.jsp">Funny story</a>
-<a href="powers?a=1&b=100&n=3">Generate excel</a>
-<a href="appinfo.jsp">App Info</a>
-<a href="glasanje">Voting</a>
+<a href="${pageContext.request.contextPath}/trigonometric?a=0&b=90">Trigonometric default</a>
+<a href="${pageContext.request.contextPath}/stories/funny.jsp">Funny story</a>
+<a href="${pageContext.request.contextPath}/report.jsp">Languages report</a>
+<a href="${pageContext.request.contextPath}/powers?a=1&b=100&n=3">Generate excel</a>
+<a href="${pageContext.request.contextPath}/appinfo.jsp">App Info</a>
+<a href="${pageContext.request.contextPath}/glasanje">Voting</a>
 
 <form action="trigonometric" method="GET">
     <div class="form-group mb-2">
