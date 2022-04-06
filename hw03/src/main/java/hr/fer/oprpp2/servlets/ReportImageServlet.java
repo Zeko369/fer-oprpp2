@@ -1,9 +1,6 @@
 package hr.fer.oprpp2.servlets;
 
-import hr.fer.oprpp2.util.ValueWithErrors;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtils;
-import org.jfree.chart.JFreeChart;
+import hr.fer.oprpp2.services.RespondWithChart;
 import org.jfree.data.general.DefaultPieDataset;
 
 import javax.servlet.annotation.WebServlet;
@@ -36,13 +33,6 @@ public class ReportImageServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        @SuppressWarnings("deprecation")
-        JFreeChart chart = ChartFactory.createPieChart3D("Language usage in 2021", dataset, true, true, false);
-
-        int width = ValueWithErrors.ofParamWithDefault(req, "width", 500).value();
-        int height = ValueWithErrors.ofParamWithDefault(req, "height", 400).value();
-
-        resp.setContentType("image/png");
-        ChartUtils.writeChartAsPNG(resp.getOutputStream(), chart, width, height);
+        RespondWithChart.send(req, resp, dataset, "Language usage in 2021");
     }
 }

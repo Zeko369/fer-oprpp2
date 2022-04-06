@@ -1,9 +1,11 @@
 package hr.fer.oprpp2.servlets.voting;
 
 import hr.fer.oprpp2.services.ExcelFileGenerator;
+import hr.fer.oprpp2.services.RespondWithChart;
 import hr.fer.oprpp2.services.VotesDB.VotesDBHandler;
 import hr.fer.oprpp2.services.VotesDB.WholeVote;
 import hr.fer.oprpp2.servlets.BaseServlet;
+import org.jfree.data.general.DefaultPieDataset;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,7 +47,10 @@ public class GlasanjeExportServlet extends BaseServlet {
         generator.write(resp.getOutputStream());
     }
 
-    private void handleGraph(HttpServletRequest req, HttpServletResponse resp, List<WholeVote> votes) throws ServletException, IOException {
-        this.throwError(req, resp, "Graph format is not implemented", 501);
+    private void handleGraph(HttpServletRequest req, HttpServletResponse resp, List<WholeVote> votes) throws IOException {
+        DefaultPieDataset<String> dataset = new DefaultPieDataset<>();
+        votes.forEach(vote -> dataset.setValue(vote.name(), vote.votes()));
+
+        RespondWithChart.send(req, resp, dataset, "Voting results");
     }
 }

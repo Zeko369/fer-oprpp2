@@ -35,6 +35,9 @@
     </tbody>
 </table>
 
+<h2>Chart</h2>
+<img src="${pageContext.request.contextPath}/glasanje/export?format=graph" alt="Chart"/>
+
 <h2>Export data</h2>
 <p>
     Click <a href="${pageContext.request.contextPath}/glasanje/export?format=xlsx">here</a> to download the results
