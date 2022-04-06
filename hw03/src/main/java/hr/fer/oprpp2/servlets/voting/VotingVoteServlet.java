@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Voting vote servlet.
+ *
+ * @author franzekan
+ */
 @WebServlet("/voting/vote")
 public class VotingVoteServlet extends BaseServlet {
     @Override

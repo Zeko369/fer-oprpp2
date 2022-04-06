@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Set color servlet.
+ *
+ * @author franzekan
+ */
 @WebServlet("/setcolor")
 public class SetColorServlet extends BaseServlet {
     @Override

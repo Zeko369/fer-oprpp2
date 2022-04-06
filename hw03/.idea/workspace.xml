@@ -4,12 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] Code cleanup warnings">
+    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] Fix path">
+      <change beforePath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/ColorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/ColorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listeners/TimeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listeners/TimeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/ExcelFileGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/ExcelFileGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/FileLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/FileLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/RespondWithChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/RespondWithChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/Loaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/Loaders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VoteOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VoteOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VoteResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VoteResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VotesDBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VotesDBHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/WholeVote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/WholeVote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/PowersGeneratorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/PowersGeneratorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/ReportImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/ReportImageServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/SetColorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/SetColorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/TrigonometricServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/TrigonometricServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingExportServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingExportServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingResultsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingResultsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/util/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/util/Theme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/util/ValueWithErrors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/util/ValueWithErrors.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +93,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "web.server"
+    "settings.editor.selected.configurable": "JavaDoc"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -119,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649174313592</updated>
       <workItem from="1649174314785" duration="18442000" />
-      <workItem from="1649262262875" duration="12035000" />
+      <workItem from="1649262262875" duration="12722000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
@@ -261,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649276604571</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="[hw03] Fix path">
+      <created>1649276809157</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1649276809157</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +326,8 @@
     <MESSAGE value="[hw03] Refactor some stuff" />
     <MESSAGE value="[hw03] Styling stuff" />
     <MESSAGE value="[hw03] Code cleanup warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw03] Code cleanup warnings" />
+    <MESSAGE value="[hw03] Fix path" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw03] Fix path" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

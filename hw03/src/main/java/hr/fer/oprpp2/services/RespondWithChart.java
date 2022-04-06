@@ -10,7 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Respond with chart.
+ *
+ * @author franzekan
+ */
 public class RespondWithChart {
+    /**
+     * Send.
+     *
+     * @param req     the req
+     * @param resp    the resp
+     * @param dataset the dataset
+     * @param title   the title
+     * @throws IOException the io exception
+     */
     public static void send(HttpServletRequest req, HttpServletResponse resp, DefaultPieDataset<String> dataset, String title) throws IOException {
         @SuppressWarnings("deprecation")
         JFreeChart chart = ChartFactory.createPieChart3D(title, dataset, true, true, false);

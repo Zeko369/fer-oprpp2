@@ -8,9 +8,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Votes db handler.
+ *
+ * @author franzekan
+ */
 // FIXME: convert all datastructures to HashMaps
 public class VotesDBHandler {
 
+    /**
+     * Loads vote options.
+     *
+     * @param request the request
+     * @return the list
+     */
     public static List<VoteOption> loadOptions(ServletRequest request) {
         try {
             return Loaders.getOptionsLoader(request).loadFile();
@@ -19,6 +30,12 @@ public class VotesDBHandler {
         }
     }
 
+    /**
+     * Load whole results from file.
+     *
+     * @param request the request
+     * @return the list
+     */
     public static List<WholeVote> loadWholeVotes(ServletRequest request) {
         try {
             List<VoteOption> options = Loaders.getOptionsLoader(request).loadFile();
@@ -42,6 +59,12 @@ public class VotesDBHandler {
         }
     }
 
+    /**
+     * Vote for ID and save to file.
+     *
+     * @param request the request
+     * @param id      the id
+     */
     public static void voteFor(ServletRequest request, int id) {
         FileLoader<VoteResult> loader = Loaders.getResultsLoader(request);
         List<VoteResult> results = new ArrayList<>();

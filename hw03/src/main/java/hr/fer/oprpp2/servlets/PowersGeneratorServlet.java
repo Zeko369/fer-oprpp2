@@ -11,6 +11,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Powers generator servlet.
+ *
+ * @author franzekan
+ */
 @WebServlet("/powers")
 public class PowersGeneratorServlet extends BaseServlet {
     @Override

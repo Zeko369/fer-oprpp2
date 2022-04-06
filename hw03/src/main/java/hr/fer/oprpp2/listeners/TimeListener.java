@@ -9,6 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+/**
+ * Listener that decorates the request with server time.
+ *
+ * @author franzekan
+ */
 @WebListener
 public class TimeListener implements ServletRequestListener, ServletContextListener {
     private static final String TIME_SINCE_STARTED_KEY = "TIME_SINCE_STARTED";

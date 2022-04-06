@@ -14,6 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Voting export servlet.
+ *
+ * @author franzekan
+ */
 @WebServlet("/voting/export")
 public class VotingExportServlet extends BaseServlet {
     @Override

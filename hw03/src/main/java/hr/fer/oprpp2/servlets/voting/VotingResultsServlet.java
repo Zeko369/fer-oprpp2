@@ -12,6 +12,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Voting results servlet.
+ *
+ * @author franzekan
+ */
 @WebServlet("/voting/results")
 public class VotingResultsServlet extends BaseServlet {
     @Override

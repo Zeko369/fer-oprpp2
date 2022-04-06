@@ -11,11 +11,28 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Trigonometric servlet.
+ *
+ * @author franzekan
+ */
 @WebServlet("/trigonometric")
 public class TrigonometricServlet extends BaseServlet {
+    /**
+     * The type Trigonometric value.
+     *
+     * @author franzekan
+     */
     public record TrigonometricValue(int angle, String sin, String cos) {
         private static final DecimalFormat df = new DecimalFormat("0.0000");
 
+        /**
+         * Instantiates a new Trigonometric value.
+         *
+         * @param angle the angle
+         * @param sin   the sin
+         * @param cos   the cos
+         */
         public TrigonometricValue(int angle, double sin, double cos) {
             this(angle, df.format(sin), df.format(cos));
         }
