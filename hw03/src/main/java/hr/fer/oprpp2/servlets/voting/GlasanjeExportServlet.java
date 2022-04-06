@@ -24,17 +24,16 @@ public class GlasanjeExportServlet extends BaseServlet {
             return;
         }
 
-        List<WholeVote> votes = VotesDBHandler.loadWholeVotes(req);
-
         switch (format) {
             case "json" -> this.throwError(req, resp, "JSON format is not implemented", 501);
-            case "graph" -> this.handleGraph(req, resp, votes);
-            case "xlsx" -> this.handleExcel(req, resp, votes);
+            case "graph" -> this.handleGraph(req, resp);
+            case "xlsx" -> this.handleExcel(req, resp);
             default -> this.throwError(req, resp, "Unsupported format", 404);
         }
     }
 
-    private void handleExcel(HttpServletRequest req, HttpServletResponse resp, List<WholeVote> votes) throws IOException {
+    private void handleExcel(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<WholeVote> votes = VotesDBHandler.loadWholeVotes(req);
         ExcelFileGenerator<WholeVote> generator = new ExcelFileGenerator<>(
                 List.of("id", "name", "votes", "youtube"),
                 (vote) -> List.of(String.valueOf(vote.id()), vote.name(), String.valueOf(vote.votes()), vote.youtubeLink())
@@ -47,7 +46,8 @@ public class GlasanjeExportServlet extends BaseServlet {
         generator.write(resp.getOutputStream());
     }
 
-    private void handleGraph(HttpServletRequest req, HttpServletResponse resp, List<WholeVote> votes) throws IOException {
+    private void handleGraph(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<WholeVote> votes = VotesDBHandler.loadWholeVotes(req);
         DefaultPieDataset<String> dataset = new DefaultPieDataset<>();
         votes.forEach(vote -> dataset.setValue(vote.name(), vote.votes()));
 

@@ -6,9 +6,7 @@ import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 
 @WebListener

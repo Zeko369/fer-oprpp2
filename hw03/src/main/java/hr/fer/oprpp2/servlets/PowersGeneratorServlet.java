@@ -2,11 +2,9 @@ package hr.fer.oprpp2.servlets;
 
 import hr.fer.oprpp2.services.ExcelFileGenerator;
 import hr.fer.oprpp2.util.ValueWithErrors;
-import org.apache.poi.ss.usermodel.Sheet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -14,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/powers")
-public class PowersGeneratorServlet extends HttpServlet {
+public class PowersGeneratorServlet extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ValueWithErrors<Integer> a = ValueWithErrors.ofParam(req, "a");
@@ -29,8 +27,7 @@ public class PowersGeneratorServlet extends HttpServlet {
         }
 
         if (errors.size() > 0) {
-            req.setAttribute("error", String.join("<br/>", errors));
-            req.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(req, resp);
+            this.throwError(req, resp, errors, 400);
             return;
         }
 

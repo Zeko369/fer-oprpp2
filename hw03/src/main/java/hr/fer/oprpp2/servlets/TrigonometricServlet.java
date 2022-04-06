@@ -4,7 +4,6 @@ import hr.fer.oprpp2.util.ValueWithErrors;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/trigonometric")
-public class TrigonometricServlet extends HttpServlet {
+public class TrigonometricServlet extends BaseServlet {
     public record TrigonometricValue(int angle, String sin, String cos) {
         private static final DecimalFormat df = new DecimalFormat("0.0000");
 
@@ -28,8 +27,7 @@ public class TrigonometricServlet extends HttpServlet {
         ValueWithErrors<Integer> wrappedB = ValueWithErrors.ofParamWithDefault(req, "b", 360);
 
         if (wrappedA.isInvalid() || wrappedB.isInvalid()) {
-            req.setAttribute("error", String.join("<br/>", ValueWithErrors.getAllErrors(wrappedA, wrappedB)));
-            req.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(req, resp);
+            this.throwError(req, resp, ValueWithErrors.getAllErrors(wrappedA, wrappedB), 400);
             return;
         }
 

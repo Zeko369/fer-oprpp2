@@ -12,10 +12,6 @@ public abstract class BaseServlet extends HttpServlet {
         this.throwError(req, resp, List.of(error), 500);
     }
 
-    protected void throwError(HttpServletRequest req, HttpServletResponse resp, List<String> errors) throws ServletException, IOException {
-        this.throwError(req, resp, errors, 500);
-    }
-
     protected void throwError(HttpServletRequest req, HttpServletResponse resp, String error, int statusCode) throws ServletException, IOException {
         this.throwError(req, resp, List.of(error), statusCode);
     }

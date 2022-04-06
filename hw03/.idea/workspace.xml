@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] Language usage report">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/RespondWithChart.java" afterDir="false" />
+    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] Finish task 7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/ReportImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/ReportImageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listeners/TimeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listeners/TimeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/PowersGeneratorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/PowersGeneratorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/SetColorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/SetColorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/TrigonometricServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/TrigonometricServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeExportServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/GlasanjeExportServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/glasanjeRez.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/glasanjeRez.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +35,17 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectId" id="27NxOdotjqU5Ogzj7McC7hETCfH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -63,7 +71,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.maddyhome.idea.vim.ui.VimEmulationConfigurable"
+    "settings.editor.selected.configurable": "web.server"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -108,7 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649174313592</updated>
       <workItem from="1649174314785" duration="18442000" />
-      <workItem from="1649262262875" duration="8523000" />
+      <workItem from="1649262262875" duration="8899000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
@@ -222,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649273024817</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="[hw03] Finish task 7">
+      <created>1649273292394</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1649273292394</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +272,8 @@
     <MESSAGE value="[hw03] 7: Excel export" />
     <MESSAGE value="[hw03] Refactor task 7" />
     <MESSAGE value="[hw03] Language usage report" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw03] Language usage report" />
+    <MESSAGE value="[hw03] Finish task 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw03] Finish task 7" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
