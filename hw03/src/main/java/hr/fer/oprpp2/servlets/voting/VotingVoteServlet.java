@@ -42,6 +42,6 @@ public class VotingVoteServlet extends BaseServlet {
 
         VotesDBHandler.voteFor(req, voteId);
 
-        resp.sendRedirect("/webapp2/voting/results");
+        resp.sendRedirect("/webapp1/voting/results");
     }
 }
