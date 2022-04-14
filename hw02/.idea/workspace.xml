@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] post-publish: fix cookie parsing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw03/src/main/webapp/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/src/main/webapp/assets/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,7 +307,7 @@
       <workItem from="1649035319943" duration="72000" />
       <workItem from="1649035418773" duration="507000" />
       <workItem from="1649035938757" duration="37000" />
-      <workItem from="1649919659843" duration="1178000" />
+      <workItem from="1649919659843" duration="1577000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -603,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648428869906</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="[hw02] post-publish: fix cookie parsing">
+      <created>1649921371166</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1649921371166</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

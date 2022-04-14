@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] post-publish: fix java version breaking stuff">
       <change beforePath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/workers/BgColorWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/workers/BgColorWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/workers/HomeWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/workers/HomeWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +135,7 @@
       <workItem from="1649588846889" duration="347000" />
       <workItem from="1649623563946" duration="71000" />
       <workItem from="1649623646247" duration="733000" />
-      <workItem from="1649919665896" duration="1553000" />
+      <workItem from="1649919665896" duration="2151000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
