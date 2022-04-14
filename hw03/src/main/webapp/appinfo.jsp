@@ -22,10 +22,10 @@
 </jsp:include>
 
 <div class="content">
-    <jsp:useBean id="TIME_SINCE_STARTED" scope="request" type="java.lang.String"/>
     <h1>App has been running for</h1>
     <br/>
 
+    <jsp:useBean id="TIME_SINCE_STARTED" scope="request" type="java.lang.String"/>
     <h2>${TIME_SINCE_STARTED}</h2>
 </div>
 </body>

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] post-publish: fix java version breaking stuff">
-      <change beforePath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] post-publish: fix css active navbar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/appinfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/appinfo.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +134,7 @@
       <workItem from="1649588846889" duration="347000" />
       <workItem from="1649623563946" duration="71000" />
       <workItem from="1649623646247" duration="733000" />
-      <workItem from="1649919665896" duration="2151000" />
+      <workItem from="1649919665896" duration="2398000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
@@ -312,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649920825768</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="[hw03] post-publish: fix css active navbar">
+      <created>1649921834028</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1649921834028</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +337,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="chore: Fix folders" />
     <MESSAGE value="[hw03] init + most of first task" />
     <MESSAGE value="[hw03] Fix some styling stuff" />
     <MESSAGE value="[hw03] Complete problem2" />
@@ -356,7 +361,8 @@
     <MESSAGE value="[hw03] stuff + update /webapp1" />
     <MESSAGE value="[hw03] post-publish: fix routing error" />
     <MESSAGE value="[hw03] post-publish: fix java version breaking stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw03] post-publish: fix java version breaking stuff" />
+    <MESSAGE value="[hw03] post-publish: fix css active navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw03] post-publish: fix css active navbar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
