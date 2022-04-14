@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] -&gt; Add launch chrome when starting">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw03/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw03/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw03/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,6 +308,7 @@
       <workItem from="1649035319943" duration="72000" />
       <workItem from="1649035418773" duration="507000" />
       <workItem from="1649035938757" duration="37000" />
+      <workItem from="1649919659843" duration="739000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
