@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] post-publish: fix routing error">
+    <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[hw03] post-publish: fix java version breaking stuff">
       <change beforePath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/workers/BgColorWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/workers/BgColorWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/workers/HomeWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/src/main/java/hr/fer/zemris/java/webserver/workers/HomeWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +137,7 @@
       <workItem from="1649588846889" duration="347000" />
       <workItem from="1649623563946" duration="71000" />
       <workItem from="1649623646247" duration="733000" />
-      <workItem from="1649919665896" duration="1147000" />
+      <workItem from="1649919665896" duration="1553000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
@@ -307,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649920217873</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="[hw03] post-publish: fix java version breaking stuff">
+      <created>1649920825768</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1649920825768</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +357,8 @@
     <MESSAGE value="[hw03] JavaDocs" />
     <MESSAGE value="[hw03] stuff + update /webapp1" />
     <MESSAGE value="[hw03] post-publish: fix routing error" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw03] post-publish: fix routing error" />
+    <MESSAGE value="[hw03] post-publish: fix java version breaking stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw03] post-publish: fix java version breaking stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

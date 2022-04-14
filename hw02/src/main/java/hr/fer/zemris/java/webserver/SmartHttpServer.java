@@ -111,7 +111,8 @@ public class SmartHttpServer {
      * Stop.
      */
     protected synchronized void stop() {
-        //noinspection deprecation - TODO: think about a better way to stop the server
+        // TODO: think about a better way to stop the server
+        //noinspection removal
         this.serverThread.stop();
         this.threadPool.shutdown();
     }
@@ -227,8 +228,8 @@ public class SmartHttpServer {
             String[] cookies = sid.split(";");
             for (String cookie : cookies) {
                 String[] parts = cookie.split("=");
-                if (parts.length == 2 && parts[0].equals("sid")) {
-                    return parts[1];
+                if (parts.length == 2 && parts[0].trim().equals("sid")) {
+                    return parts[1].trim();
                 }
             }
 
