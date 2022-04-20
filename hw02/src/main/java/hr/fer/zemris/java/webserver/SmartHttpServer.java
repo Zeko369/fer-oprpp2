@@ -42,6 +42,7 @@ public class SmartHttpServer {
     private final WorkerLoader workerLoader = new WorkerLoader();
     private final Map<String, IWebWorker> workersMap = new HashMap<>();
     private final Map<String, String> mimeTypes = new HashMap<>();
+    private final static List<String> ALLOWED_HTTP_VERBS = List.of(HTTPMethod.GET, HTTPMethod.POST);
 
     private final Random sessionRandom = new Random();
     private final Map<String, SessionMapEntry> sessions = new ConcurrentHashMap<>();
@@ -179,8 +180,17 @@ public class SmartHttpServer {
                     throw new HTTPError(HTTPStatus.BAD_REQUEST, e.getMessage());
                 }
 
-                if (!this.request.method().equals(HTTPMethod.GET)) {
-                    // FIXME: While technically docs say you should return 400, IMO this should be a 405
+//                if (!this.request.method().equals(HTTPMethod.GET)) {
+//                    // FIXME: While technically docs say you should return 400, IMO this should be a 405
+//                    throw new HTTPError(HTTPStatus.METHOD_NOT_ALLOWED);
+//                }
+
+                if (!ALLOWED_HTTP_VERBS.contains(this.request.method())) {
+                    // this is so we don't break on posting to other paths, but it should be added as default 405
+                    if (this.request.method().equals(HTTPMethod.POST) && !this.request.urlPath().equals("/ispit")) {
+                        throw new HTTPError(HTTPStatus.METHOD_NOT_ALLOWED);
+                    }
+
                     throw new HTTPError(HTTPStatus.METHOD_NOT_ALLOWED);
                 }
 
@@ -289,6 +299,8 @@ public class SmartHttpServer {
             Path requestedPath = Paths.get(String.valueOf(SmartHttpServer.this.documentRoot), urlPath);
             if (this.rc == null) {
                 this.rc = new RequestContext(
+                        this.request.body(),
+                        this.request.method(),
                         this.ostream,
                         this.params,
                         this.permPrams,

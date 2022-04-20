@@ -13,7 +13,12 @@ import java.util.*;
  * @author franzekan
  */
 public record HTTPRequest(String version, String urlPath, String queryString, String method,
-                          Map<String, String> headers) {
+                          Map<String, String> headers, String body) {
+    // BACKWARDS COMPATIBILITY
+    public HTTPRequest(String version, String urlPath, String queryString, String method, Map<String, String> headers) {
+        this(version, urlPath, queryString, method, headers, null);
+    }
+
     /**
      * The type Http request exception.
      *
@@ -118,8 +123,42 @@ public record HTTPRequest(String version, String urlPath, String queryString, St
             headersMap.put(key, value);
         }
 
+        String body = null;
+        if (method.equals(HTTPMethod.POST)) {
+            try {
+                int contentLen = -1;
+//                if (headers.contains("Content-Length")) {
+//                    contentLen = Integer.parseInt(headersMap.get("Content-Length"));
+//                }
 
-        return new HTTPRequest(version, urlPath, queryString, method, headersMap);
+                System.out.println("Reading boyd");
+                body = readBody(inputStream, contentLen);
+                System.out.println("read body");
+            } catch (IOException ex) {
+                throw new HTTPRequestException("Error while reading request.");
+            }
+        }
+
+        return new HTTPRequest(version, urlPath, queryString, method, headersMap, body);
+    }
+
+    private static String readBody(InputStream inputStream, int len) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+        if (len == -1) {
+            while (inputStream.available() > 0) {
+                byte read = (byte) inputStream.read();
+                if (read == -1) {
+                    break;
+                }
+
+                baos.write(read);
+            }
+        } else {
+            baos.write(inputStream.readNBytes(len));
+        }
+
+        return baos.toString(StandardCharsets.UTF_8);
     }
 
     private static List<String> readHeaders(String header) {

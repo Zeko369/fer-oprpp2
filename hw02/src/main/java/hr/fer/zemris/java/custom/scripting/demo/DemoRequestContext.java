@@ -30,7 +30,7 @@ public class DemoRequestContext {
 
     private static void demo1(String filePath, String encoding) throws IOException {
         OutputStream os = Files.newOutputStream(Paths.get(filePath));
-        RequestContext rc = new RequestContext(os, new HashMap<>(), new HashMap<>(), new ArrayList<>());
+        RequestContext rc = new RequestContext(null, "GET", os, new HashMap<>(), new HashMap<>(), new ArrayList<>());
 
         rc.setEncoding(encoding);
         rc.setMimeType("text/plain");
@@ -43,7 +43,7 @@ public class DemoRequestContext {
 
     private static void demo2() throws IOException {
         OutputStream os = Files.newOutputStream(Paths.get("primjer3.txt"));
-        RequestContext rc = new RequestContext(os, new HashMap<>(), new HashMap<>(), new ArrayList<>());
+        RequestContext rc = new RequestContext(null, "GET", os, new HashMap<>(), new HashMap<>(), new ArrayList<>());
 
         rc.setEncoding("UTF-8");
         rc.setMimeType("text/plain");

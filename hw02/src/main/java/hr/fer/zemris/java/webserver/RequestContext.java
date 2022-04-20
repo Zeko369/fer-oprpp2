@@ -1,5 +1,6 @@
 package hr.fer.zemris.java.webserver;
 
+import hr.fer.zemris.java.webserver.HTTP.HTTPMethod;
 import hr.fer.zemris.java.webserver.HTTP.HTTPStatus;
 import jdk.jshell.spi.ExecutionControl;
 
@@ -105,6 +106,9 @@ public class RequestContext {
     private final OutputStream outputStream;
     private Charset charset;
 
+    private String method = HTTPMethod.GET;
+    private String body = null; // This should be passed via whole request
+
     private String encoding = "UTF-8";
     // TODO: Migrate to HTTPStatus
 //    private int statusCode = 200;
@@ -156,7 +160,9 @@ public class RequestContext {
      * @param temporaryParameters  the temporary parameters
      * @param dispatcher           the dispatcher
      */
-    public RequestContext(OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies, Map<String, String> temporaryParameters, IDispatcher dispatcher) {
+    public RequestContext(String body, String method, OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies, Map<String, String> temporaryParameters, IDispatcher dispatcher) {
+        this.body = body;
+        this.method = method;
         this.outputStream = Objects.requireNonNull(outputStream);
         this.parameters = parameters == null ? new HashMap<>() : parameters;
         this.persistentParameters = persistentParameters == null ? new HashMap<>() : persistentParameters;
@@ -174,8 +180,8 @@ public class RequestContext {
      * @param persistentParameters the persistent parameters
      * @param outputCookies        the output cookies
      */
-    public RequestContext(OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies) {
-        this(outputStream, parameters, persistentParameters, outputCookies, null, null);
+    public RequestContext(String body, String method, OutputStream outputStream, Map<String, String> parameters, Map<String, String> persistentParameters, List<RCCookie> outputCookies) {
+        this(body, method, outputStream, parameters, persistentParameters, outputCookies, null, null);
     }
 
     private void canChangeHeaders() {
@@ -212,6 +218,14 @@ public class RequestContext {
      */
     public String getCustomHeader(String name) {
         return this.customHeaders.get(name);
+    }
+
+    public String getMethod() {
+        return this.method;
+    }
+
+    public String getBody() {
+        return this.body;
     }
 
     /**

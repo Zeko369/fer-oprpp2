@@ -37,6 +37,8 @@ public class EngineDemo extends BaseDemo {
         List<RequestContext.RCCookie> cookies = new ArrayList<>();
 
         RequestContext rc = new RequestContext(
+                null,
+                "GET",
                 System.out,
                 parameters,
                 persistentParameters,
