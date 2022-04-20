@@ -66,6 +66,10 @@ public class VotesDBHandler {
      * @param id      the id
      */
     public static void voteFor(ServletRequest request, int id) {
+        VotesDBHandler.voteFor(request, List.of(id));
+    }
+
+    public static void voteFor(ServletRequest request, List<Integer> ids) {
         FileLoader<VoteResult> loader = Loaders.getResultsLoader(request);
         List<VoteResult> results = new ArrayList<>();
 
@@ -78,8 +82,10 @@ public class VotesDBHandler {
             throw new RuntimeException(e);
         }
 
-        if (results.stream().noneMatch(r -> r.id() == id)) {
-            reloadFile = true;
+        for (int id : ids) {
+            if (results.stream().noneMatch(r -> r.id() == id)) {
+                reloadFile = true;
+            }
         }
 
         if (reloadFile) {
@@ -95,8 +101,10 @@ public class VotesDBHandler {
         }
 
         for (VoteResult result : results) {
-            if (result.id() == id) {
-                result.increment();
+            for (int id : ids) {
+                if (result.id() == id) {
+                    result.increment();
+                }
             }
         }
 
@@ -108,4 +116,5 @@ public class VotesDBHandler {
             throw new RuntimeException(e);
         }
     }
+
 }
