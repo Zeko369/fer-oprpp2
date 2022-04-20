@@ -26,6 +26,7 @@ public class ExamWorker implements IWebWorker {
                     String[] keyValue = part.split("=");
                     if (keyValue.length != 2) {
                         context.setTemporaryParameter("error", "Invalid body!");
+                        continue;
                     }
 
                     String key = keyValue[0];

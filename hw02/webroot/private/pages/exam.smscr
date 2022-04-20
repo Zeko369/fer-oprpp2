@@ -17,20 +17,31 @@
     </script>
 </html>
 <body>
-    <h1>Method: {$= method $}</h1>
+    <div class="container">
+        <h1>Method: {$= method $}</h1>
 
-    <form method="post" action="/ispit">
-        <input type="text" name="ime" value="Pero" />
-        <input type="text" name="prezime" value="Perin" />
-        <input type="submit" />
-    </form>
+        <form method="post" action="/ispit">
+            <div class="form-group mb-2">
+                <label for="ime">Ime:</label>
+                <input type="text" name="ime" value="Pero" class="form-control" id="ime" placeholder="Ime">
+            </div>
+            <div class="form-group mb-2">
+                <label for="prezime">Prezime:</label>
+                <input type="text" name="prezime" value="Perin" class="form-control" id="prezime" placeholder="Prezime">
+            </div>
 
-    <button onclick="submitAsGet()">Submit as get</button>
+            <div>
+                <input type="submit" class="btn btn-primary" />
+                <button type="button" onclick="submitAsGet()" class="btn btn-secondary">Submit as get</button>
+            </div>
+        </form>
 
-    <pre>{$= "error" "" @tparamGet $}</pre>
 
-    <h2>Data was</h2>
-    <pre>{$= "ime" "no name submitted" @tparamGet $}</pre>
-    <pre>{$= "prezime" "no last name submitted" @tparamGet $}</pre>
+        <pre>{$= "error" "" @tparamGet $}</pre>
+
+        <h2>Data was</h2>
+        <pre>Ime: {$= "ime" "no name submitted" @tparamGet $}</pre>
+        <pre>Prezime: {$= "prezime" "no last name submitted" @tparamGet $}</pre>
+    </div>
 </body>
 </html>

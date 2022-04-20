@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[hw02] post-publish: fix cookie parsing">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/ExamWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webroot/private/pages/exam.smscr" afterDir="false" />
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[midterm] Task 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/workers.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/workers.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/DemoRequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/DemoRequestContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/custom/scripting/demo/EngineDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPMethod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/HTTP/HTTPRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/RequestContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/SmartHttpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/ExamWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/zemris/java/webserver/workers/ExamWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webroot/private/pages/exam.smscr" beforeDir="false" afterPath="$PROJECT_DIR$/webroot/private/pages/exam.smscr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw03/src/main/java/hr/fer/oprpp2/services/votesDB/VotesDBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/src/main/java/hr/fer/oprpp2/services/votesDB/VotesDBHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw03/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw03/src/main/webapp/WEB-INF/pages/voting/votingIndex.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/src/main/webapp/WEB-INF/pages/voting/votingIndex.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw03/src/main/webapp/WEB-INF/voting-results.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +310,7 @@
       <workItem from="1649035938757" duration="37000" />
       <workItem from="1649919659843" duration="1809000" />
       <workItem from="1650458990851" duration="680000" />
-      <workItem from="1650464884529" duration="2750000" />
+      <workItem from="1650464884529" duration="3101000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>
@@ -623,7 +613,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649921371166</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="[midterm] Task 1">
+      <created>1650468542227</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1650468542227</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -642,7 +639,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[hw02] -&gt; Cleanup code" />
     <MESSAGE value="[hw02] -&gt; Wip get a server working, kinda" />
     <MESSAGE value="[hw02] -&gt; Implement server " />
     <MESSAGE value="[hw02] -&gt; Add demo files/images" />
@@ -667,7 +663,8 @@
     <MESSAGE value="[hw02] -&gt; JavaDoc the crap out of this homework" />
     <MESSAGE value="[hw02] -&gt; Add launch chrome when starting" />
     <MESSAGE value="[hw02] post-publish: fix cookie parsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw02] post-publish: fix cookie parsing" />
+    <MESSAGE value="[midterm] Task 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="[midterm] Task 1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

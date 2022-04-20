@@ -69,6 +69,11 @@ public record HTTPRequest(String version, String urlPath, String queryString, St
         Map<String, String> query = new HashMap<>();
         Arrays.stream(this.queryString.split("&")).forEach(param -> {
             String[] keyValue = param.split("=");
+            if (keyValue.length != 2) {
+                System.err.println("Expected key and value");
+                return;
+            }
+
             query.put(keyValue[0], keyValue[1]);
         });
 
