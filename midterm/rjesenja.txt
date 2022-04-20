@@ -1,0 +1,384 @@
+1. zadatak
+
+- workers.propetries dodano
+/ispit=hr.fer.zemris.java.webserver.workers.ExamWorker
+
+- dodana constanta za POST u HTTPMethod.java
+public static final String POST = "POST";
+
+- dodano parsiranje bodyija
+String body = null;
+if (method.equals(HTTPMethod.POST)) {
+    try {
+        int contentLen = -1;
+        if (headers.contains("Content-Length")) {
+            contentLen = Integer.parseInt(headersMap.get("Content-Length"));
+        }
+
+        body = readBody(inputStream, contentLen);
+    } catch (IOException ex) {
+        throw new HTTPRequestException("Error while reading request.");
+    }
+}
+
+return new HTTPRequest(version, urlPath, queryString, method, headersMap, body);
+
+- dodan worker za ispit
+package hr.fer.zemris.java.webserver.workers;
+
+import hr.fer.zemris.java.webserver.HTTP.HTTPMethod;
+import hr.fer.zemris.java.webserver.IWebWorker;
+import hr.fer.zemris.java.webserver.RequestContext;
+
+public class ExamWorker implements IWebWorker {
+    @Override
+    public void processRequest(RequestContext context) throws Exception {
+        context.setTemporaryParameter("method", context.getMethod());
+
+        if (context.getMethod().equals(HTTPMethod.GET)) {
+            context.setTemporaryParameter("ime", context.getParameter("ime"));
+            context.setTemporaryParameter("prezime", context.getParameter("prezime"));
+        }
+
+        if (context.getMethod().equals(HTTPMethod.POST)) {
+            String body = context.getBody();
+            if (body == null || body.isEmpty()) {
+                context.setTemporaryParameter("error", "Body is empty!");
+                context.getDispatcher().dispatchRequest("/private/pages/exam.smscr");
+                return;
+            } else {
+                String[] parts = body.split("&");
+                for (String part : parts) {
+                    String[] keyValue = part.split("=");
+                    if (keyValue.length != 2) {
+                        context.setTemporaryParameter("error", "Invalid body!");
+                        continue;
+                    }
+
+                    String key = keyValue[0];
+                    String value = keyValue[1];
+                    context.setTemporaryParameter(key, value);
+                }
+            }
+        }
+
+        context.getDispatcher().dispatchRequest("/private/pages/exam.smscr");
+    }
+}
+
+- u RequestContext dodani method i body (String)
+public String getMethod() {
+  return this.method;
+}
+
+public String getBody() {
+  return this.body;
+}
+
+- refaktorirana provjera HTTP metode
+if (!this.request.method().equals(HTTPMethod.GET)) {
+//                    // FIXME: While technically docs say you should return 400, IMO this should be a 405
+//                    throw new HTTPError(HTTPStatus.METHOD_NOT_ALLOWED);
+//                }
+
+if (!ALLOWED_HTTP_VERBS.contains(this.request.method())) {
+    // this is so we don't break on posting to other paths, but it should be added as default 405
+    if (this.request.method().equals(HTTPMethod.POST) && !this.request.urlPath().equals("/ispit")) {
+        throw new HTTPError(HTTPStatus.METHOD_NOT_ALLOWED);
+    }
+
+    throw new HTTPError(HTTPStatus.METHOD_NOT_ALLOWED);
+}
+
+- takoder dodana provjera kod parsiranja URLa u HTTPRequest.java
+Arrays.stream(this.queryString.split("&")).forEach(param -> {
+  String[] keyValue = param.split("=");
+  if (keyValue.length != 2) {
+      System.err.println("Expected key and value");
+      return;
+  }
+
+  query.put(keyValue[0], keyValue[1]);
+});
+
+2. zadatak
+
+- dodana voteFor methoda koja podrzava Listu argumenta
+package hr.fer.oprpp2.services.votesDB;
+
+import hr.fer.oprpp2.services.FileLoader;
+
+import javax.servlet.ServletRequest;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * The type Votes db handler.
+ *
+ * @author franzekan
+ */
+// FIXME: convert all datastructures to HashMaps
+public class VotesDBHandler {
+
+    /**
+     * Loads vote options.
+     *
+     * @param request the request
+     * @return the list
+     */
+    public static List<VoteOption> loadOptions(ServletRequest request) {
+        try {
+            return Loaders.getOptionsLoader(request).loadFile();
+        } catch (IOException e) {
+            return List.of();
+        }
+    }
+
+    /**
+     * Load whole results from file.
+     *
+     * @param request the request
+     * @return the list
+     */
+    public static List<WholeVote> loadWholeVotes(ServletRequest request) {
+        try {
+            List<VoteOption> options = Loaders.getOptionsLoader(request).loadFile();
+            List<VoteResult> results = Loaders.getResultsLoader(request).loadFile();
+
+            List<WholeVote> finalVotes = new ArrayList<>();
+            for (VoteOption option : options) {
+                int votes = 0;
+                for (VoteResult result : results) {
+                    if (result.id() == option.id()) {
+                        votes = result.votes();
+                    }
+                }
+
+                finalVotes.add(new WholeVote(option.id(), option.name(), votes, option.youtubeLink()));
+            }
+
+            return finalVotes.stream().sorted().toList();
+        } catch (IOException e) {
+            return List.of();
+        }
+    }
+
+    /**
+     * Vote for ID and save to file.
+     *
+     * @param request the request
+     * @param id      the id
+     */
+    public static void voteFor(ServletRequest request, int id) {
+        VotesDBHandler.voteFor(request, List.of(id));
+    }
+
+    public static void voteFor(ServletRequest request, List<Integer> ids) {
+        FileLoader<VoteResult> loader = Loaders.getResultsLoader(request);
+        List<VoteResult> results = new ArrayList<>();
+
+        boolean reloadFile = false;
+        try {
+            results = loader.loadFile();
+        } catch (FileNotFoundException e) {
+            reloadFile = true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (int id : ids) {
+            if (results.stream().noneMatch(r -> r.id() == id)) {
+                reloadFile = true;
+            }
+        }
+
+        if (reloadFile) {
+            try {
+                for (VoteOption option : Loaders.getOptionsLoader(request).loadFile()) {
+                    if (results.stream().noneMatch(r -> r.id() == option.id())) {
+                        results.add(new VoteResult(option.id(), 0));
+                    }
+                }
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+
+        for (VoteResult result : results) {
+            for (int id : ids) {
+                if (result.id() == id) {
+                    result.increment();
+                }
+            }
+        }
+
+        List<String> outputs = results.stream().map(res -> res.id() + "\t" + res.votes()).toList();
+
+        try {
+            loader.writeToFile(outputs);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+}
+
+
+- dodanan nova methoda za vise IDova
+package hr.fer.oprpp2.servlets.voting;
+
+import hr.fer.oprpp2.services.votesDB.VoteOption;
+import hr.fer.oprpp2.services.votesDB.VotesDBHandler;
+import hr.fer.oprpp2.servlets.BaseServlet;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * The type Voting vote servlet.
+ *
+ * @author franzekan
+ */
+@WebServlet("/voting/vote")
+public class VotingVoteServlet extends BaseServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<VoteOption> voteOptions = VotesDBHandler.loadOptions(req);
+
+        String voteIdRaw = req.getParameter("id");
+        if (voteIdRaw == null) {
+            this.throwError(req, resp, "Vote not selected");
+            return;
+        }
+
+        int voteId;
+        try {
+            voteId = Integer.parseInt(voteIdRaw);
+        } catch (NumberFormatException e) {
+            this.throwError(req, resp, "VoteID is not an integer");
+            return;
+        }
+
+        if (voteOptions.stream().noneMatch(vo -> vo.id() == voteId)) {
+            this.throwError(req, resp, "VoteID not found");
+        }
+
+        VotesDBHandler.voteFor(req, voteId);
+
+        resp.sendRedirect("/webapp1/voting/results");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<VoteOption> voteOptions = VotesDBHandler.loadOptions(req);
+        if (req.getParameterValues("voteIds") != null) {
+            List<Integer> voteIds = new ArrayList<>();
+            for (String id : req.getParameterValues("voteIds")) {
+                int voteId;
+                try {
+                    voteId = Integer.parseInt(id);
+                } catch (NumberFormatException e) {
+                    this.throwError(req, resp, "VoteID is not an integer");
+                    return;
+                }
+
+                int finalVoteId = voteId;
+                if (voteOptions.stream().noneMatch(vo -> vo.id() == finalVoteId)) {
+                    this.throwError(req, resp, String.format("VoteID (%d) is not found", finalVoteId));
+                    return;
+                }
+
+                voteIds.add(voteId);
+            }
+
+            if (!voteIds.isEmpty()) {
+                VotesDBHandler.voteFor(req, voteIds);
+            }
+        }
+
+        resp.sendRedirect("/webapp1/voting/results");
+    }
+}
+
+- ureden template
+<%--
+  Created by IntelliJ IDEA.
+  User: franzekan
+  Date: 06.04.2022.
+  Time: 19:42
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<html>
+<head>
+    <jsp:include page="/WEB-INF/components/head.jsp">
+        <jsp:param name="title" value="Colors"/>
+    </jsp:include>
+
+</head>
+<body>
+<jsp:include page="/WEB-INF/components/navbar.jsp">
+    <jsp:param name="page" value="voting"/>
+</jsp:include>
+
+<div class="content">
+    <h1>Vote for your favourite band</h1>
+    <p>Clicking on the link will vote</p>
+
+    <button class="btn-secondary btn btn-sm" onclick="selectAll()">Select all</button>
+
+    <form method="post" action="${pageContext.request.contextPath}/voting/vote">
+        <ol>
+            <jsp:useBean id="voteOptions" scope="request"
+                         type="java.util.List<hr.fer.oprpp2.services.votesDB.VoteOption>"/>
+            <c:forEach var="voteOption" items="${voteOptions}">
+                <li>
+                    <label>
+                        <input type="checkbox" name="voteIds" value="${voteOption.id()}"/>
+                    </label>
+
+                    <a href="<c:url value="/voting/vote?id=${voteOption.id()}"/>">
+                            ${voteOption.name()}
+                    </a>
+                </li>
+            </c:forEach>
+        </ol>
+
+        <input type="submit" value="Vote for 0" class="btn btn-primary"/>
+    </form>
+</div>
+
+<script>
+  const COUNT_ALL = ${voteOptions.size()};
+  const getVotes = () => {
+    return Array.from(document.querySelectorAll('input[type="checkbox"]')).reduce((c, a) => a.checked ? c + 1 : c, 0);
+  }
+
+  const button = document.querySelector('input[type="submit"]');
+  const selectAll = () => {
+    const select = getVotes() !== COUNT_ALL;
+    document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+      input.checked = select;
+    });
+
+    button.value = "Vote for " + getVotes().toString();
+  }
+
+  document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+    input.addEventListener("change", () => {
+      button.value = "Vote for " + getVotes().toString();
+    });
+  });
+</script>
+</body>
+</html>
+
