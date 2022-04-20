@@ -132,13 +132,11 @@ public record HTTPRequest(String version, String urlPath, String queryString, St
         if (method.equals(HTTPMethod.POST)) {
             try {
                 int contentLen = -1;
-//                if (headers.contains("Content-Length")) {
-//                    contentLen = Integer.parseInt(headersMap.get("Content-Length"));
-//                }
+                if (headers.contains("Content-Length")) {
+                    contentLen = Integer.parseInt(headersMap.get("Content-Length"));
+                }
 
-                System.out.println("Reading boyd");
                 body = readBody(inputStream, contentLen);
-                System.out.println("read body");
             } catch (IOException ex) {
                 throw new HTTPRequestException("Error while reading request.");
             }
