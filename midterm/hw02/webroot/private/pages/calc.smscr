@@ -1,0 +1,23 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Zbrajanje</h1>
+
+        <table>
+            <tr>
+                <td>a</<td>
+                <td>{$= varA $}</td>
+            </tr>
+            <tr>
+                <td>b</<td>
+                <td>{$= varB $}</td>
+            </tr>
+            <tr>
+                <td>a + b</<td>
+                <td>{$= sum $}</td>
+            </tr>
+        </table>
+
+        <img src="/{$= imgName $}" />
+    </body>
+</html>

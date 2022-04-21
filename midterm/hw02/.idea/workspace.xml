@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[midterm] Task 1 remove console.logs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw03/src/main/webapp/WEB-INF/voting-results.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
-    </list>
+    <list default="true" id="51b83026-74ac-4160-91d2-671c64797d71" name="Changes" comment="[midterm] Task 1 remove console.logs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -308,7 +304,7 @@
       <workItem from="1649035938757" duration="37000" />
       <workItem from="1649919659843" duration="1809000" />
       <workItem from="1650458990851" duration="680000" />
-      <workItem from="1650464884529" duration="4362000" />
+      <workItem from="1650464884529" duration="3668000" />
     </task>
     <task id="LOCAL-00001" summary="[hw02] -&gt; Init repo + first task mostly done">
       <created>1648071023897</created>

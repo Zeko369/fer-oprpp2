@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #{$= background $};
+        }
+    </style>
+</html>
+<body>
+    <h1>Hello there</h1>
+
+    <h2>Scripts</h2>
+    <ul>
+        <li><a href="/scripts/osnovni.smscr">Osnovni</a></li>
+        <li><a href="/scripts/brojPoziva.smscr">BrojPoziva</a></li>
+        <li><a href="/scripts/fibonaccih.smscr">Fibonaccih</a></li>
+    </ul>
+
+
+    <h2>Workers</h2>
+    <ul>
+        <li><a href="/ext/HelloWorker">HelloWorker</a></li>
+        <li><a href="/ext/CircleWorker">CircleWorker</a></li>
+    </ul>
+
+    <h2>Color</h2>
+    <form method="GET" action="/bgcolor">
+        <select name="bgcolor" selected="{$= background $}">
+            <option value="7F7F7F" {$= background "7F7F7F" "selected" @eq $}>Default</option>
+            <option value="ADADAD" {$= background "ADADAD" "selected" @eq $}>Grayish</option>
+            <option value="9bcf81" {$= background "9bcf81" "selected" @eq $}>Lime</option>
+            <option value="00FF00" {$= background "00FF00" "selected" @eq $}>Green</option>
+            <option value="5e9eff" {$= background "5e9eff" "selected" @eq $}>Blue</option>
+        </select>
+
+        <input type="submit" value="Change color">
+    </form>
+
+    <h2>Calculator</h2>
+    <form method="GET" action="/calc">
+        <label>
+            a = <input type="text" name="a">
+        </label>
+        <br/>
+        <label>
+            b = <input type="text" name="b">
+        </label>
+        <br/>
+
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>

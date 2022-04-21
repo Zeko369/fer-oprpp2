@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[midterm] Task 2">
       <change beforePath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +135,7 @@
       <workItem from="1649623646247" duration="733000" />
       <workItem from="1649919665896" duration="3850000" />
       <workItem from="1650458997838" duration="602000" />
-      <workItem from="1650464894513" duration="3577000" />
+      <workItem from="1650464894513" duration="2700000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
