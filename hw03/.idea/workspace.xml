@@ -5,9 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b8f822c-15ca-4c36-92f9-c56dfe8f1f8f" name="Changes" comment="[midterm] Task 2">
-      <change beforePath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/markdown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/hw04.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/listener/InitListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/model/Poll.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/model/PollOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/services/ExcelFileGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/services/FileLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/services/RespondWithChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/services/votesDB/Loaders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/services/votesDB/VoteOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/services/votesDB/VoteResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/services/votesDB/VotesDBHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/services/votesDB/WholeVote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/servlets/voting/VotingExportServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/servlets/voting/VotingResultsServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/servlets/voting/VotingServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/util/LoadProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/java/hr/fer/oprpp2/util/ValueWithErrors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/components/head.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/components/navbar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/dbsettings.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/pages/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/pages/voting/votingIndex.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/pages/voting/votingResults.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/voting-options.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/appinfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/assets/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw04/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +176,7 @@
       <workItem from="1649919665896" duration="3850000" />
       <workItem from="1650458997838" duration="602000" />
       <workItem from="1650464894513" duration="3577000" />
+      <workItem from="1653261120993" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="chore: Fix folders">
       <created>1649180439635</created>
