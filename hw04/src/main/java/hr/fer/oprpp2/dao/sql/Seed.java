@@ -61,6 +61,7 @@ public record Seed(Connection connection) {
         preparedStatement.setString(1, "Music");
         preparedStatement.setString(2, "Which of these songs is your favorite?");
         preparedStatement.execute();
+        preparedStatement.close();
 
         this.connection.setAutoCommit(false);
         PreparedStatement preparedStatementOption = this.connection.prepareStatement("INSERT INTO poll_options (poll_id, title, link, votes) VALUES (?, ?, ?, ?)");
@@ -73,6 +74,7 @@ public record Seed(Connection connection) {
         }
 
         preparedStatementOption.executeBatch();
+        preparedStatement.close();
         this.connection.commit();
     }
 }

@@ -1,95 +1,101 @@
 package hr.fer.oprpp2.dao.sql;
 
 import hr.fer.oprpp2.dao.DAO;
+import hr.fer.oprpp2.dao.DAOException;
+import hr.fer.oprpp2.dao.SQLConnectionProvider;
 import hr.fer.oprpp2.model.Poll;
 import hr.fer.oprpp2.model.PollOption;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SQLDAO implements DAO {
     @Override
     public List<Poll> getPolls() {
-        return null;
+        List<Poll> polls = new ArrayList<>();
+        Connection con = SQLConnectionProvider.getConnection();
+        PreparedStatement pst;
+
+        try {
+            pst = con.prepareStatement("select id, title, message from polls order by id");
+            try {
+                try (ResultSet rs = pst.executeQuery()) {
+                    while (rs != null && rs.next()) {
+                        polls.add(new Poll(rs.getInt(1), rs.getString(2), rs.getString(3)));
+                    }
+                }
+            } finally {
+                try {
+                    pst.close();
+                } catch (Exception ignored) {
+                }
+            }
+        } catch (Exception ex) {
+            throw new DAOException("Error fetching all polls", ex);
+        }
+
+        return polls;
     }
 
     @Override
-    public List<PollOption> getPollOptions(Long id) {
-        return null;
+    public List<PollOption> getPollOptions(Integer id) {
+        List<PollOption> pollOptions = new ArrayList<>();
+        Connection con = SQLConnectionProvider.getConnection();
+        PreparedStatement pst;
+
+        try {
+            pst = con.prepareStatement("select id, title, link, poll_id, votes from poll_options where poll_id = ? order by id ");
+            pst.setInt(1, id);
+
+            try {
+                try (ResultSet rs = pst.executeQuery()) {
+                    while (rs != null && rs.next()) {
+                        pollOptions.add(
+                                new PollOption(
+                                        rs.getInt(1),
+                                        rs.getString(2),
+                                        rs.getString(3),
+                                        rs.getInt(4),
+                                        rs.getLong(5)
+                                )
+                        );
+                    }
+                }
+            } finally {
+                try {
+                    pst.close();
+                } catch (Exception ignored) {
+                }
+            }
+        } catch (Exception ex) {
+            throw new DAOException("Error fetching all pollOptions", ex);
+        }
+
+        return pollOptions;
     }
 
     @Override
-    public void vote(Long id, Long optionId) {
+    public void vote(Integer optionId) {
+        Connection con = SQLConnectionProvider.getConnection();
+        PreparedStatement pst;
 
+        try {
+            pst = con.prepareStatement("update poll_options set votes = votes + 1 where id = ?");
+            pst.setInt(1, optionId);
+
+            try {
+                pst.executeUpdate();
+            } finally {
+                try {
+                    pst.close();
+                } catch (Exception ignored) {
+                }
+            }
+        } catch (Exception ex) {
+            throw new DAOException("Error voting", ex);
+        }
     }
-
-//    @Override
-//    public List<Unos> dohvatiOsnovniPopisUnosa() throws DAOException {
-//        List<Unos> unosi = new ArrayList<>();
-//        Connection con = SQLConnectionProvider.getConnection();
-//        PreparedStatement pst = null;
-//        try {
-//            pst = con.prepareStatement("select id, title from Poruke order by id");
-//            try {
-//                ResultSet rs = pst.executeQuery();
-//                try {
-//                    while (rs != null && rs.next()) {
-//                        Unos unos = new Unos();
-//                        unos.setId(rs.getLong(1));
-//                        unos.setTitle(rs.getString(2));
-//                        unosi.add(unos);
-//                    }
-//                } finally {
-//                    try {
-//                        rs.close();
-//                    } catch (Exception ignorable) {
-//                    }
-//                }
-//            } finally {
-//                try {
-//                    pst.close();
-//                } catch (Exception ignorable) {
-//                }
-//            }
-//        } catch (Exception ex) {
-//            throw new DAOException("Pogreška prilikom dohvata liste korisnika.", ex);
-//        }
-//        return unosi;
-//    }
-//
-//    @Override
-//    public Unos dohvatiUnos(long id) throws DAOException {
-//        Unos unos = null;
-//        Connection con = SQLConnectionProvider.getConnection();
-//        PreparedStatement pst = null;
-//        try {
-//            pst = con.prepareStatement("select id, title, message, createdOn, userEMail from Poruke where id=?");
-//            pst.setLong(1, Long.valueOf(id));
-//            try {
-//                ResultSet rs = pst.executeQuery();
-//                try {
-//                    if (rs != null && rs.next()) {
-//                        unos = new Unos();
-//                        unos.setId(rs.getLong(1));
-//                        unos.setTitle(rs.getString(2));
-//                        unos.setMessage(rs.getString(3));
-//                        unos.setCreatedOn(rs.getTimestamp(4));
-//                        unos.setUserEMail(rs.getString(5));
-//                    }
-//                } finally {
-//                    try {
-//                        rs.close();
-//                    } catch (Exception ignorable) {
-//                    }
-//                }
-//            } finally {
-//                try {
-//                    pst.close();
-//                } catch (Exception ignorable) {
-//                }
-//            }
-//        } catch (Exception ex) {
-//            throw new DAOException("Pogreška prilikom dohvata korisnika.", ex);
-//        }
-//        return unos;
-//    }
 }

@@ -1,7 +1,7 @@
 package hr.fer.oprpp2.servlets.voting;
 
-import hr.fer.oprpp2.services.votesDB.VotesDBHandler;
-import hr.fer.oprpp2.services.votesDB.WholeVote;
+import hr.fer.oprpp2.dao.DAOProvider;
+import hr.fer.oprpp2.model.PollOption;
 import hr.fer.oprpp2.servlets.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -21,27 +21,32 @@ import java.util.List;
 public class VotingResultsServlet extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<WholeVote> votes = VotesDBHandler.loadWholeVotes(req);
+        if (req.getParameter("pollId") == null) {
+            this.throwError(req, resp, "No poll id provided");
+            return;
+        }
 
-        req.setAttribute("votes", votes);
-        req.setAttribute("winners", this.getWinners(votes));
+        List<PollOption> pollOptions = DAOProvider.getDao().getPollOptions(Integer.parseInt(req.getParameter("pollId")));
+
+        req.setAttribute("votes", pollOptions);
+        req.setAttribute("winners", this.getWinners(pollOptions));
 
         req.getRequestDispatcher("/WEB-INF/pages/voting/votingResults.jsp").forward(req, resp);
     }
 
     // TODO: Refactor to make smarter
-    private List<WholeVote> getWinners(List<WholeVote> votes) {
-        int maxVotes = 0;
+    private List<PollOption> getWinners(List<PollOption> votes) {
+        long maxVotes = 0;
 
-        for (WholeVote vote : votes) {
-            if (vote.votes() > maxVotes) {
-                maxVotes = vote.votes();
+        for (PollOption option : votes) {
+            if (option.getVotesCount() > maxVotes) {
+                maxVotes = option.getVotesCount();
             }
         }
 
-        List<WholeVote> winners = new ArrayList<>();
-        for (WholeVote vote : votes) {
-            if (vote.votes() == maxVotes) {
+        List<PollOption> winners = new ArrayList<>();
+        for (PollOption vote : votes) {
+            if (vote.getVotesCount() == maxVotes) {
                 winners.add(vote);
             }
         }

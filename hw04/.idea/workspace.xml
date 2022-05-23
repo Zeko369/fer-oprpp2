@@ -4,65 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw04] Init stuff, setup psql init">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c/storage_v2/_src_/database/voting-app.e2BzaQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c/storage_v2/_src_/database/voting-app.e2BzaQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c/storage_v2/_src_/database/voting-app.e2BzaQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c/storage_v2/_src_/database/voting-app.e2BzaQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw04.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/SQLConnectionProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/SQLDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/Seed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/filter/ConnectionSetterFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listener/InitListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/Poll.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/PollOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/ExcelFileGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/FileLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/RespondWithChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/Loaders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VoteOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VoteResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VotesDBHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/WholeVote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingExportServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingResultsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/util/LoadProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/util/ValueWithErrors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/head.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/navbar.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dbsettings.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingIndex.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingResults.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-options.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/appinfo.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw03/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw03/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="Do the whole thing">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingShow.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/SQLDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/SQLDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/Seed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/Seed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/FileLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/Loaders.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VoteOption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VoteResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/VotesDBHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/votesDB/WholeVote.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingExportServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingExportServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingResultsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingResultsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/voting/VotingVoteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/navbar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingIndex.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingIndex.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingResults.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting/votingResults.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +69,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.preview.features.used": "true",
+    "last_opened_file_path": "/Users/franzekan/fer/oprpp2/hw04/src/main/webapp/WEB-INF/pages/voting",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -124,6 +87,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/voting" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="webapp1 [jetty:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
@@ -169,8 +137,16 @@
       <workItem from="1653080119845" duration="58000" />
       <workItem from="1653080190396" duration="3156000" />
       <workItem from="1653212857602" duration="605000" />
-      <workItem from="1653256396694" duration="7120000" />
+      <workItem from="1653256396694" duration="9937000" />
     </task>
+    <task id="LOCAL-00001" summary="[hw04] Init stuff, setup psql init">
+      <created>1653263540503</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653263540503</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +166,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="[hw04] Init stuff, setup psql init" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw04] Init stuff, setup psql init" />
+    <MESSAGE value="Do the whole thing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Do the whole thing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

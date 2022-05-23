@@ -8,7 +8,7 @@ import java.util.List;
 public interface DAO {
     List<Poll> getPolls();
 
-    List<PollOption> getPollOptions(Long id);
+    List<PollOption> getPollOptions(Integer id);
 
-    void vote(Long id, Long optionId);
+    void vote(Integer optionId);
 }

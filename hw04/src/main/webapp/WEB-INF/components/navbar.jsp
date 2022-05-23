@@ -21,9 +21,6 @@
             <li class="nav-item <%=Objects.requireNonNullElse(request.getParameter("page"), "").equals("voting") ? "active" : "" %>">
                 <a class="nav-link" href="${pageContext.request.contextPath}/voting">Voting</a>
             </li>
-            <li class="nav-item <%=Objects.requireNonNullElse(request.getParameter("page"), "").equals("voting/results") ? "active" : "" %>">
-                <a class="nav-link" href="${pageContext.request.contextPath}/voting/results">Voting results</a>
-            </li>
         </ul>
     </div>
 </nav>

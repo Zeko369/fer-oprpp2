@@ -1,9 +1,9 @@
 package hr.fer.oprpp2.servlets.voting;
 
+import hr.fer.oprpp2.dao.DAOProvider;
+import hr.fer.oprpp2.model.PollOption;
 import hr.fer.oprpp2.services.ExcelFileGenerator;
 import hr.fer.oprpp2.services.RespondWithChart;
-import hr.fer.oprpp2.services.votesDB.VotesDBHandler;
-import hr.fer.oprpp2.services.votesDB.WholeVote;
 import hr.fer.oprpp2.servlets.BaseServlet;
 import org.jfree.data.general.DefaultPieDataset;
 
@@ -29,6 +29,12 @@ public class VotingExportServlet extends BaseServlet {
             return;
         }
 
+        if (req.getParameter("pollId") == null) {
+            this.throwError(req, resp, "No poll id provided");
+            return;
+        }
+
+
         switch (format) {
             case "json" -> this.throwError(req, resp, "JSON format is not implemented", 501);
             case "graph" -> this.handleGraph(req, resp);
@@ -38,23 +44,23 @@ public class VotingExportServlet extends BaseServlet {
     }
 
     private void handleExcel(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        List<WholeVote> votes = VotesDBHandler.loadWholeVotes(req);
-        ExcelFileGenerator<WholeVote> generator = new ExcelFileGenerator<>(
+        List<PollOption> pollOptions = DAOProvider.getDao().getPollOptions(Integer.parseInt(req.getParameter("pollId")));
+        ExcelFileGenerator<PollOption> generator = new ExcelFileGenerator<>(
                 List.of("id", "name", "votes", "youtube"),
-                (vote) -> List.of(String.valueOf(vote.id()), vote.name(), String.valueOf(vote.votes()), vote.youtubeLink())
+                (vote) -> List.of(String.valueOf(vote.getId()), vote.getTitle(), String.valueOf(vote.getVotesCount()), vote.getLink())
         );
 
         resp.setHeader("Content-Type", "application/vnd.ms-excel");
         resp.setHeader("Content-Disposition", "attachment; filename=\"votes.xlsx\"");
 
-        generator.addSheet("votes", votes);
+        generator.addSheet("votes", pollOptions);
         generator.write(resp.getOutputStream());
     }
 
     private void handleGraph(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        List<WholeVote> votes = VotesDBHandler.loadWholeVotes(req);
+        List<PollOption> pollOptions = DAOProvider.getDao().getPollOptions(Integer.parseInt(req.getParameter("pollId")));
         DefaultPieDataset<String> dataset = new DefaultPieDataset<>();
-        votes.forEach(vote -> dataset.setValue(vote.name(), vote.votes()));
+        pollOptions.forEach(vote -> dataset.setValue(vote.getTitle(), vote.getVotesCount()));
 
         RespondWithChart.send(req, resp, dataset, "Voting results");
     }

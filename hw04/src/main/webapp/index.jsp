@@ -21,6 +21,7 @@
 
 <div class="content">
     <h1>Hello World!</h1>
+    <a href="${pageContext.request.contextPath}/voting">Go check out all the polls</a>
 </div>
 </body>
 </html>

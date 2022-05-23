@@ -11,12 +11,12 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/components/head.jsp">
-        <jsp:param name="title" value="Colors"/>
+        <jsp:param name="title" value="Voting"/>
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/components/navbar.jsp">
-    <jsp:param name="page" value="voting/results"/>
+    <jsp:param name="page" value="voting"/>
 </jsp:include>
 
 <div class="content">
@@ -31,22 +31,22 @@
         </tr>
         </thead>
         <tbody>
-        <jsp:useBean id="votes" scope="request" type="java.util.List<hr.fer.oprpp2.services.votesDB.WholeVote>"/>
+        <jsp:useBean id="votes" scope="request" type="java.util.List<hr.fer.oprpp2.model.PollOption>"/>
         <c:forEach var="result" items="${votes}">
             <tr>
-                <td>${result.name()}</td>
-                <td>${result.votes()}</td>
+                <td>${result.getTitle()}</td>
+                <td>${result.getVotesCount()}</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
     <h2>Chart</h2>
-    <img src="${pageContext.request.contextPath}/voting/export?format=graph" alt="Chart"/>
+    <img src='${pageContext.request.contextPath}/voting/export?format=graph&pollId=${param.get("pollId")}' alt="Chart"/>
 
     <h2>Export data</h2>
     <p>
-        Click <a href="${pageContext.request.contextPath}/voting/export?format=xlsx">here</a> to download the results
+        Click <a href="${pageContext.request.contextPath}/voting/export?format=xlsx&pollId=${param.get("pollId")}">here</a> to download the results
         as XLSX.
     </p>
     <%--<p>Click <a href="${pageContext.request.contextPath}/voting/export?format=json">here</a> to download the results as JSON.</p>--%>
@@ -54,11 +54,11 @@
     <h2>Other</h2>
     <p>Links to songs of winners</p>
     <ul>
-        <jsp:useBean id="winners" scope="request" type="java.util.List<hr.fer.oprpp2.services.votesDB.WholeVote>"/>
+        <jsp:useBean id="winners" scope="request" type="java.util.List<hr.fer.oprpp2.model.PollOption>"/>
         <c:forEach var="winner" items="${winners}">
             <li>
-                <a target="_blank" rel="noreferrer" href="${winner.youtubeLink()}">
-                        ${winner.name()}
+                <a target="_blank" rel="noreferrer" href="${winner.getLink()}">
+                        ${winner.getTitle()}
                 </a>
             </li>
         </c:forEach>
