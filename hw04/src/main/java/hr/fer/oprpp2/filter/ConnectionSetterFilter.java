@@ -16,6 +16,11 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.sql.DataSource;
 
+/**
+ * The type Connection setter filter.
+ *
+ * @author franzekan
+ */
 @WebFilter(filterName = "f1", urlPatterns = {"/voting/*"})
 public class ConnectionSetterFilter implements Filter {
 

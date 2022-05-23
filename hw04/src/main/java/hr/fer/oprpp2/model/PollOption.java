@@ -4,6 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The type Poll option.
+ *
+ * @author franzekan
+ */
 @Getter
 @Setter
 @AllArgsConstructor

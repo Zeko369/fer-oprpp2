@@ -12,6 +12,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Sqldao.
+ *
+ * @author franzekan
+ */
 public class SQLDAO implements DAO {
     @Override
     public List<Poll> getPolls() {

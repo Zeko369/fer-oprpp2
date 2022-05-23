@@ -3,6 +3,11 @@ package hr.fer.oprpp2.util;
 import java.io.*;
 import java.util.Properties;
 
+/**
+ * The type Load properties.
+ *
+ * @author franzekan
+ */
 public class LoadProperties {
     /**
      * Load properties.

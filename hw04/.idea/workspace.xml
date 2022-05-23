@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="Do the whole thing">
+    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw04] remove old stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-options.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/voting-results.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/appinfo.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/SQLConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/SQLConnectionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/SQLDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/SQLDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/Seed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/sql/Seed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/filter/ConnectionSetterFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/filter/ConnectionSetterFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listener/InitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/listener/InitListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/Poll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/Poll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/PollOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/PollOption.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +129,7 @@
       <workItem from="1653080119845" duration="58000" />
       <workItem from="1653080190396" duration="3156000" />
       <workItem from="1653212857602" duration="605000" />
-      <workItem from="1653256396694" duration="10010000" />
+      <workItem from="1653256396694" duration="10257000" />
     </task>
     <task id="LOCAL-00001" summary="[hw04] Init stuff, setup psql init">
       <created>1653263540503</created>
@@ -137,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653266359527</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="[hw04] Do the whole thing">
+      <created>1653266450215</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653266450215</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[hw04] remove old stuff">
+      <created>1653266456032</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653266456032</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,7 +180,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="[hw04] Init stuff, setup psql init" />
     <MESSAGE value="Do the whole thing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Do the whole thing" />
+    <MESSAGE value="[hw04] Do the whole thing" />
+    <MESSAGE value="[hw04] remove old stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw04] remove old stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

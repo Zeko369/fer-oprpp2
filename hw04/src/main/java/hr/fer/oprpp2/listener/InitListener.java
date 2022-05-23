@@ -15,9 +15,17 @@ import com.mchange.v2.c3p0.DataSources;
 import hr.fer.oprpp2.dao.sql.Seed;
 import hr.fer.oprpp2.util.LoadProperties;
 
+/**
+ * The type Init listener.
+ *
+ * @author franzekan
+ */
 @WebListener
 public class InitListener implements ServletContextListener {
     private final static String DB_SETTING_PATH = "/WEB-INF/dbsettings.properties";
+    /**
+     * The constant DB_CONNECTION_ATTRIBUTE.
+     */
     public final static String DB_CONNECTION_ATTRIBUTE = "db";
 
     @Override

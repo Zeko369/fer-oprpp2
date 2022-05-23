@@ -1,6 +1,5 @@
 package hr.fer.oprpp2.dao.sql;
 
-import hr.fer.oprpp2.model.Poll;
 import hr.fer.oprpp2.model.PollOption;
 
 import java.sql.*;
@@ -8,9 +7,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The type Seed.
+ *
+ * @author franzekan
+ */
 public record Seed(Connection connection) {
     private static final List<String> tables = List.of("polls", "poll_options");
 
+    /**
+     * Has all tables boolean.
+     *
+     * @return the boolean
+     * @throws SQLException the sql exception
+     */
     public boolean hasAllTables() throws SQLException {
         ResultSet meta = this.connection.getMetaData().getTables(null, "public", null, null);
         Set<String> tableNames = new HashSet<>();
@@ -21,6 +31,11 @@ public record Seed(Connection connection) {
         return tableNames.containsAll(tables);
     }
 
+    /**
+     * Create tables.
+     *
+     * @throws SQLException the sql exception
+     */
     public void createTables() throws SQLException {
         this.connection.createStatement().execute("DROP TABLE IF EXISTS poll_options CASCADE");
         this.connection.createStatement().execute("DROP TABLE IF EXISTS polls CASCADE");
@@ -41,11 +56,22 @@ public record Seed(Connection connection) {
         );
     }
 
+    /**
+     * Has data boolean.
+     *
+     * @return the boolean
+     * @throws SQLException the sql exception
+     */
     public boolean hasData() throws SQLException {
         ResultSet meta = this.connection.createStatement().executeQuery("SELECT * FROM polls");
         return meta.next();
     }
 
+    /**
+     * Generate polls.
+     *
+     * @throws SQLException the sql exception
+     */
     public void generatePolls() throws SQLException {
         List<PollOption> polls = List.of(
                 new PollOption(1, "The Beatles", "https://www.youtube.com/watch?v=z9ypq6_5bsg", 1, 0L),
