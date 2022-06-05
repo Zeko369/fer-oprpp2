@@ -1,6 +1,7 @@
 package hr.fer.oprpp2.dao.DAOs;
 
 import hr.fer.oprpp2.dao.DAOException;
+import hr.fer.oprpp2.model.BlogComment;
 import hr.fer.oprpp2.model.BlogEntry;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface DAOBlogEntry {
     List<BlogEntry> getBlogs(Long userId) throws DAOException;
 
     BlogEntry savePost(BlogEntry blog);
+
+    void saveComment(BlogComment setUserEmail);
 }

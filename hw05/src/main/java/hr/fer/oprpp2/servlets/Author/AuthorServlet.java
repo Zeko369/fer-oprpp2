@@ -57,6 +57,7 @@ public class AuthorServlet extends BaseServlet {
             switch (match.authorRoute()) {
                 case AUTHOR_EDIT_BLOG -> this.updateBlog(req, resp, match);
                 case AUTHOR_NEW_BLOG -> this.createBlog(req, resp, match);
+                case AUTHOR_COMMENT_BLOG -> this.commentBlog(req, resp, match);
             }
         } catch (DAOException e) {
             this.throwError(req, resp, e.getMessage());
@@ -87,6 +88,16 @@ public class AuthorServlet extends BaseServlet {
         resp.sendRedirect("/blog-app/servlet/author/" + req.getSession().getAttribute("username") + "/" + blog.getId());
     }
 
+    private void commentBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
+        try {
+            this.blogService.comment(match.blogId(), req.getParameter("message"), req.getParameter("email"));
+        } catch (DAOException e) {
+            this.throwError(req, resp, e.getMessage());
+        }
+
+        resp.sendRedirect("/blog-app/servlet/author/" + match.authorUsername() + "/" + match.blogId());
+    }
+
     private void showAuthor(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
         Optional<BlogUser> author = this.authorService.getAuthor(match.authorUsername());
         if (author.isEmpty()) {
@@ -108,6 +119,7 @@ public class AuthorServlet extends BaseServlet {
         }
 
         req.setAttribute("blog", blog.get());
+        req.setAttribute("isAuthor", match.authorUsername().equals(req.getSession().getAttribute("username")));
         req.getRequestDispatcher("/WEB-INF/pages/blog/show.jsp").forward(req, resp);
     }
 

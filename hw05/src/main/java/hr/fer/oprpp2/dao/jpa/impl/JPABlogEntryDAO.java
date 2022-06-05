@@ -2,6 +2,7 @@ package hr.fer.oprpp2.dao.jpa.impl;
 
 import hr.fer.oprpp2.dao.DAOs.DAOBlogEntry;
 import hr.fer.oprpp2.dao.jpa.JPAEMProvider;
+import hr.fer.oprpp2.model.BlogComment;
 import hr.fer.oprpp2.model.BlogEntry;
 import jakarta.persistence.NoResultException;
 
@@ -29,5 +30,10 @@ public class JPABlogEntryDAO implements DAOBlogEntry {
     public BlogEntry savePost(BlogEntry post) {
         JPAEMProvider.getEntityManager().persist(post);
         return post;
+    }
+
+    @Override
+    public void saveComment(BlogComment comment) {
+        JPAEMProvider.getEntityManager().persist(comment);
     }
 }
