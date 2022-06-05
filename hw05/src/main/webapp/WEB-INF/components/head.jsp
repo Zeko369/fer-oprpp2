@@ -19,18 +19,7 @@
         crossorigin="anonymous"></script>
 
 <title>
-    lab3 - <%= Objects.requireNonNullElse(request.getParameter("title"), "page") %>
+    lab5 - <%= Objects.requireNonNullElse(request.getParameter("title"), "page") %>
 </title>
-<style>
-    <% String background = Objects.requireNonNullElse((String)request.getSession().getAttribute("pickedBgColor"), "#ffffff"); %>
-    <% String foreground = Objects.requireNonNullElse((String)request.getSession().getAttribute("pickedFgColor"), "#000000"); %>
-
-    :root {
-        --bg: <%= background %>;
-        --fg: <%= foreground %>;
-        --linkColor: <%= foreground.equals("#000000") ? "#080be7" : "#23a2ff" %>;
-        --linkVisiteColor: <%= foreground.equals("#000000") ? "#af04f3" : "#de89ff" %>;
-    }
-</style>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css"/>

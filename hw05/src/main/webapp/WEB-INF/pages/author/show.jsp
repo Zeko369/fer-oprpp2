@@ -20,22 +20,24 @@
     <jsp:param name="page" value="index"/>
 </jsp:include>
 
-<h1>Author ${author.getFullName()}</h1>
-<c:if test='${requestScope.get("isAuthor")}'>
-    <a href="${pageContext.request.contextPath}/servlet/author/${author.getUsername()}/new">new</a>
-</c:if>
+<div class="content">
+    <h1>Author ${author.getFullName()}</h1>
+    <c:if test='${requestScope.get("isAuthor")}'>
+        <a href="${pageContext.request.contextPath}/servlet/author/${author.getUsername()}/new">new</a>
+    </c:if>
 
-<ul>
-    <jsp:useBean id="blogs" scope="request" type="java.util.List<hr.fer.oprpp2.model.BlogEntry>"/>
-    <c:forEach items="${blogs}" var="blog">
-        <li>
-            <a href="${pageContext.request.contextPath}/servlet/author/${author.getUsername()}/${blog.getId()}">${blog.title}</a>
+    <ul>
+        <jsp:useBean id="blogs" scope="request" type="java.util.List<hr.fer.oprpp2.model.BlogEntry>"/>
+        <c:forEach items="${blogs}" var="blog">
+            <li>
+                <a href="${pageContext.request.contextPath}/servlet/author/${author.getUsername()}/${blog.getId()}">${blog.title}</a>
 
-            <c:if test='${requestScope.get("isAuthor")}'>
-                <a href="${pageContext.request.contextPath}/servlet/author/${author.getUsername()}/${blog.getId()}/edit">EDIT</a>
-            </c:if>
-        </li>
-    </c:forEach>
-</ul>
+                <c:if test='${requestScope.get("isAuthor")}'>
+                    <a href="${pageContext.request.contextPath}/servlet/author/${author.getUsername()}/${blog.getId()}/edit">EDIT</a>
+                </c:if>
+            </li>
+        </c:forEach>
+    </ul>
+</div>
 </body>
 </html>

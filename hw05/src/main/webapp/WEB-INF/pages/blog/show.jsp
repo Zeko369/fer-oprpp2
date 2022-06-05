@@ -10,10 +10,14 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/components/head.jsp">
-        <jsp:param name="title" value="New blog"/>
+        <jsp:param name="title" value="Blog form"/>
     </jsp:include>
 </head>
+
 <body>
+<jsp:include page="/WEB-INF/components/navbar.jsp">
+    <jsp:param name="page" value="index"/>
+</jsp:include>
 
 <a href="${pageContext.request.contextPath}/servlet/author/${blog.getUser().getUsername()}">Back to user</a>
 <c:if test='${requestScope.get("isAuthor")}'>
@@ -49,7 +53,7 @@
       action="${pageContext.request.contextPath}/servlet/author/${blog.getUser().getUsername()}/${blog.getId()}/comment">
     <label>
         Message <br/>
-        <textarea name="message" ></textarea>
+        <textarea name="message"></textarea>
     </label>
     <br/>
     <label>

@@ -11,12 +11,17 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/components/head.jsp">
-        <jsp:param name="title" value="New blog"/>
+        <jsp:param name="title" value="Blog form"/>
     </jsp:include>
 </head>
+
 <body>
+<jsp:include page="/WEB-INF/components/navbar.jsp">
+    <jsp:param name="page" value="index"/>
+</jsp:include>
+
 <div class="content">
-    <h1>New blog</h1>
+    <h1>Blog form</h1>
 
     <form method="post">
         <c:if test='${requestScope.containsKey("error")}'>
@@ -37,7 +42,7 @@
                       required>${requestScope.get("body")}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">${requestScope.get("body") == null ? "Create" : "Update"}</button>
     </form>
 </div>
 </body>

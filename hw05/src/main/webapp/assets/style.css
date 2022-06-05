@@ -1,8 +1,3 @@
-body {
-    background-color: var(--bg);
-    color: var(--fg);
-}
-
 .content {
     width: 90%;
     max-width: 1000px;
@@ -13,10 +8,3 @@ body {
     color: white;
 }
 
-a:link {
-    color: var(--linkColor);
-}
-
-a:visited {
-    color: var(--linkVisiteColor);
-}

@@ -21,11 +21,7 @@
 </jsp:include>
 
 <div class="content">
-    <h1>All blog users</h1>
-
-    <c:if test='${pageContext.session.getAttribute("userId") == null}'>
-        <a href="${pageContext.request.contextPath}/servlet/auth/login">Login</a>
-    </c:if>
+    <h1>Users</h1>
 
     <ul>
         <jsp:useBean id="authors" scope="request" type="java.util.List<hr.fer.oprpp2.model.BlogUser>"/>
