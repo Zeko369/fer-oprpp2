@@ -1,3 +1,4 @@
+<jsp:useBean id="author" scope="request" type="hr.fer.oprpp2.model.BlogUser"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -12,12 +13,6 @@
     <title>Blogs</title>
 </head>
 <body>
-<h1>Blogs</h1>
-<ul>
-    <jsp:useBean id="blogs" scope="request" type="java.util.List<hr.fer.oprpp2.model.BlogEntry>"/>
-    <c:forEach items="${blogs}" var="blog">
-        <li>${blog.title}</li>
-    </c:forEach>
-</ul>
+<h1>${blog.getTitle()}</h1>
 </body>
 </html>

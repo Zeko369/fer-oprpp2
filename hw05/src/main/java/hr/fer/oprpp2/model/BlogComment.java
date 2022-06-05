@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
@@ -31,6 +32,7 @@ public class BlogComment {
     private String message;
 
     @Column(nullable = false, name = "commented_at")
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date commentedAt;
 }

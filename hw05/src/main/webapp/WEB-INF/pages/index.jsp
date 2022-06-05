@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: franzekan
@@ -20,8 +21,16 @@
 </jsp:include>
 
 <div class="content">
-    <h1>Hello World!</h1>
-    <a href="${pageContext.request.contextPath}/voting">Go check out all the polls</a>
+    <h1>All blog users</h1>
+
+    <ul>
+        <jsp:useBean id="authors" scope="request" type="java.util.List<hr.fer.oprpp2.model.BlogUser>"/>
+        <c:forEach items="${authors}" var="author">
+            <li>
+                <a href="${pageContext.request.contextPath}/servlet/author/${author.getUsername()}">${author.getFullName()}</a>
+            </li>
+        </c:forEach>
+    </ul>
 </div>
 </body>
 </html>
