@@ -4,41 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw05] init code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOs/DAOBlogEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOs/DAOUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPABlogEntryDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPAUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/router/AuthorSimpleRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/router/RouteMatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/router/SimpleRouter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/Auth/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/Auth/LoginError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/Auth/RegisterError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/AuthorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/BlogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Auth/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Auth/RegisterServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/MainServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/RootServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/auth/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/auth/register.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c/storage_v2/_src_/database/java-blog-app.wZxVxg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c/storage_v2/_src_/database/java-blog-app.wZxVxg/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw05] bunch of stuff">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/Auth/AuthResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/AuthorizeBlog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Auth/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/console/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/console/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/JPADAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/JPADAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Blogs/BlogsServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOs/DAOBlogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOs/DAOBlogEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPABlogEntryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPABlogEntryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/Auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/Auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Auth/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Auth/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Auth/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Auth/RegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/BaseServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/navbar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/author/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/author/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/author/show.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/show.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +40,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Record" />
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
@@ -195,7 +182,7 @@
       <workItem from="1653256396694" duration="10447000" />
       <workItem from="1653545159899" duration="610000" />
       <workItem from="1653864770699" duration="484000" />
-      <workItem from="1654435411741" duration="13763000" />
+      <workItem from="1654435411741" duration="18266000" />
     </task>
     <task id="LOCAL-00001" summary="[hw04] Init stuff, setup psql init">
       <created>1653263540503</created>
@@ -239,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654450025090</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[hw05] bunch of stuff">
+      <created>1654459229341</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654459229341</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +258,8 @@
     <MESSAGE value="[hw04] remove old stuff" />
     <MESSAGE value="[hw04] javaDocs" />
     <MESSAGE value="[hw05] init code" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw05] init code" />
+    <MESSAGE value="[hw05] bunch of stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw05] bunch of stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

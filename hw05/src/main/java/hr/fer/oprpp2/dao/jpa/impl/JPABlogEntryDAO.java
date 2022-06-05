@@ -24,4 +24,10 @@ public class JPABlogEntryDAO implements DAOBlogEntry {
                 .setParameter("userId", userId)
                 .getResultList();
     }
+
+    @Override
+    public BlogEntry savePost(BlogEntry post) {
+        JPAEMProvider.getEntityManager().persist(post);
+        return post;
+    }
 }

@@ -18,4 +18,6 @@ public interface DAOBlogEntry {
     Optional<BlogEntry> getBlogEntry(Long id) throws DAOException;
 
     List<BlogEntry> getBlogs(Long userId) throws DAOException;
+
+    BlogEntry savePost(BlogEntry blog);
 }

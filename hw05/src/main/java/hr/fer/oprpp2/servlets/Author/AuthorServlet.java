@@ -6,6 +6,7 @@ import hr.fer.oprpp2.model.BlogUser;
 import hr.fer.oprpp2.router.RouteMatch;
 import hr.fer.oprpp2.router.SimpleRouter;
 import hr.fer.oprpp2.services.AuthorService;
+import hr.fer.oprpp2.services.AuthorizeBlog;
 import hr.fer.oprpp2.services.BlogService;
 import hr.fer.oprpp2.servlets.BaseServlet;
 
@@ -19,6 +20,8 @@ import java.util.Optional;
 @WebServlet("/servlet/author/*")
 public class AuthorServlet extends BaseServlet {
     private final SimpleRouter router = new SimpleRouter();
+    private final AuthorizeBlog authorizeBlog = new AuthorizeBlog();
+
     private final BlogService blogService = new BlogService();
     private final AuthorService authorService = new AuthorService();
 
@@ -42,8 +45,49 @@ public class AuthorServlet extends BaseServlet {
         }
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        if (req.getPathInfo() == null) {
+            this.throwError(req, resp, "Route not found?");
+            return;
+        }
+
+        RouteMatch match = router.getRoute(req.getPathInfo().substring(1));
+        try {
+            switch (match.authorRoute()) {
+                case AUTHOR_EDIT_BLOG -> this.updateBlog(req, resp, match);
+                case AUTHOR_NEW_BLOG -> this.createBlog(req, resp, match);
+            }
+        } catch (DAOException e) {
+            this.throwError(req, resp, e.getMessage());
+        }
+    }
+
+    private void createBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
+        if (this.authorizeBlog.authorize(this, req, resp, match) == null) {
+            return;
+        }
+        Optional<BlogUser> author = this.authorService.getAuthor(match.authorUsername());
+        if (author.isEmpty()) {
+            this.throwError(req, resp, "Author not found!");
+            return;
+        }
+
+        BlogEntry blog = this.blogService.createBlog(author.get(), req.getParameter("title"), req.getParameter("body"));
+        resp.sendRedirect("/blog-app/servlet/author/" + req.getSession().getAttribute("username") + "/" + blog.getId());
+    }
+
+    private void updateBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
+        BlogEntry blog = this.authorizeBlog.authorize(this, req, resp, match);
+        if (blog == null) {
+            return;
+        }
+
+        this.blogService.updateBlog(blog, req.getParameter("title"), req.getParameter("body"));
+        resp.sendRedirect("/blog-app/servlet/author/" + req.getSession().getAttribute("username") + "/" + blog.getId());
+    }
+
     private void showAuthor(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
-        System.out.println("HEREJk");
         Optional<BlogUser> author = this.authorService.getAuthor(match.authorUsername());
         if (author.isEmpty()) {
             this.throwError(req, resp, "Author not found");
@@ -51,6 +95,7 @@ public class AuthorServlet extends BaseServlet {
         }
 
         req.setAttribute("author", author.get());
+        req.setAttribute("isAuthor", match.authorUsername().equals(req.getSession().getAttribute("username")));
         req.setAttribute("blogs", this.blogService.getBlogsForUser(author.get().getId()));
         req.getRequestDispatcher("/WEB-INF/pages/author/show.jsp").forward(req, resp);
     }
@@ -62,15 +107,27 @@ public class AuthorServlet extends BaseServlet {
             return;
         }
 
-        req.setAttribute("blog", blog);
-        req.getRequestDispatcher("/WEB-INF/pages/blogs/show.jsp").forward(req, resp);
-    }
-
-    private void editBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
-        this.throwError(req, resp, "Not implemented");
+        req.setAttribute("blog", blog.get());
+        req.getRequestDispatcher("/WEB-INF/pages/blog/show.jsp").forward(req, resp);
     }
 
     private void newBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
-        this.throwError(req, resp, "Not implemented");
+        if (this.authorizeBlog.authorize(this, req, resp, match) == null) {
+            return;
+        }
+
+        req.getRequestDispatcher("/WEB-INF/pages/blog/form.jsp").forward(req, resp);
+    }
+
+    private void editBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
+        BlogEntry blog = this.authorizeBlog.authorize(this, req, resp, match);
+        if (blog == null) {
+            return;
+        }
+
+        req.setAttribute("blog", blog);
+        req.setAttribute("title", blog.getTitle());
+        req.setAttribute("body", blog.getBody());
+        req.getRequestDispatcher("/WEB-INF/pages/blog/form.jsp").forward(req, resp);
     }
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.Objects" %><%--
   Created by IntelliJ IDEA.
   User: franzekan
@@ -20,4 +21,13 @@
             </li>
         </ul>
     </div>
+
+    <c:choose>
+        <c:when test='${pageContext.session.getAttribute("userId") != null}'>
+            <a href="${pageContext.request.contextPath}/servlet/auth/logout">Logout</a>
+        </c:when>
+        <c:otherwise>
+            <a href="${pageContext.request.contextPath}/servlet/auth/login">Login</a>
+        </c:otherwise>
+    </c:choose>
 </nav>

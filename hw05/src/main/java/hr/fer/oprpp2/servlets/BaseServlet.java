@@ -22,7 +22,7 @@ public abstract class BaseServlet extends HttpServlet {
      * @throws ServletException the servlet exception
      * @throws IOException      the io exception
      */
-    protected void throwError(HttpServletRequest req, HttpServletResponse resp, String error) throws ServletException, IOException {
+    public void throwError(HttpServletRequest req, HttpServletResponse resp, String error) throws ServletException, IOException {
         this.throwError(req, resp, List.of(error), 500);
     }
 
@@ -36,7 +36,7 @@ public abstract class BaseServlet extends HttpServlet {
      * @throws ServletException the servlet exception
      * @throws IOException      the io exception
      */
-    protected void throwError(HttpServletRequest req, HttpServletResponse resp, String error, int statusCode) throws ServletException, IOException {
+    public void throwError(HttpServletRequest req, HttpServletResponse resp, String error, int statusCode) throws ServletException, IOException {
         this.throwError(req, resp, List.of(error), statusCode);
     }
 
@@ -50,7 +50,7 @@ public abstract class BaseServlet extends HttpServlet {
      * @throws ServletException the servlet exception
      * @throws IOException      the io exception
      */
-    protected void throwError(HttpServletRequest req, HttpServletResponse resp, List<String> errors, int statusCode) throws ServletException, IOException {
+    public void throwError(HttpServletRequest req, HttpServletResponse resp, List<String> errors, int statusCode) throws ServletException, IOException {
         resp.setStatus(statusCode);
         req.setAttribute("error", String.join("<br/>", errors));
         req.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(req, resp);

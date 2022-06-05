@@ -1,5 +1,6 @@
 package hr.fer.oprpp2.servlets.Auth;
 
+import hr.fer.oprpp2.services.Auth.AuthResult;
 import hr.fer.oprpp2.services.Auth.AuthService;
 import hr.fer.oprpp2.services.Auth.LoginError;
 import hr.fer.oprpp2.servlets.BaseServlet;
@@ -16,7 +17,12 @@ public class LoginServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO: handle redirect if session exists
+        Long userId = (Long) req.getSession().getAttribute("userId");
+        if (userId != null) {
+            resp.sendRedirect("/servlet/main");
+            return;
+        }
+
         req.getRequestDispatcher("/WEB-INF/pages/auth/login.jsp").forward(req, resp);
     }
 
@@ -25,8 +31,8 @@ public class LoginServlet extends BaseServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        LoginError error = this.authService.login(username, password);
-        switch (error) {
+        AuthResult<LoginError> loginRes = this.authService.login(username, password);
+        switch (loginRes.enumType()) {
             case USER_NOT_FOUND -> {
                 req.setAttribute("error", "Username not found");
                 req.setAttribute("username", username);
@@ -38,7 +44,9 @@ public class LoginServlet extends BaseServlet {
                 req.getRequestDispatcher("/WEB-INF/pages/auth/login.jsp").forward(req, resp);
             }
             case OK -> {
-                // TODO: setup session here
+                req.getSession().setAttribute("userId", loginRes.userId());
+                req.getSession().setAttribute("username", username);
+
                 resp.sendRedirect("/blog-app");
             }
             case ERROR -> this.throwError(req, resp, "Error while logging in");

@@ -1,5 +1,3 @@
-<jsp:useBean id="author" scope="request" type="hr.fer.oprpp2.model.BlogUser"/>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: franzekan
@@ -10,9 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Blogs</title>
+    <jsp:include page="/WEB-INF/components/head.jsp">
+        <jsp:param name="title" value="New blog"/>
+    </jsp:include>
 </head>
 <body>
-<h1>${blog.getTitle()}</h1>
+
+<jsp:useBean id="blog" scope="request" type="hr.fer.oprpp2.model.BlogEntry"/>
+<h1>
+    <%= blog.getTitle() %>
+</h1>
+<p>
+    <%= blog.getBody() %>
+</p>
 </body>
 </html>

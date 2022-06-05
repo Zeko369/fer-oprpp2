@@ -1,5 +1,6 @@
 package hr.fer.oprpp2.servlets.Auth;
 
+import hr.fer.oprpp2.services.Auth.AuthResult;
 import hr.fer.oprpp2.services.Auth.AuthService;
 import hr.fer.oprpp2.services.Auth.RegisterError;
 import hr.fer.oprpp2.servlets.BaseServlet;
@@ -28,8 +29,8 @@ public class RegisterServlet extends BaseServlet {
         String lastName = req.getParameter("lastName");
         String password = req.getParameter("password");
 
-        RegisterError error = this.authService.register(username, firstName, lastName, email, password);
-        switch (error) {
+        AuthResult<RegisterError> registerRes = this.authService.register(username, firstName, lastName, email, password);
+        switch (registerRes.enumType()) {
             case EMAIL_IN_USE -> {
                 req.setAttribute("error", "Email in use");
                 req.setAttribute("email", email);
@@ -47,7 +48,9 @@ public class RegisterServlet extends BaseServlet {
                 req.getRequestDispatcher("/WEB-INF/pages/auth/register.jsp").forward(req, resp);
             }
             case OK -> {
-                // TODO: setup session here
+                req.getSession().setAttribute("userId", registerRes.userId());
+                req.getSession().setAttribute("username", username);
+
                 resp.sendRedirect("/blog-app");
             }
             case ERROR -> this.throwError(req, resp, "Error while registering in");

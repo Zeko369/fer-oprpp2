@@ -10,10 +10,10 @@ import java.util.Optional;
 
 public class AuthService {
 
-    public LoginError login(String username, String password) {
+    public AuthResult<LoginError> login(String username, String password) {
         Optional<BlogUser> user = DAOProvider.getDAO().userDao().getUserByUsername(username);
         if (user.isEmpty()) {
-            return LoginError.USER_NOT_FOUND;
+            return new AuthResult<>(LoginError.USER_NOT_FOUND, null);
         }
 
         System.out.println(password);
@@ -22,23 +22,23 @@ public class AuthService {
             String passwordHash = this.hashPassword(password);
             System.out.println(passwordHash);
             if (!user.get().getPasswordHash().equals(passwordHash)) {
-                return LoginError.WRONG_PASSWORD;
+                return new AuthResult<>(LoginError.WRONG_PASSWORD, null);
             }
 
-            return LoginError.OK;
+            return new AuthResult<>(LoginError.OK, user.get().getId());
         } catch (NoSuchAlgorithmException e) {
-            return LoginError.ERROR;
+            return new AuthResult<>(LoginError.ERROR, null);
         }
     }
 
 
-    public RegisterError register(String username, String firstName, String lastName, String email, String password) {
+    public AuthResult<RegisterError> register(String username, String firstName, String lastName, String email, String password) {
         if (DAOProvider.getDAO().userDao().getUserByUsername(username).isPresent()) {
-            return RegisterError.USERNAME_IN_USE;
+            return new AuthResult<>(RegisterError.USERNAME_IN_USE, null);
         }
 
         if (DAOProvider.getDAO().userDao().getUserByEmail(email).isPresent()) {
-            return RegisterError.EMAIL_IN_USE;
+            return new AuthResult<>(RegisterError.EMAIL_IN_USE, null);
         }
 
         try {
@@ -49,10 +49,10 @@ public class AuthService {
                     .setPasswordHash(this.hashPassword(password));
 
             DAOProvider.getDAO().userDao().saveUser(user);
-            return RegisterError.OK;
+            return new AuthResult<>(RegisterError.OK, user.getId());
         } catch (Exception e) {
             e.printStackTrace();
-            return RegisterError.ERROR;
+            return new AuthResult<>(RegisterError.ERROR, null);
         }
     }
 
