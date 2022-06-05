@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class BlogService {
-    public List<BlogEntry> getBlogsForUser(Long userId) throws DAOException {
+    public List<BlogEntry> getBlogsForUser(Long userId) {
         return DAOProvider.getDAO().blogDao().getBlogs(userId);
     }
 
-    public Optional<BlogEntry> getBlog(Long blogId) throws DAOException {
+    public Optional<BlogEntry> getBlog(Long blogId) {
         return DAOProvider.getDAO().blogDao().getBlogEntry(blogId);
     }
 
@@ -22,8 +22,8 @@ public class BlogService {
         return DAOProvider.getDAO().blogDao().savePost(new BlogEntry().setTitle(title).setBody(body).setUser(user));
     }
 
-    public BlogEntry updateBlog(BlogEntry blog, String title, String body) {
-        return DAOProvider.getDAO().blogDao().savePost(blog.setTitle(title).setBody(body));
+    public void updateBlog(BlogEntry blog, String title, String body) {
+        DAOProvider.getDAO().blogDao().savePost(blog.setTitle(title).setBody(body));
     }
 
     public void comment(Long blogId, String message, String email) throws DAOException {

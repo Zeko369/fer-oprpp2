@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw05] setup most stuff">
+    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw05] finish stuff that's not design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/console/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/console/Demo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOs/DAOBlogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOs/DAOBlogEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPABlogEntryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPABlogEntryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/router/AuthorSimpleRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/router/AuthorSimpleRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/router/SimpleRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/router/SimpleRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/AuthorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/BlogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/show.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +56,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="28w6EDoz5OGB2FrvsjWfw0rATDw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -84,6 +85,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "Errors"
   },
   "keyToStringList": {
@@ -170,7 +172,7 @@
       <workItem from="1653256396694" duration="10447000" />
       <workItem from="1653545159899" duration="610000" />
       <workItem from="1653864770699" duration="484000" />
-      <workItem from="1654435411741" duration="19055000" />
+      <workItem from="1654435411741" duration="19266000" />
     </task>
     <task id="LOCAL-00001" summary="[hw04] Init stuff, setup psql init">
       <created>1653263540503</created>
@@ -228,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654463725857</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="[hw05] finish stuff that's not design">
+      <created>1654464610626</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1654464610626</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +264,8 @@
     <MESSAGE value="[hw05] init code" />
     <MESSAGE value="[hw05] bunch of stuff" />
     <MESSAGE value="[hw05] setup most stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw05] setup most stuff" />
+    <MESSAGE value="[hw05] finish stuff that's not design" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw05] finish stuff that's not design" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -88,7 +88,7 @@ public class AuthorServlet extends BaseServlet {
         resp.sendRedirect("/blog-app/servlet/author/" + req.getSession().getAttribute("username") + "/" + blog.getId());
     }
 
-    private void commentBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
+    private void commentBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws Exception {
         try {
             this.blogService.comment(match.blogId(), req.getParameter("message"), req.getParameter("email"));
         } catch (DAOException e) {
