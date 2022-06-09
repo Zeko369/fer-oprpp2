@@ -2,8 +2,19 @@ package hr.fer.oprpp2.router;
 
 import java.util.regex.Pattern;
 
+/**
+ * The type Simple router.
+ *
+ * @author franzekan
+ */
 public class SimpleRouter {
 
+    /**
+     * Gets route.
+     *
+     * @param path the path
+     * @return the route
+     */
     public RouteMatch getRoute(String path) {
         String[] pathParts = path.split("/");
         switch (pathParts.length) {

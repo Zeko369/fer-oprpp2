@@ -26,7 +26,6 @@ public class JPAUserDao implements DAOUser {
         } catch (NoResultException e) {
             return Optional.empty();
         }
-
     }
 
     @Override
