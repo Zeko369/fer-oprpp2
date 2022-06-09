@@ -59,6 +59,7 @@ public class AuthService {
     private String hashPassword(String password) throws NoSuchAlgorithmException {
         StringBuilder sb = new StringBuilder();
         MessageDigest md = MessageDigest.getInstance("SHA-1");
+        md.reset();
         for (byte b : md.digest(password.getBytes(StandardCharsets.UTF_8))) {
             sb.append(String.format("%02x", b & 0xff));
         }
