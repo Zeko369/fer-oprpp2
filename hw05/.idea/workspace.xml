@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw05] cleanup">
+    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw05] some cleanup">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ehcache.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/RootServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/RootServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/components/head.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/author/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/author/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/blog/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +83,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "Errors"
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -174,7 +169,8 @@
       <workItem from="1653256396694" duration="10447000" />
       <workItem from="1653545159899" duration="610000" />
       <workItem from="1653864770699" duration="484000" />
-      <workItem from="1654435411741" duration="20155000" />
+      <workItem from="1654435411741" duration="21065000" />
+      <workItem from="1654754560628" duration="445000" />
     </task>
     <task id="LOCAL-00001" summary="[hw04] Init stuff, setup psql init">
       <created>1653263540503</created>
@@ -253,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654464826240</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="[hw05] some cleanup">
+      <created>1654465623480</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654465623480</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +285,8 @@
     <MESSAGE value="[hw05] setup most stuff" />
     <MESSAGE value="[hw05] finish stuff that's not design" />
     <MESSAGE value="[hw05] cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw05] cleanup" />
+    <MESSAGE value="[hw05] some cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw05] some cleanup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
