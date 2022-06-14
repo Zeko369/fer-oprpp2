@@ -1,0 +1,10 @@
+.content {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.nav-item.active .nav-link {
+    color: white;
+}
+
