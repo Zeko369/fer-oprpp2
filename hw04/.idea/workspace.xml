@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw04] Final task 1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw05/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw05/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPAUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw05/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPAUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw05/src/main/java/hr/fer/oprpp2/services/Auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw05/src/main/java/hr/fer/oprpp2/services/Auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw05/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw05/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

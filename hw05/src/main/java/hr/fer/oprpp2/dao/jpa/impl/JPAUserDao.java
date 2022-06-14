@@ -53,7 +53,6 @@ public class JPAUserDao implements DAOUser {
 
     @Override
     public void saveComment(BlogUserComment userComment) {
-        System.out.println(userComment);
         JPAEMProvider.getEntityManager().persist(userComment);
     }
 }

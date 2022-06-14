@@ -54,7 +54,6 @@ public class AuthorServlet extends BaseServlet {
 
         RouteMatch match = router.getRoute(req.getPathInfo().substring(1));
         try {
-            System.out.println(match.authorRoute());
             switch (match.authorRoute()) {
                 case AUTHOR -> this.commentAuthor(req, resp, match);
                 case AUTHOR_EDIT_BLOG -> this.updateBlog(req, resp, match);

@@ -16,11 +16,8 @@ public class AuthService {
             return new AuthResult<>(LoginError.USER_NOT_FOUND, null);
         }
 
-        System.out.println(password);
-
         try {
             String passwordHash = this.hashPassword(password);
-            System.out.println(passwordHash);
             if (!user.get().getPasswordHash().equals(passwordHash)) {
                 return new AuthResult<>(LoginError.WRONG_PASSWORD, null);
             }
