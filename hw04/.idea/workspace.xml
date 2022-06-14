@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw04] javaDocs">
-      <change afterPath="$PROJECT_DIR$/../hw05/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw01/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw02/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw05/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -118,6 +119,7 @@
       <workItem from="1653256396694" duration="10447000" />
       <workItem from="1653545159899" duration="610000" />
       <workItem from="1653864770699" duration="484000" />
+      <workItem from="1655216492177" duration="76000" />
     </task>
     <task id="LOCAL-00001" summary="[hw04] Init stuff, setup psql init">
       <created>1653263540503</created>
