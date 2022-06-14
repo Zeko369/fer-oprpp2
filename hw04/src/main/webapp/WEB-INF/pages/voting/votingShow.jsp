@@ -36,14 +36,23 @@
                         <input type="checkbox" name="voteIds" value="${pollOption.getId()}"/>
                     </label>
 
-                    <a href="<c:url value='/voting/vote?id=${pollOption.getId()}&pollId=${param.get("pollId")}'/>">
-                            ${pollOption.getTitle()}
+                        ${pollOption.getTitle()}
+                    <a class="btn btn-sm btn-primary mb-2 text-white"
+                       href="<c:url value='/voting/vote?id=${pollOption.getId()}&pollId=${param.get("pollId")}'/>">
+                        Like
+                    </a>
+                    <a class="btn btn-sm btn-danger mb-2 text-white"
+                       href="<c:url value='/voting/vote?id=${pollOption.getId()}&pollId=${param.get("pollId")}&dislike=true'/>">
+                        Dislike
                     </a>
                 </li>
             </c:forEach>
         </ol>
 
-        <input type="submit" value="Vote for 0" class="btn btn-primary"/>
+        <input type="submit" data-action="Like" value="Like for 0" class="btn btn-primary"/>
+        <input type="submit" data-action="Dislike" value="Dislike for 0" class="btn btn-danger"
+               formaction="${pageContext.request.contextPath}/voting/vote?pollId=${param.get("pollId")}&dislike=true"
+        />
     </form>
 </div>
 
@@ -53,19 +62,19 @@
     return Array.from(document.querySelectorAll('input[type="checkbox"]')).reduce((c, a) => a.checked ? c + 1 : c, 0);
   }
 
-  const button = document.querySelector('input[type="submit"]');
+  const button = document.querySelectorAll('input[type="submit"]');
   const selectAll = () => {
     const select = getVotes() !== COUNT_ALL;
     document.querySelectorAll('input[type="checkbox"]').forEach(input => {
       input.checked = select;
     });
 
-    button.value = "Vote for " + getVotes().toString();
+    button.forEach(btn => btn.value = btn.dataset.action + " for " + getVotes().toString());
   }
 
   document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     input.addEventListener("change", () => {
-      button.value = "Vote for " + getVotes().toString();
+      button.forEach(btn => btn.value = btn.dataset.action + " for " + getVotes().toString());
     });
   });
 </script>

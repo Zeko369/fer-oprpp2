@@ -39,14 +39,14 @@ public class VotingResultsServlet extends BaseServlet {
         long maxVotes = 0;
 
         for (PollOption option : votes) {
-            if (option.getVotesCount() > maxVotes) {
-                maxVotes = option.getVotesCount();
+            if (option.getLikesCount() > maxVotes) {
+                maxVotes = option.getLikesCount();
             }
         }
 
         List<PollOption> winners = new ArrayList<>();
         for (PollOption vote : votes) {
-            if (vote.getVotesCount() == maxVotes) {
+            if (vote.getLikesCount() == maxVotes) {
                 winners.add(vote);
             }
         }

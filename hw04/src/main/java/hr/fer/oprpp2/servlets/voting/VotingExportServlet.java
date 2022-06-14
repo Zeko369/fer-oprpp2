@@ -47,7 +47,7 @@ public class VotingExportServlet extends BaseServlet {
         List<PollOption> pollOptions = DAOProvider.getDao().getPollOptions(Integer.parseInt(req.getParameter("pollId")));
         ExcelFileGenerator<PollOption> generator = new ExcelFileGenerator<>(
                 List.of("id", "name", "votes", "youtube"),
-                (vote) -> List.of(String.valueOf(vote.getId()), vote.getTitle(), String.valueOf(vote.getVotesCount()), vote.getLink())
+                (vote) -> List.of(String.valueOf(vote.getId()), vote.getTitle(), String.valueOf(vote.getLikesCount()), vote.getLink())
         );
 
         resp.setHeader("Content-Type", "application/vnd.ms-excel");
@@ -60,7 +60,7 @@ public class VotingExportServlet extends BaseServlet {
     private void handleGraph(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         List<PollOption> pollOptions = DAOProvider.getDao().getPollOptions(Integer.parseInt(req.getParameter("pollId")));
         DefaultPieDataset<String> dataset = new DefaultPieDataset<>();
-        pollOptions.forEach(vote -> dataset.setValue(vote.getTitle(), vote.getVotesCount()));
+        pollOptions.forEach(vote -> dataset.setValue(vote.getTitle(), vote.getLikesCount()));
 
         RespondWithChart.send(req, resp, dataset, "Voting results");
     }

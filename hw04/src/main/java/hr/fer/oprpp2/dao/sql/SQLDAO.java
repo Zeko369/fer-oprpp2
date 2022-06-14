@@ -52,7 +52,7 @@ public class SQLDAO implements DAO {
         PreparedStatement pst;
 
         try {
-            pst = con.prepareStatement("select id, title, link, poll_id, votes from poll_options where poll_id = ? order by id ");
+            pst = con.prepareStatement("select id, title, link, poll_id, likes, dislikes from poll_options where poll_id = ? order by id ");
             pst.setInt(1, id);
 
             try {
@@ -64,7 +64,8 @@ public class SQLDAO implements DAO {
                                         rs.getString(2),
                                         rs.getString(3),
                                         rs.getInt(4),
-                                        rs.getLong(5)
+                                        rs.getLong(5),
+                                        rs.getLong(6)
                                 )
                         );
                     }
@@ -83,12 +84,16 @@ public class SQLDAO implements DAO {
     }
 
     @Override
-    public void vote(Integer optionId) {
+    public void vote(Integer optionId, boolean dislike) {
         Connection con = SQLConnectionProvider.getConnection();
         PreparedStatement pst;
 
         try {
-            pst = con.prepareStatement("update poll_options set votes = votes + 1 where id = ?");
+            if (dislike) {
+                pst = con.prepareStatement("update poll_options set dislikes = dislikes + 1 where id = ?");
+            } else {
+                pst = con.prepareStatement("update poll_options set likes = likes + 1 where id = ?");
+            }
             pst.setInt(1, optionId);
 
             try {

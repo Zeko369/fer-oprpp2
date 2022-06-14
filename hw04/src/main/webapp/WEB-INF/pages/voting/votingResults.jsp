@@ -27,7 +27,8 @@
         <thead>
         <tr>
             <th>Band</th>
-            <th>Votes</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
         </tr>
         </thead>
         <tbody>
@@ -35,7 +36,8 @@
         <c:forEach var="result" items="${votes}">
             <tr>
                 <td>${result.getTitle()}</td>
-                <td>${result.getVotesCount()}</td>
+                <td>${result.getLikesCount()}</td>
+                <td>${result.getDislikesCount()}</td>
             </tr>
         </c:forEach>
         </tbody>

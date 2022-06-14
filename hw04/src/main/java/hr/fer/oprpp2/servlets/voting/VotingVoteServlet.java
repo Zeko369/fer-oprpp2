@@ -33,19 +33,23 @@ public class VotingVoteServlet extends BaseServlet {
             return;
         }
 
+        boolean dislike = req.getParameter("dislike") != null && req.getParameter("dislike").equals("true");
+
         DAO dao = DAOProvider.getDao();
-        dao.vote(optionId);
+        dao.vote(optionId, dislike);
 
         resp.sendRedirect("/webapp1/voting/results?pollId=" + req.getParameter("pollId"));
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        boolean dislike = req.getParameter("dislike") != null && req.getParameter("dislike").equals("true");
+
         if (req.getParameterValues("voteIds") != null) {
             DAO dao = DAOProvider.getDao();
             for (String id : req.getParameterValues("voteIds")) {
                 try {
-                    dao.vote(Integer.parseInt(id));
+                    dao.vote(Integer.parseInt(id), dislike);
                 } catch (NumberFormatException e) {
                     this.throwError(req, resp, "VoteID is not an integer");
                     return;

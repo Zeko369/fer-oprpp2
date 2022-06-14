@@ -17,5 +17,6 @@ public class PollOption {
     private String title;
     private String link;
     private Integer pollId;
-    private Long votesCount;
+    private Long likesCount;
+    private Long dislikesCount;
 }

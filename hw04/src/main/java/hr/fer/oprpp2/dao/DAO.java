@@ -31,5 +31,5 @@ public interface DAO {
      *
      * @param optionId the option id
      */
-    void vote(Integer optionId);
+    void vote(Integer optionId, boolean dislike);
 }

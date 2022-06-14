@@ -51,7 +51,8 @@ public record Seed(Connection connection) {
                 "poll_id INTEGER NOT NULL," +
                 "title VARCHAR(255) NOT NULL," +
                 "link VARCHAR(255) NOT NULL," +
-                "votes BIGINT NOT NULL," +
+                "likes BIGINT NOT NULL," +
+                "dislikes BIGINT NOT NULL," +
                 "FOREIGN KEY (poll_id) REFERENCES polls(id))"
         );
     }
@@ -74,13 +75,13 @@ public record Seed(Connection connection) {
      */
     public void generatePolls() throws SQLException {
         List<PollOption> polls = List.of(
-                new PollOption(1, "The Beatles", "https://www.youtube.com/watch?v=z9ypq6_5bsg", 1, 0L),
-                new PollOption(2, "The Platters", "https://www.youtube.com/watch?v=H2di83WAOhU", 1, 0L),
-                new PollOption(3, "The Beach Boys", "https://www.youtube.com/watch?v=2s4slliAtQU", 1, 0L),
-                new PollOption(4, "The Four Seasons", "https://www.youtube.com/watch?v=y8yvnqHmFds", 1, 0L),
-                new PollOption(5, "The Marcels", "https://www.youtube.com/watch?v=qoi3TH59ZEs", 1, 0L),
-                new PollOption(6, "The Everly Brothers", "https://www.youtube.com/watch?v=tbU3zdAgiX8", 1, 0L),
-                new PollOption(7, "The Mamas And The Papas", "https://www.youtube.com/watch?v=N-aK6JnyFmk", 1, 0L)
+                new PollOption(1, "The Beatles", "https://www.youtube.com/watch?v=z9ypq6_5bsg", 1, 0L, 0L),
+                new PollOption(2, "The Platters", "https://www.youtube.com/watch?v=H2di83WAOhU", 1, 0L, 0L),
+                new PollOption(3, "The Beach Boys", "https://www.youtube.com/watch?v=2s4slliAtQU", 1, 0L, 0L),
+                new PollOption(4, "The Four Seasons", "https://www.youtube.com/watch?v=y8yvnqHmFds", 1, 0L, 0L),
+                new PollOption(5, "The Marcels", "https://www.youtube.com/watch?v=qoi3TH59ZEs", 1, 0L, 0L),
+                new PollOption(6, "The Everly Brothers", "https://www.youtube.com/watch?v=tbU3zdAgiX8", 1, 0L, 0L),
+                new PollOption(7, "The Mamas And The Papas", "https://www.youtube.com/watch?v=N-aK6JnyFmk", 1, 0L, 0L)
         );
 
         PreparedStatement preparedStatement = this.connection.prepareStatement("INSERT INTO polls (title, message) VALUES (?, ?)");
@@ -90,12 +91,13 @@ public record Seed(Connection connection) {
         preparedStatement.close();
 
         this.connection.setAutoCommit(false);
-        PreparedStatement preparedStatementOption = this.connection.prepareStatement("INSERT INTO poll_options (poll_id, title, link, votes) VALUES (?, ?, ?, ?)");
+        PreparedStatement preparedStatementOption = this.connection.prepareStatement("INSERT INTO poll_options (poll_id, title, link, likes, dislikes) VALUES (?, ?, ?, ?, ?)");
         for (PollOption poll : polls) {
             preparedStatementOption.setInt(1, poll.getPollId());
             preparedStatementOption.setString(2, poll.getTitle());
             preparedStatementOption.setString(3, poll.getLink());
-            preparedStatementOption.setLong(4, poll.getVotesCount());
+            preparedStatementOption.setLong(4, poll.getLikesCount());
+            preparedStatementOption.setLong(5, poll.getDislikesCount());
             preparedStatementOption.addBatch();
         }
 

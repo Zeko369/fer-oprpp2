@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw04] javaDocs">
-      <change beforePath="$PROJECT_DIR$/../hw01/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw02/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw04] Final task 1">
       <change beforePath="$PROJECT_DIR$/../hw05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw05/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,6 +117,7 @@
       <workItem from="1653545159899" duration="610000" />
       <workItem from="1653864770699" duration="484000" />
       <workItem from="1655216492177" duration="76000" />
+      <workItem from="1655216600931" duration="1312000" />
     </task>
     <task id="LOCAL-00001" summary="[hw04] Init stuff, setup psql init">
       <created>1653263540503</created>
@@ -156,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653266711107</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="[hw04] Final task 1">
+      <created>1655217902089</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655217902089</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +185,8 @@
     <MESSAGE value="[hw04] Do the whole thing" />
     <MESSAGE value="[hw04] remove old stuff" />
     <MESSAGE value="[hw04] javaDocs" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw04] javaDocs" />
+    <MESSAGE value="[hw04] Final task 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="[hw04] Final task 1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
