@@ -11,9 +11,8 @@
 14022||10|c|G
 14022||10|C|G
 14022||10|T|G</Grants>
-      <IntrospectionStateNumber>59800</IntrospectionStateNumber>
       <ServerVersion>14.2</ServerVersion>
-      <StartupTime>1654095172</StartupTime>
+      <StartupTime>1654711015</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -878,7 +877,7 @@ sequence|table|137853|137854|1
 13657||10|C|G
 13657||-9223372036854775808|U|G
 13657||10|U|G</Grants>
-      <IntrospectionStateNumber>59866</IntrospectionStateNumber>
+      <IntrospectionStateNumber>63503</IntrospectionStateNumber>
       <ObjectId>159293</ObjectId>
       <OwnerName>franzekan</OwnerName>
     </database>
@@ -4345,285 +4344,375 @@ sequence|table|137853|137854|1
     <schema id="285" parent="16" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>59866</IntrospectionStateNumber>
+      <IntrospectionStateNumber>63503</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>526</StateNumber>
       <OwnerName>franzekan</OwnerName>
     </schema>
     <sequence id="286" parent="285" name="blog_comments_seq">
       <DataType>bigint|0s</DataType>
-      <ObjectId>159390</ObjectId>
+      <ObjectId>159485</ObjectId>
       <SequenceIdentity>null+50</SequenceIdentity>
-      <StateNumber>59856</StateNumber>
+      <StateNumber>59901</StateNumber>
       <OwnerName>dev</OwnerName>
     </sequence>
     <sequence id="287" parent="285" name="blog_entries_seq">
       <DataType>bigint|0s</DataType>
-      <ObjectId>159391</ObjectId>
+      <ObjectId>159486</ObjectId>
       <SequenceIdentity>null+50</SequenceIdentity>
-      <StateNumber>59857</StateNumber>
+      <StateNumber>59902</StateNumber>
       <OwnerName>dev</OwnerName>
     </sequence>
-    <sequence id="288" parent="285" name="blog_users_seq">
+    <sequence id="288" parent="285" name="blog_user_comments_seq">
       <DataType>bigint|0s</DataType>
-      <ObjectId>159392</ObjectId>
+      <ObjectId>215741</ObjectId>
       <SequenceIdentity>null+50</SequenceIdentity>
-      <StateNumber>59858</StateNumber>
+      <StateNumber>63498</StateNumber>
       <OwnerName>dev</OwnerName>
     </sequence>
-    <table id="289" parent="285" name="blog_comments">
-      <ObjectId>159393</ObjectId>
-      <StateNumber>59864</StateNumber>
+    <sequence id="289" parent="285" name="blog_users_seq">
+      <DataType>bigint|0s</DataType>
+      <ObjectId>159487</ObjectId>
+      <SequenceIdentity>null+50</SequenceIdentity>
+      <StateNumber>59903</StateNumber>
+      <OwnerName>dev</OwnerName>
+    </sequence>
+    <table id="290" parent="285" name="blog_comments">
+      <ObjectId>159462</ObjectId>
+      <StateNumber>59904</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>dev</OwnerName>
     </table>
-    <table id="290" parent="285" name="blog_entries">
-      <ObjectId>159400</ObjectId>
-      <StateNumber>59864</StateNumber>
+    <table id="291" parent="285" name="blog_entries">
+      <ObjectId>159469</ObjectId>
+      <StateNumber>59904</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>dev</OwnerName>
     </table>
-    <table id="291" parent="285" name="blog_users">
-      <ObjectId>159405</ObjectId>
-      <StateNumber>59865</StateNumber>
+    <table id="292" parent="285" name="blog_user_comments">
+      <ObjectId>215736</ObjectId>
+      <StateNumber>63499</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>dev</OwnerName>
     </table>
-    <column id="292" parent="289" name="id">
+    <table id="293" parent="285" name="blog_users">
+      <ObjectId>159474</ObjectId>
+      <StateNumber>59905</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>dev</OwnerName>
+    </table>
+    <column id="294" parent="290" name="id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>59859</StateNumber>
+      <StateNumber>59894</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="293" parent="289" name="commented_at">
+    <column id="295" parent="290" name="commented_at">
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>59859</StateNumber>
+      <StateNumber>59894</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="294" parent="289" name="message">
+    <column id="296" parent="290" name="message">
       <DataType>varchar(4096)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>59859</StateNumber>
+      <StateNumber>59894</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="295" parent="289" name="user_email">
+    <column id="297" parent="290" name="user_email">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>59859</StateNumber>
+      <StateNumber>59894</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="296" parent="289" name="blog_entry_id">
+    <column id="298" parent="290" name="blog_entry_id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>59859</StateNumber>
+      <StateNumber>59894</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="297" parent="289" name="fktr9ijk8p16bqi1h3hc5mhon90">
+    <foreign-key id="299" parent="290" name="fktr9ijk8p16bqi1h3hc5mhon90">
       <ColNames>blog_entry_id</ColNames>
-      <ObjectId>159416</ObjectId>
+      <ObjectId>159488</ObjectId>
       <RefColNames>id</RefColNames>
       <RefColPositions>1</RefColPositions>
       <RefKeyName>blog_entries_pkey</RefKeyName>
-      <StateNumber>59864</StateNumber>
-      <RefTableId>159400</RefTableId>
+      <StateNumber>59904</StateNumber>
+      <RefTableId>159469</RefTableId>
       <RefTableName>blog_entries</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="298" parent="289" name="blog_comments_pkey">
+    <index id="300" parent="290" name="blog_comments_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>159398</ObjectId>
+      <ObjectId>159467</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>59859</StateNumber>
+      <StateNumber>59894</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="299" parent="289" name="blog_comments_pkey">
+    <key id="301" parent="290" name="blog_comments_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>159399</ObjectId>
+      <ObjectId>159468</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>59859</StateNumber>
-      <UnderlyingIndexId>159398</UnderlyingIndexId>
+      <StateNumber>59894</StateNumber>
+      <UnderlyingIndexId>159467</UnderlyingIndexId>
     </key>
-    <column id="300" parent="290" name="id">
+    <column id="302" parent="291" name="id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>59860</StateNumber>
+      <StateNumber>59895</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="301" parent="290" name="body">
+    <column id="303" parent="291" name="body">
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>59860</StateNumber>
+      <StateNumber>59895</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="302" parent="290" name="created_at">
+    <column id="304" parent="291" name="created_at">
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>59860</StateNumber>
+      <StateNumber>59895</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="303" parent="290" name="title">
+    <column id="305" parent="291" name="title">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>59860</StateNumber>
+      <StateNumber>59895</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="304" parent="290" name="updated_at">
+    <column id="306" parent="291" name="updated_at">
       <DataType>timestamp(6)|0s</DataType>
       <Position>5</Position>
-      <StateNumber>59860</StateNumber>
+      <StateNumber>59895</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="305" parent="290" name="user_id">
+    <column id="307" parent="291" name="user_id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>59860</StateNumber>
+      <StateNumber>59895</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="306" parent="290" name="fkn58c6t5kfjmrpce4y4h65dssp">
+    <foreign-key id="308" parent="291" name="fkn58c6t5kfjmrpce4y4h65dssp">
       <ColNames>user_id</ColNames>
-      <ObjectId>159421</ObjectId>
+      <ObjectId>159493</ObjectId>
       <RefColNames>id</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <RefKeyName>blog_users_pkey</RefKeyName>
-      <StateNumber>59865</StateNumber>
-      <RefTableId>159405</RefTableId>
+      <StateNumber>59905</StateNumber>
+      <RefTableId>159474</RefTableId>
       <RefTableName>blog_users</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="307" parent="290" name="blog_entries_pkey">
+    <index id="309" parent="291" name="blog_entries_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>159403</ObjectId>
+      <ObjectId>159472</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>59860</StateNumber>
+      <StateNumber>59895</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="308" parent="290" name="blog_entries_pkey">
+    <key id="310" parent="291" name="blog_entries_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>159404</ObjectId>
+      <ObjectId>159473</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>59860</StateNumber>
-      <UnderlyingIndexId>159403</UnderlyingIndexId>
+      <StateNumber>59895</StateNumber>
+      <UnderlyingIndexId>159472</UnderlyingIndexId>
     </key>
-    <column id="309" parent="291" name="id">
+    <column id="311" parent="292" name="id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>63497</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="310" parent="291" name="created_at">
+    <column id="312" parent="292" name="comment">
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>63497</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="313" parent="292" name="created_at">
+      <DataType>timestamp(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>63497</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="314" parent="292" name="updated_at">
+      <DataType>timestamp(6)|0s</DataType>
+      <Position>4</Position>
+      <StateNumber>63497</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="315" parent="292" name="commenter_id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>63497</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="316" parent="292" name="user_id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>63497</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="317" parent="292" name="fkco7ovmi3pvjbb48nbjcjf70yg">
+      <ColNames>commenter_id</ColNames>
+      <ObjectId>215742</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>63499</StateNumber>
+      <RefTableId>159474</RefTableId>
+      <RefTableName>blog_users</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="318" parent="292" name="fk8qw5nfp1p0oopnbjls0ij6ry0">
+      <ColNames>user_id</ColNames>
+      <ObjectId>215747</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>63500</StateNumber>
+      <RefTableId>159474</RefTableId>
+      <RefTableName>blog_users</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="319" parent="292" name="blog_user_comments_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>215739</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>63497</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="320" parent="292" name="blog_user_comments_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>215740</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>63497</StateNumber>
+      <UnderlyingIndexId>215739</UnderlyingIndexId>
+    </key>
+    <column id="321" parent="293" name="id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>59896</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="322" parent="293" name="created_at">
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>59896</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="311" parent="291" name="email">
+    <column id="323" parent="293" name="email">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>59896</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="312" parent="291" name="first_name">
+    <column id="324" parent="293" name="first_name">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>59896</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="313" parent="291" name="last_name">
+    <column id="325" parent="293" name="last_name">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>59896</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="314" parent="291" name="password_hash">
+    <column id="326" parent="293" name="password_hash">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>59896</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="315" parent="291" name="updated_at">
+    <column id="327" parent="293" name="updated_at">
       <DataType>timestamp(6)|0s</DataType>
       <Position>7</Position>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>59896</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="316" parent="291" name="username">
+    <column id="328" parent="293" name="username">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>59896</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="317" parent="291" name="blog_users_pkey">
+    <index id="329" parent="293" name="blog_users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>159410</ObjectId>
+      <ObjectId>159479</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>59861</StateNumber>
+      <StateNumber>59896</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="318" parent="291" name="uk_9ldjyijvncfgo0fc0y19833h1">
+    <index id="330" parent="293" name="uk_9ldjyijvncfgo0fc0y19833h1">
       <ColNames>email</ColNames>
-      <ObjectId>159412</ObjectId>
-      <StateNumber>59862</StateNumber>
+      <ObjectId>159481</ObjectId>
+      <StateNumber>59898</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="319" parent="291" name="uk_9iii3vnyirxqx96m8w13kclqj">
+    <index id="331" parent="293" name="uk_9iii3vnyirxqx96m8w13kclqj">
       <ColNames>username</ColNames>
-      <ObjectId>159414</ObjectId>
-      <StateNumber>59863</StateNumber>
+      <ObjectId>159483</ObjectId>
+      <StateNumber>59900</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="320" parent="291" name="blog_users_pkey">
+    <key id="332" parent="293" name="blog_users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>159411</ObjectId>
+      <ObjectId>159480</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>59861</StateNumber>
-      <UnderlyingIndexId>159410</UnderlyingIndexId>
+      <StateNumber>59896</StateNumber>
+      <UnderlyingIndexId>159479</UnderlyingIndexId>
     </key>
-    <key id="321" parent="291" name="uk_9ldjyijvncfgo0fc0y19833h1">
+    <key id="333" parent="293" name="uk_9ldjyijvncfgo0fc0y19833h1">
       <ColNames>email</ColNames>
-      <ObjectId>159413</ObjectId>
-      <StateNumber>59862</StateNumber>
-      <UnderlyingIndexId>159412</UnderlyingIndexId>
+      <ObjectId>159482</ObjectId>
+      <StateNumber>59898</StateNumber>
+      <UnderlyingIndexId>159481</UnderlyingIndexId>
     </key>
-    <key id="322" parent="291" name="uk_9iii3vnyirxqx96m8w13kclqj">
+    <key id="334" parent="293" name="uk_9iii3vnyirxqx96m8w13kclqj">
       <ColNames>username</ColNames>
-      <ObjectId>159415</ObjectId>
-      <StateNumber>59863</StateNumber>
-      <UnderlyingIndexId>159414</UnderlyingIndexId>
+      <ObjectId>159484</ObjectId>
+      <StateNumber>59900</StateNumber>
+      <UnderlyingIndexId>159483</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

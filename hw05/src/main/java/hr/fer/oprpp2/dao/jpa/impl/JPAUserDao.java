@@ -3,6 +3,7 @@ package hr.fer.oprpp2.dao.jpa.impl;
 import hr.fer.oprpp2.dao.DAOs.DAOUser;
 import hr.fer.oprpp2.dao.jpa.JPAEMProvider;
 import hr.fer.oprpp2.model.BlogUser;
+import hr.fer.oprpp2.model.BlogUserComment;
 import jakarta.persistence.NoResultException;
 
 import java.util.List;
@@ -48,5 +49,11 @@ public class JPAUserDao implements DAOUser {
         return JPAEMProvider.getEntityManager()
                 .createQuery("SELECT u FROM BlogUser u", BlogUser.class)
                 .getResultList();
+    }
+
+    @Override
+    public void saveComment(BlogUserComment userComment) {
+        System.out.println(userComment);
+        JPAEMProvider.getEntityManager().persist(userComment);
     }
 }

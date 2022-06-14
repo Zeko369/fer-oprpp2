@@ -42,6 +42,14 @@ public class BlogUser {
     @OrderBy("createdAt ASC")
     public List<BlogEntry> blogEntries;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OrderBy("createdAt ASC")
+    public List<BlogUserComment> myComments;
+
+    @OneToMany(mappedBy = "commenter", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OrderBy("createdAt ASC")
+    public List<BlogUserComment> commentsOnOtherUsers;
+
     @Column(name = "created_at", nullable = false)
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[hw05] Add some JavaDOCs">
-      <change beforePath="$PROJECT_DIR$/../hw01/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw01/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw02/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw02/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4889aef7-da2b-4dca-9206-4a7f658d9759" name="Changes" comment="[final] Final task 2">
+      <change beforePath="$PROJECT_DIR$/../hw04/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw04/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c/storage_v2/_src_/database/java-blog-app.wZxVxg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f434b443-156f-4f5c-af75-82db033f961c/storage_v2/_src_/database/java-blog-app.wZxVxg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOs/DAOUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/DAOs/DAOUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPAUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/dao/jpa/impl/JPAUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogUserComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/model/BlogUserComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/services/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/fer/oprpp2/servlets/Author/AuthorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/author/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/author/show.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +181,7 @@
       <workItem from="1654754560628" duration="590000" />
       <workItem from="1654755163160" duration="1583000" />
       <workItem from="1655216498512" duration="69000" />
+      <workItem from="1655216610773" duration="2445000" />
     </task>
     <task id="LOCAL-00001" summary="[hw04] Init stuff, setup psql init">
       <created>1653263540503</created>
@@ -280,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654756251286</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="[general] .idea stuff">
+      <created>1655216809822</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1655216809822</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +328,9 @@
     <MESSAGE value="[hw05] fix some caching stuff" />
     <MESSAGE value="[hw05] fix reset of MD" />
     <MESSAGE value="[hw05] Add some JavaDOCs" />
-    <option name="LAST_COMMIT_MESSAGE" value="[hw05] Add some JavaDOCs" />
+    <MESSAGE value="[general] .idea stuff" />
+    <MESSAGE value="[final] Final task 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="[final] Final task 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

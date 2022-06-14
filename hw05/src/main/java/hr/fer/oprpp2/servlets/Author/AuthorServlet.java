@@ -54,7 +54,9 @@ public class AuthorServlet extends BaseServlet {
 
         RouteMatch match = router.getRoute(req.getPathInfo().substring(1));
         try {
+            System.out.println(match.authorRoute());
             switch (match.authorRoute()) {
+                case AUTHOR -> this.commentAuthor(req, resp, match);
                 case AUTHOR_EDIT_BLOG -> this.updateBlog(req, resp, match);
                 case AUTHOR_NEW_BLOG -> this.createBlog(req, resp, match);
                 case AUTHOR_COMMENT_BLOG -> this.commentBlog(req, resp, match);
@@ -62,6 +64,30 @@ public class AuthorServlet extends BaseServlet {
         } catch (DAOException e) {
             this.throwError(req, resp, e.getMessage());
         }
+    }
+
+    private void commentAuthor(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws ServletException, DAOException, IOException {
+        Optional<BlogUser> author = this.authorService.getAuthor(match.authorUsername());
+        if (author.isEmpty()) {
+            this.throwError(req, resp, "Author not found!");
+            return;
+        }
+
+        String comment = req.getParameter("comment");
+        if (comment == null || comment.isEmpty()) {
+            this.throwError(req, resp, "Comment is empty!");
+            return;
+        }
+
+        String commenterUsername = (String) req.getSession().getAttribute("username");
+        Optional<BlogUser> commenter = this.authorService.getAuthor(commenterUsername);
+        if (commenter.isEmpty()) {
+            this.throwError(req, resp, "Commenter not found!");
+            return;
+        }
+
+        this.authorService.commentAuthor(author.get(), commenter.get(), comment);
+        resp.sendRedirect("/blog-app/servlet/author/" + author.get().getUsername());
     }
 
     private void createBlog(HttpServletRequest req, HttpServletResponse resp, RouteMatch match) throws IOException, ServletException, DAOException {
@@ -107,7 +133,9 @@ public class AuthorServlet extends BaseServlet {
 
         req.setAttribute("author", author.get());
         req.setAttribute("isAuthor", match.authorUsername().equals(req.getSession().getAttribute("username")));
+        req.setAttribute("isLoggedIn", req.getSession().getAttribute("username") != null);
         req.setAttribute("blogs", this.blogService.getBlogsForUser(author.get().getId()));
+
         req.getRequestDispatcher("/WEB-INF/pages/author/show.jsp").forward(req, resp);
     }
 

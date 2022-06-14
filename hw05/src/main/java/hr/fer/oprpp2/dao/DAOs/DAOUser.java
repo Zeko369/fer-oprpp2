@@ -1,6 +1,7 @@
 package hr.fer.oprpp2.dao.DAOs;
 
 import hr.fer.oprpp2.model.BlogUser;
+import hr.fer.oprpp2.model.BlogUserComment;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,4 +41,6 @@ public interface DAOUser {
      * @return the all users
      */
     List<BlogUser> getAllUsers();
+
+    void saveComment(BlogUserComment userComment);
 }
